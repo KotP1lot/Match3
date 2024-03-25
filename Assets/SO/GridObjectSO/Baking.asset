@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ed2292c6646244080ac8e1419ef78b, type: 3}
-  m_Name: Wall
+  m_Name: Baking
   m_EditorClassIdentifier: 
-  Name: Wall
-  Sprite: {r: 0, g: 0, b: 0, a: 1}
-  Score: 0
-  Type: 5
-  IsAffectedByGravity: 0
+  Name: Baking
+  Sprite: {r: 0.9622642, g: 0.5529701, b: 0.1216447, a: 1}
+  Score: 10
+  Type: 4
+  IsAffectedByGravity: 1

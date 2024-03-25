@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ed2292c6646244080ac8e1419ef78b, type: 3}
-  m_Name: 1Gem
+  m_Name: Destroyable
   m_EditorClassIdentifier: 
-  Name: Fish
-  Sprite: {r: 0.12281949, g: 0.21480218, b: 0.7075472, a: 1}
-  Score: 10
-  Type: 0
-  IsAffectedByGravity: 1
+  Name: Wall
+  Sprite: {r: 0.8207547, g: 0.39024562, b: 0.7998709, a: 0.49803922}
+  Score: 0
+  Type: 5
+  IsAffectedByGravity: 0

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ed2292c6646244080ac8e1419ef78b, type: 3}
-  m_Name: 3Gem
+  m_Name: Meat
   m_EditorClassIdentifier: 
-  Name: Brat
-  Sprite: {r: 0.9622642, g: 0.5529701, b: 0.1216447, a: 1}
+  Name: Meat
+  Sprite: {r: 0.9607843, g: 0.121568605, b: 0.2655511, a: 1}
   Score: 10
   Type: 1
   IsAffectedByGravity: 1

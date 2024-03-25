@@ -15,7 +15,8 @@ public enum GridObjectType
     fish,
     meat,
     salat,
-    
+    sweet,
+    baking,
     
     
     wall
