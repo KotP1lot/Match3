@@ -69,6 +69,7 @@ public class Grid
         }
         return rowCells;
     }
+   
     public List<GridCell> GetRow(GridCell cell, int count, bool isTwoWayCheck = true, bool isRightCheck = false)
     {
         int x = cell.X;

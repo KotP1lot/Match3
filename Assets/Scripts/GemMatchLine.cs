@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GemMatchLine
 {
-    private GridObjectType firstMatchType;
+    private GemType firstMatchType;
     private List<GridCell> activeGridCells;
     private GridCell activeGridCell;
     public Action OnGridChanged;
@@ -31,6 +31,7 @@ public class GemMatchLine
                 {
                     GridCell gridCell = activeGridCells[activeGridCells.Count - 1];
                     gridCell.SetGemActive(false);
+                    cell.SetGemArrow(false,null);
                     activeGridCells.RemoveAt(activeGridCells.Count - 1);
                     activeGridCell = cell;
                 }
@@ -60,6 +61,7 @@ public class GemMatchLine
             {
 
                 cell.SetGemActive(false);
+                cell.SetGemArrow(false,null);
             }
         }
         activeGridCells.Clear();
@@ -69,6 +71,10 @@ public class GemMatchLine
         activeGridCells.Add(cell);
         activeGridCell = cell;
         cell.SetGemActive(true);
+        if (activeGridCells.Count > 1) 
+        {
+            activeGridCells[activeGridCells.Count - 2].SetGemArrow(true, activeGridCell);
+        }
     }
     private void OnObjectsActivatedHendler(ActivableObject activableObject)
     {

@@ -167,13 +167,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a7bc7082b32aa4c82dbbac444f411d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Info>k__BackingField: {fileID: 11400000, guid: 05abfc80e620dae449f253ffdc6417ed, type: 2}
   activeIndicator: {fileID: 5738204377942752137}
   predictIndicator: {fileID: 8607526484840492193}
   isActive: 0
   type: 2
   cell: {fileID: 0}
-  countToCharge: 0
+  countToCharge: 10
   curentChargeState: 0
+  isCharged: 0
   radius: 1
 --- !u!1 &5738204377942752137
 GameObject:

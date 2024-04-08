@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+[DefaultExecutionOrder(1)]
 public class GridManager : MonoBehaviour
 {
     public Grid grid;
@@ -40,7 +41,17 @@ public class GridManager : MonoBehaviour
         SpawnGem();
         GemLine = new GemMatchLine();
         GemLine.OnGridChanged += OnGridChangedHandler;
+        EventManager.instance.OnBonusActivated += OnBonusActivatedHandler;
     }
+
+    private void OnBonusActivatedHandler(BonusGem bonus)
+    {
+        int randomX = Random.Range(0, width);
+        grid.GetCell(randomX, height - 1).DestroyGridObject();
+        grid.SetValue(randomX, height-1, bonus);
+        bonus.gameObject.SetActive(true);
+    }
+
     private void Setup()
     {
         GridCell[] visualCell = GetComponentsInChildren<GridCell>();
@@ -79,6 +90,7 @@ public class GridManager : MonoBehaviour
                 grid.SetValue(x, y, gemPoolList.GetRandomPool().Get());
             }
         }
+        EventManager.instance.OnGemFallen?.Invoke();
         for (int i = 0; i < 5; i++)
         {
             GridObject gridObject = Instantiate(wall);
@@ -87,19 +99,19 @@ public class GridManager : MonoBehaviour
             grid.GetCell(x, y).DestroyGridObject();
             grid.SetValue(x, y, gridObject);
         }
-        BonusGem bonusGem = Instantiate(BGLine);
-        int x1 = Random.Range(0, width);
-        int y1 = Random.Range(0, height);
-        bonusGem.Setup(gemSo[1]);
-        grid.GetCell(x1, y1).DestroyGridObject();
-        grid.SetValue(x1, y1, bonusGem);
+        //BonusGem bonusGem = Instantiate(BGLine);
+        //int x1 = Random.Range(0, width);
+        //int y1 = Random.Range(0, height);
+        //bonusGem.Setup(gemSo[1]);
+        //grid.GetCell(x1, y1).DestroyGridObject();
+        //grid.SetValue(x1, y1, bonusGem);
 
-        BonusGem bonusGem1 = Instantiate(BGBomb);
-        x1 = Random.Range(0, width);
-        y1 = Random.Range(0, height);
-        bonusGem1.Setup(gemSo[3]);
-        grid.GetCell(x1, y1).DestroyGridObject();
-        grid.SetValue(x1, y1, bonusGem1);
+        //BonusGem bonusGem1 = Instantiate(BGBomb);
+        //x1 = Random.Range(0, width);
+        //y1 = Random.Range(0, height);
+        //bonusGem1.Setup(gemSo[3]);
+        //grid.GetCell(x1, y1).DestroyGridObject();
+        //grid.SetValue(x1, y1, bonusGem1);
 
     }
     private void OnGridChangedHandler()
@@ -198,6 +210,7 @@ public class GridManager : MonoBehaviour
                 CellFalling(cell);
             }
         }
+        EventManager.instance.OnGemFallen?.Invoke();
     }
     private void SpawnGemInLastY(int x, int count) 
     {

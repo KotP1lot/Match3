@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+[DefaultExecutionOrder(0)]
 public class EventManager: MonoBehaviour
 {
     public static EventManager instance;
@@ -17,5 +17,9 @@ public class EventManager: MonoBehaviour
     }
     public Action<ActivableObject> ObjectsActivatedEvent;
     public Action<Gem> OnGemDestroy;
-    public Action TurnEndedEvent; 
+    public Action<int> OnScoreUpdate;
+    public Action<BonusGem> OnBonusActivated;
+    public Action TurnEndedEvent;
+    public Action OnCustomerSatisfied;
+    public Action OnGemFallen;
 }

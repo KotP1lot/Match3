@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Salad
   m_EditorClassIdentifier: 
   Name: Salad
-  Sprite: {r: 0.10949359, g: 0.8301887, b: 0.05795654, a: 1}
+  Sprite: {fileID: 21300000, guid: 0bc87650e820b1c438d174e52599900e, type: 3}
   Score: 10
   Type: 2
   IsAffectedByGravity: 1

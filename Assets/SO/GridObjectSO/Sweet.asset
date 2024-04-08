@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sweet
   m_EditorClassIdentifier: 
   Name: Sweet
-  Sprite: {r: 0, g: 0.94002056, b: 1, a: 1}
+  Sprite: {fileID: 21300000, guid: b0779845d76d68744b213e50fec4e2be, type: 3}
   Score: 10
   Type: 3
   IsAffectedByGravity: 1

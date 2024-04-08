@@ -257,7 +257,7 @@ RectTransform:
   m_GameObject: {fileID: 6009410374640007244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1619306745588183816}
@@ -320,12 +320,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea808e0e67f0274bb13cbb4b0f6c258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Info>k__BackingField: {fileID: 11400000, guid: 448ea4517eee36a48a07aacf05391fbd, type: 2}
   activeIndicator: {fileID: 3066709290474650385}
   predictIndicator: {fileID: 1322090280602627129}
   isActive: 0
   type: 0
   cell: {fileID: 0}
-  countToCharge: 0
+  countToCharge: 10
   curentChargeState: 0
+  isCharged: 0
   isHorizontal: 1
   gemCountToDestroy: 3

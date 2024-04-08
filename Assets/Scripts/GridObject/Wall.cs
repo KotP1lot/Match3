@@ -4,7 +4,7 @@ public class Wall : GridObject
     [SerializeField] GridObjectSO objectSO;
     public void Start() 
     {
-        Setup(objectSO);
+       // Setup(objectSO);
     }
     public override void Destroy()
     {

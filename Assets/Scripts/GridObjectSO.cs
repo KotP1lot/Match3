@@ -3,21 +3,17 @@ using UnityEngine;
 public class GridObjectSO : ScriptableObject
 {
     public string Name;
-    public Color Sprite;
-   // public Sprite Sprite;
+    public Sprite Sprite;
     public int Score;
-    public GridObjectType Type;
+    public GemType Type;
     public bool IsAffectedByGravity;
 }
 
-public enum GridObjectType 
+public enum GemType 
 {
     fish,
     meat,
     salat,
     sweet,
-    baking,
-    
-    
-    wall
+    drink,
 }

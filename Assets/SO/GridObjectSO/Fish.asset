@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   Name: Fish
-  Sprite: {r: 0.12281949, g: 0.21480218, b: 0.7075472, a: 1}
+  Sprite: {fileID: 21300000, guid: 06580e20d758e5e4fad516f3baf75998, type: 3}
   Score: 10
   Type: 0
   IsAffectedByGravity: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   Name: Wall
-  Sprite: {r: 0, g: 0, b: 0, a: 1}
+  Sprite: {fileID: 21300000, guid: acb1ac97359934b47a832649109e2296, type: 3}
   Score: 0
   Type: 5
   IsAffectedByGravity: 0

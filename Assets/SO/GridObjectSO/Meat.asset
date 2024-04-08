@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   Name: Meat
-  Sprite: {r: 0.9607843, g: 0.121568605, b: 0.2655511, a: 1}
+  Sprite: {fileID: 21300000, guid: 23740bdd83edd4149845ff9d78dc9739, type: 3}
   Score: 10
   Type: 1
   IsAffectedByGravity: 1

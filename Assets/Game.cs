@@ -7,12 +7,12 @@ public class Game : MonoBehaviour
 
     public void Start()
     {
-        EventManager.instance.OnGemDestroy += OnGemDestroyedHandler;
+        EventManager.instance.OnScoreUpdate += OnGemDestroyedHandler;
         TotalScore = 0;
     }
-    public void OnGemDestroyedHandler(Gem gem) 
+    public void OnGemDestroyedHandler(int score) 
     {
-        TotalScore += gem.Info.Score;
+        TotalScore += score;
         UIDebug.Instance.Show($"Score:", $"{TotalScore}");
     }
 }

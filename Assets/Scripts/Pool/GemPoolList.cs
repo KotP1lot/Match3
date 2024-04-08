@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class GemPoolList
 {
-    private List<GridObjectType> keysList;
-    private Dictionary<GridObjectType, GemPool> gemPools;
+    private List<GemType> keysList;
+    private Dictionary<GemType, GemPool> gemPools;
     public GemPoolList() 
     {
-        gemPools = new Dictionary<GridObjectType, GemPool>();
-        keysList = new List<GridObjectType>();
+        gemPools = new Dictionary<GemType, GemPool>();
+        keysList = new List<GemType>();
     }
-    public void AddPool(GridObjectType type, GemPool gemPool) 
+    public void AddPool(GemType type, GemPool gemPool) 
     {
         gemPools.Add(type, gemPool);
         keysList.Add(type);
     }
-    public GemPool GetPoolByType(GridObjectType type) 
+    public GemPool GetPoolByType(GemType type) 
     {
         return gemPools[type];
     }
@@ -23,7 +23,7 @@ public class GemPoolList
     { 
         int randomIndex = Random.Range(0, keysList.Count);
 
-        GridObjectType randomKey = keysList[randomIndex];
+        GemType randomKey = keysList[randomIndex];
         return gemPools[randomKey];
     }
 
