@@ -139,38 +139,104 @@ public class GridManager : MonoBehaviour
         GridCell cell = grid.GetCell(x, height - 1);
         await cell.SpawnObject(SpawnPoint, gemPoolList.GetRandomPool().Get()).AsyncWaitForCompletion();
     }
-    private void FallGem()
+    private async void FallGem()
     {
+        List<Task> tasks = new List<Task>();
         for (int x = 0; x < grid.Width; x++)
         {
-            FallCollumn(x,1);
+            tasks.Add(FallCollumn(x, 1));
+        }
+        await Task.WhenAll(tasks);
+        for (int x = 0; x < grid.Width; x++)
+        {
+           await FallInColumDiagonal(x, 1);
+        }
+        for (int x = grid.Width -1; x >=0; x--)
+        {
+            await FallInColumDiagonal(x, 1);
+        }
+        Debug.Log("all done");
+    }
+    private async Task FallInColumDiagonal(int x, int y)
+    {
+        await GemFallInColumnDiagonal(x, y);
+        y++;
+        if (y < height - 1)
+        {
+            await FallInColumDiagonal(x, y);
+        }
+        else
+        {
+            GridCell cell = grid.GetCell(x, height - 1);
+            if (cell.IsEmpty())
+            {
+                await SpawnGemInLastY(x);
+                await FallInColumDiagonal(x, height - 1);
+            }
+            else
+            {
+                await GemFallInColumnDiagonal(x, height - 1);
+                if (!cell.IsEmpty()) return;
+                else await FallInColumDiagonal(x, height - 1);
+            }
         }
     }
-    private async void FallCollumn(int x, int y) 
+    private async Task GemFallInColumnDiagonal(int x, int y)
     {
-        await GemFallInColumn(x,y);
-        y++;
-        if (y < height-1)
+        GridCell cell = grid.GetCell(x, y);
+        if (cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity || y == 0) return;
+        int[] xOffset;
+        if (x == 0 )
         {
-            FallCollumn(x, y);
+            xOffset = new int[2] { 0, 1 };
+        }
+        else if (x == width-1)
+        {
+            xOffset = new int[2] { 0, -1};
         }
         else 
         {
-            GridCell cell = grid.GetCell(x, height - 1);
-            if (cell.IsEmpty()) 
+            xOffset = new int[3] { 0, -1, 1 };
+        }
+    
+        foreach (int xOff in xOffset) 
+        {
+            GridCell cellUnder = grid.GetCell(x + xOff, y - 1);
+            if (cellUnder.IsEmpty())
             {
-                await SpawnGemInLastY(x);
-                FallCollumn(x, height - 1);
-            }
-            else 
-            {
-                await GemFallInColumn(x, height-1);
-                if (!cell.IsEmpty()) return;
-                else FallCollumn(x, height - 1);
+                await cellUnder.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
+
+                cell.ClearCell();
+                await GemFallInColumnDiagonal(cellUnder.X, --y);
+                return;
             }
         }
     }
-    private async Task GemFallInColumn(int x, int y) 
+    private async Task FallCollumn(int x, int y)
+    {
+        await GemFallInColumn(x, y);
+        y++;
+        if (y < height - 1)
+        {
+           await FallCollumn(x, y);
+        }
+        else
+        {
+            GridCell cell = grid.GetCell(x, height - 1);
+            if (cell.IsEmpty())
+            {
+                await SpawnGemInLastY(x);
+                await FallCollumn(x, height - 1);
+            }
+            else
+            {
+                await GemFallInColumn(x, height - 1);
+                if (!cell.IsEmpty()) return;
+                else await FallCollumn(x, height - 1);
+            }
+        }
+    }
+    private async Task GemFallInColumn(int x, int y)
     {
         GridCell cell = grid.GetCell(x, y);
         if (cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity || y == 0) return;
