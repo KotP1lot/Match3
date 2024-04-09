@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,10 +14,10 @@ public class BonusGem : Gem
     public Action OnBonusDestroy;
     public bool isCharged = false;
 
-    override public void SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
     {
-        base.SetGridCoord(gridCoord, gridCell);
         cell = gridCell;
+        return base.SetGridCoord(gridCoord, gridCell);
     }
     public void Setup()
     {

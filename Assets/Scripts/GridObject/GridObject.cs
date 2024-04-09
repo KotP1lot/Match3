@@ -1,24 +1,19 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class GridObject : MonoBehaviour
 { 
     [field: SerializeField] public GridObjectSO Info { get; protected set; }
     public Vector2Int GridCoord { get; protected set; }
-    virtual public void Setup(GridObjectSO objectInfo)
-    { 
-        Info = objectInfo;
-        GetComponent<Image>().sprite = Info.Sprite;
+    public Tween Spawn(Transform spawnPos, Vector2Int gridCoord, GridCell gridCell) 
+    {
+        transform.position = new Vector2(gridCell.transform.position.x, spawnPos.position.y);
+        return SetGridCoord(gridCoord, gridCell);
     }
-    virtual public void SetGridCoord(Vector2Int gridCoord, GridCell gridCell) 
+    virtual public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
     {
         GridCoord = gridCoord;
         transform.SetParent(gridCell.transform);
-        transform.localScale = Vector2.one;
-        transform.DOLocalMove(Vector2.zero, 1f).OnComplete(() => { });
-        //transform.localPosition = Vector2.zero;
+        return transform.DOLocalMove(Vector2.zero, 0.1f);
     }
     virtual public void Destroy() { }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -7,16 +8,12 @@ public class DestroyableObject : GridObject
     private GridCell cell;
     public int Health;
     public bool ExistAfterDestroy = false;
-    [SerializeField] GridObjectSO objectSO;
-    public void Start()
+    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
     {
-        Setup(objectSO);
-    }
-    override public void SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
-    {
-        base.SetGridCoord(gridCoord, gridCell);
+        
         cell = gridCell;
         Subcribe();
+        return base.SetGridCoord(gridCoord, gridCell);
     }
     private void Subcribe() 
     {

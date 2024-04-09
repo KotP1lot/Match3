@@ -10,7 +10,6 @@ public class LineDestroyer : ActivableObject
     public void Start()
     {
         predictCount = 0;
-        Setup(objectSO);
         if (isTwoWay)
         {
             cells = isHorizontal ? cell.GetRow() : cell.GetColumn();

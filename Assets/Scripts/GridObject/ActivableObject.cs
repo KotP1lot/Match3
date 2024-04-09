@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -10,12 +11,12 @@ public class ActivableObject : GridObject
     [SerializeField]protected int predictCount;
     protected bool isActive = false;
     protected bool isPredicted = false;
-    [SerializeField] protected GridObjectSO objectSO; 
-    override public void SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
     {
-        base.SetGridCoord(gridCoord, gridCell);
         cell = gridCell;
         Subcribe();
+        return base.SetGridCoord(gridCoord, gridCell);
+
     }
     private void Subcribe()
     {

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gem : GridObject
 {
@@ -8,6 +9,11 @@ public class Gem : GridObject
     [SerializeField] GameObject activeIndicator;
     [SerializeField] GameObject arrow;
     public bool isActive = false;
+    virtual public void Setup(GridObjectSO objectInfo)
+    {
+        Info = objectInfo;
+        GetComponent<Image>().sprite = Info.Sprite;
+    }
     public void SetActive(bool isActive)
     {
         this.isActive = isActive;

@@ -1,4 +1,7 @@
+using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 [DefaultExecutionOrder(1)]
@@ -16,7 +19,9 @@ public class GridManager : MonoBehaviour
     [SerializeField] LineDestroyer H_lineDestroyer;
     [SerializeField] BonusGem BGLine;
     [SerializeField] BonusGem BGBomb;
+    [SerializeField] Transform SpawnPoint;
     GemPoolList gemPoolList;
+    [SerializeField] Transform gemPoolTransform;
 
 
     public bool IsLineActive = false;
@@ -30,9 +35,9 @@ public class GridManager : MonoBehaviour
 
     private void SetupGemPool()
     {
-        foreach (var obj in gemSo) 
+        foreach (var obj in gemSo)
         {
-            gemPoolList.AddPool(obj.Type, new GemPool(gem, obj, 20));
+            gemPoolList.AddPool(obj.Type, new GemPool(gemPoolTransform, gem, obj, 20));
         }
     }
 
@@ -47,8 +52,9 @@ public class GridManager : MonoBehaviour
     private void OnBonusActivatedHandler(BonusGem bonus)
     {
         int randomX = Random.Range(0, width);
-        grid.GetCell(randomX, height - 1).DestroyGridObject();
-        grid.SetValue(randomX, height-1, bonus);
+        GridCell cell = grid.GetCell(randomX, height - 1);
+        cell.DestroyGridObject();
+        cell.SetObject(bonus);
         bonus.gameObject.SetActive(true);
     }
 
@@ -58,12 +64,12 @@ public class GridManager : MonoBehaviour
         GridCell[,] gridCells = new GridCell[width, height];
         grid = new Grid(width, height);
         int index = 0;
-        for (int i = 0; i < height; i++)
+        for (int y = height - 1; y >= 0; y--)
         {
-            for (int j = 0; j < width; j++)
+            for (int x = 0; x < width; x++)
             {
-                gridCells[j, i] = visualCell[index];
-                gridCells[j, i].Setup(this, grid, j, i);
+                gridCells[x, y] = visualCell[index];
+                gridCells[x, y].Setup(this, grid, x, y);
                 index++;
             }
         }
@@ -87,17 +93,26 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < grid.Height; y++)
             {
-                grid.SetValue(x, y, gemPoolList.GetRandomPool().Get());
+                GridCell cell = grid.GetCell(x, y);
+                cell.SpawnObject(SpawnPoint, gemPoolList.GetRandomPool().Get());
             }
         }
         EventManager.instance.OnGemFallen?.Invoke();
         for (int i = 0; i < 5; i++)
         {
-            GridObject gridObject = Instantiate(wall);
+            GridObject gridObject = Instantiate(wall, transform);
             int x = Random.Range(0, width);
             int y = Random.Range(0, height);
-            grid.GetCell(x, y).DestroyGridObject();
-            grid.SetValue(x, y, gridObject);
+            GridCell cell = grid.GetCell(x, y);
+            cell.DestroyGridObject();
+            cell.SetObject(gridObject);
+        }
+        for (int i = 0; i < 1; i++)
+        {
+            GridObject gridObject = Instantiate(wall, transform);
+            GridCell cell = grid.GetCell(0, 4);
+            cell.DestroyGridObject();
+            cell.SetObject(gridObject);
         }
         //BonusGem bonusGem = Instantiate(BGLine);
         //int x1 = Random.Range(0, width);
@@ -119,105 +134,54 @@ public class GridManager : MonoBehaviour
         FallGem();
     }
     #region NEW FALL SYSTEM
-    private void CellFallingDown(GridCell cell)
+    private async Task SpawnGemInLastY(int x)
     {
-        if (cell.Y == 0 || cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity)
+        GridCell cell = grid.GetCell(x, height - 1);
+        await cell.SpawnObject(SpawnPoint, gemPoolList.GetRandomPool().Get()).AsyncWaitForCompletion();
+    }
+    private void FallGem()
+    {
+        for (int x = 0; x < grid.Width; x++)
         {
-            return;
+            FallCollumn(x,1);
         }
-        GridCell newCell = grid.GetCell(cell.X, cell.Y - 1);
-        if (newCell.IsEmpty())
+    }
+    private async void FallCollumn(int x, int y) 
+    {
+        await GemFallInColumn(x,y);
+        y++;
+        if (y < height-1)
         {
-            newCell.SetObject(cell.GridObject);
+            FallCollumn(x, y);
+        }
+        else 
+        {
+            GridCell cell = grid.GetCell(x, height - 1);
+            if (cell.IsEmpty()) 
+            {
+                await SpawnGemInLastY(x);
+                FallCollumn(x, height - 1);
+            }
+            else 
+            {
+                await GemFallInColumn(x, height-1);
+                if (!cell.IsEmpty()) return;
+                else FallCollumn(x, height - 1);
+            }
+        }
+    }
+    private async Task GemFallInColumn(int x, int y) 
+    {
+        GridCell cell = grid.GetCell(x, y);
+        if (cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity || y == 0) return;
+
+        GridCell cellUnder = grid.GetCell(x, y - 1);
+        if (cellUnder.IsEmpty())
+        {
+            await cellUnder.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
+
             cell.ClearCell();
-            CellFallingDown(newCell);
-            if (cell.Y == height - 1)
-            {
-                SpawnGemInLastY(cell.X, 1);
-                CellFallingDown(cell);
-            }
-        }
-    }
-    private void CellFalling(GridCell cell) 
-    {
-        int x = cell.X;
-        int y = cell.Y;
-
-        if (cell.IsEmpty() || y == 0 || !cell.GridObject.Info.IsAffectedByGravity) return;
-
-        int[] xOffset = { 0, 1, -1 };
-
-        foreach (int offset in xOffset)
-        {
-            int newX = x + offset;
-            if (newX >= 0 && newX < grid.Width)
-            {
-                GridCell newCell = grid.GetCell(newX, y - 1);
-                if (newCell.IsEmpty())
-                {
-                    newCell.SetObject(cell.GridObject);
-                    cell.ClearCell();
-                    CellFalling(newCell);
-                    if (y == height - 1)
-                    {
-                        SpawnGemInLastY(x, 1);
-                    }
-                    else
-                    {
-                        for (int y1 = y + 1; y1 < height; y1++)
-                        {
-                            GridCell upperCell = grid.GetCell(x, y1);
-                            CellFalling(upperCell);
-                        }
-                    }
-                    CellFalling(cell);
-                    return;
-                }
-            }
-        }
-    }
-    private void FallGem() 
-    {
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                GridCell cell = grid.GetCell(x, y);
-                if (!cell.IsEmpty() && cell.GridObject.Info.IsAffectedByGravity) 
-                {
-                    CellFallingDown(cell);
-                }
-                if (cell.IsEmpty() && y == height - 1) 
-                {
-                    SpawnGemInLastY(x, 1);
-                    CellFallingDown(cell);
-                }
-            }   
-        }
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = height - 1; y > 0; y--)
-            {
-                GridCell cell = grid.GetCell(x, y);
-                CellFalling(cell);
-            }
-        }
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = height - 1; y > 0; y--)
-            {
-                GridCell cell = grid.GetCell(x, y);
-                CellFalling(cell);
-            }
-        }
-        EventManager.instance.OnGemFallen?.Invoke();
-    }
-    private void SpawnGemInLastY(int x, int count) 
-    {
-        if (count == 0) return;
-        for (int y = count; y > 0; y--)
-        {
-            grid.SetValue(x, height - y, gemPoolList.GetRandomPool().Get());
+            await GemFallInColumn(x, --y);
         }
     }
     #endregion

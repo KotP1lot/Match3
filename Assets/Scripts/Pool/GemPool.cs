@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class GemPool : PoolBase<Gem>
 {
-    public GemPool(Gem gemPrefab, GridObjectSO gridObjectSO, int preloadCount) :
-        base(() => Preload(gemPrefab, gridObjectSO), GetAction, ReturnAction, preloadCount)
+    public GemPool(Transform gemPoolTransform, Gem gemPrefab, GridObjectSO gridObjectSO, int preloadCount) :
+        base(() => Preload(gemPoolTransform, gemPrefab, gridObjectSO), GetAction, ReturnAction, preloadCount)
     {    }
-    public static Gem Preload(Gem gemPrefab, GridObjectSO gridObjectSO)
+    public static Gem Preload(Transform gemPoolTransform, Gem gemPrefab, GridObjectSO gridObjectSO)
     {
-        Gem gridObject = Object.Instantiate(gemPrefab);
+        Gem gridObject = Object.Instantiate(gemPrefab, gemPoolTransform);
         gridObject.Setup(gridObjectSO);
         return gridObject;
     }

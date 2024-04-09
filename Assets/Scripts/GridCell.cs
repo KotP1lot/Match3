@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,20 +53,26 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
         Y = y;
         GridObject = null;
     }
-    public void SetObject(GridObject gridObject)
+    private void SetGridObject(GridObject gridObject)
     {
         GridObject = gridObject;
         Gem gem = GridObject as Gem;
-        if (gem != null)
+        isHasGem = gem != null;
+        if (isHasGem)
         {
-            isHasGem = true;
             Gem = gem;
         }
-        else 
-        {
-            isHasGem = false;
-        }
-        gridObject.SetGridCoord(new Vector2Int(X, Y), this);
+    }
+    public Tween SpawnObject(Transform spawnPoint, GridObject gridObject)
+    {
+        SetGridObject(gridObject);
+        return gridObject.Spawn(spawnPoint, new Vector2Int(X, Y), this);
+    }
+
+    public Tween SetObject(GridObject gridObject)
+    {
+        SetGridObject(gridObject);
+        return gridObject.SetGridCoord(new Vector2Int(X, Y), this);
     }
     public void SetGemActive(bool isActive) 
     {

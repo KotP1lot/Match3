@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grid
@@ -29,24 +28,6 @@ public class Grid
         if (IsCoordInRange(x, y))
         {
             Cells[x, y] = gridCell;
-        }
-        Debug.LogError($"Координати не в межах сітки {x}, {y}");
-    }
-    public void SetValue(int x, int y, GridObject gridObject)
-    {
-        if (IsCoordInRange(x, y))
-        {
-            Cells[x, y].SetObject(gridObject);
-            return;
-        }
-        Debug.LogError($"Координати не в межах сітки {x}, {y}");
-    }
-    public void SetCellEmpty(int x, int y)
-    {
-        if (IsCoordInRange(x, y))
-        {
-            Cells[x, y].ClearCell();
-            return;
         }
         Debug.LogError($"Координати не в межах сітки {x}, {y}");
     }
