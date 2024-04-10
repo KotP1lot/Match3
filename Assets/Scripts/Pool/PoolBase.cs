@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolBase<T>
-{
+{ 
     private readonly Func<T> preloadFunc;
     private readonly Action<T> getAction;
     private readonly Action<T> returnAction;

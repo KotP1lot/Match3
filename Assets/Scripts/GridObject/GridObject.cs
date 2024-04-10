@@ -13,7 +13,8 @@ public class GridObject : MonoBehaviour
     {
         GridCoord = gridCoord;
         transform.SetParent(gridCell.transform);
-        return transform.DOLocalMove(Vector2.zero, 0.1f);
+        return transform.DOLocalMove(Vector2.zero, 0.075f);
     }
     virtual public void Destroy() { }
+    virtual public void Clear() { }
 }

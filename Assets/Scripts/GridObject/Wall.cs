@@ -2,13 +2,8 @@ using UnityEngine;
 public class Wall : GridObject
 {
     [SerializeField] GridObjectSO objectSO;
-    public void Start() 
+    public override void Clear()
     {
-       // Setup(objectSO);
-    }
-    public override void Destroy()
-    {
-        base.Destroy();
         GameObject.Destroy(gameObject);
     }
 }

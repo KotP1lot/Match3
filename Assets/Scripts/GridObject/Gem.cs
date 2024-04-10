@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Gem : GridObject
 {
     public Action<Gem> OnGemDestroy;
+    public Action<Gem> OnGemDeactivate;
     [SerializeField] GameObject activeIndicator;
     [SerializeField] GameObject arrow;
     public bool isActive = false;
@@ -27,10 +28,19 @@ public class Gem : GridObject
     }
     override public void Destroy()
     {
-        SetActive(false);
-        transform.SetParent(null);
         OnGemDestroy?.Invoke(this);
         EventManager.instance.OnGemDestroy?.Invoke(this);
+        DeactivateGem();
+    }
+    override public void Clear()
+    {
+        DeactivateGem();
+    }
+    private void DeactivateGem()
+    {
+        SetActive(false);
+        transform.SetParent(null);
+        OnGemDeactivate?.Invoke(this);
         transform.localPosition = Vector2.zero;
         transform.localScale = Vector2.one;
     }

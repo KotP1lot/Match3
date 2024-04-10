@@ -115,12 +115,17 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
             OnGemDestroyinCell?.Invoke();
         }
         GridObject.Destroy();
-        ClearCell();
+        SetEmpty();
     }
-    public void ClearCell() 
-    {
+    public void SetEmpty()
+    { 
         GridObject = null;
         Gem = null;
+    }
+    public void Clear() 
+    {
+        if (GridObject == null) return;
+        GridObject.Clear();
     }
     public bool IsHasGem() => Gem != null;
     public bool IsEmpty() => GridObject == null;

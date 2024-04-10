@@ -48,8 +48,8 @@ public class LineDestroyer : ActivableObject
         }
     }
 
-    public override void Destroy()
+    public override void Clear()
     {
-       
+        GameObject.Destroy(gameObject);
     }
 }

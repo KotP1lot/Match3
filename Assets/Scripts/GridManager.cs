@@ -25,6 +25,7 @@ public class GridManager : MonoBehaviour
 
 
     public bool IsLineActive = false;
+    public bool isBusy = false; 
     public GemMatchLine GemLine;
     private void Awake()
     {
@@ -104,14 +105,14 @@ public class GridManager : MonoBehaviour
             int x = Random.Range(0, width);
             int y = Random.Range(0, height);
             GridCell cell = grid.GetCell(x, y);
-            cell.DestroyGridObject();
+            cell.Clear();
             cell.SetObject(gridObject);
         }
         for (int i = 0; i < 1; i++)
         {
             GridObject gridObject = Instantiate(wall, transform);
             GridCell cell = grid.GetCell(0, 4);
-            cell.DestroyGridObject();
+            cell.Clear();
             cell.SetObject(gridObject);
         }
         //BonusGem bonusGem = Instantiate(BGLine);
@@ -132,6 +133,7 @@ public class GridManager : MonoBehaviour
     private void OnGridChangedHandler()
     {
         FallGem();
+        isBusy = true;
     }
     #region NEW FALL SYSTEM
     private async Task SpawnGemInLastY(int x)
@@ -155,7 +157,7 @@ public class GridManager : MonoBehaviour
         {
             await FallInColumDiagonal(x, 1);
         }
-        Debug.Log("all done");
+        isBusy = false;
     }
     private async Task FallInColumDiagonal(int x, int y)
     {
@@ -206,7 +208,7 @@ public class GridManager : MonoBehaviour
             {
                 await cellUnder.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
 
-                cell.ClearCell();
+                cell.SetEmpty();
                 await GemFallInColumnDiagonal(cellUnder.X, --y);
                 return;
             }
@@ -246,24 +248,27 @@ public class GridManager : MonoBehaviour
         {
             await cellUnder.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
 
-            cell.ClearCell();
+            cell.SetEmpty();
             await GemFallInColumn(x, --y);
         }
     }
     #endregion
     public void StartLine(GridCell gridCell)
-    {
+    {  
+        if (isBusy) return;
         if (gridCell.IsEmpty()) return;
         IsLineActive = true;
         GemLine.NewGemMatch3Line(gridCell);
     }
     public void AddActiveGridCell(GridCell gridCell)
     {
+        if (isBusy) return;
         if (gridCell.IsEmpty()) return;
         GemLine.AddMatch3Gem(gridCell);
     }
     public void TryToDestroyLine()
     {
+        if (isBusy) return;
         IsLineActive = false;
         GemLine.DeactivateCells();
     }

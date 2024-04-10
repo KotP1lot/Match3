@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class GemPool : PoolBase<Gem>
 {
-    public GemPool(Transform gemPoolTransform, Gem gemPrefab, GridObjectSO gridObjectSO, int preloadCount) :
-        base(() => Preload(gemPoolTransform, gemPrefab, gridObjectSO), GetAction, ReturnAction, preloadCount)
-    {    }
-    public static Gem Preload(Transform gemPoolTransform, Gem gemPrefab, GridObjectSO gridObjectSO)
+    public GemPool(Transform pos, Gem prefab, GridObjectSO so, int preloadCount) :
+        base(() => Preload(pos, prefab, so), (gem) => GetAction(gem, pos), (gem) => ReturnAction(gem, pos), preloadCount)
+    { }
+    public static Gem Preload(Transform pos, Gem prefab, GridObjectSO so)
     {
-        Gem gridObject = Object.Instantiate(gemPrefab, gemPoolTransform);
-        gridObject.Setup(gridObjectSO);
+        Gem gridObject = Object.Instantiate(prefab, pos);
+        gridObject.Setup(so);
         return gridObject;
     }
-    public static void GetAction(Gem gridObject) 
+    public static void GetAction(Gem gem, Transform pos)
     {
-        gridObject.gameObject.SetActive(true);
-        gridObject.OnGemDestroy += ReturnAction;
+        gem.gameObject.SetActive(true);
+        gem.OnGemDeactivate += (gem) => ReturnAction(gem, pos);
     }
-    public static void ReturnAction(Gem gridObject) 
+    public static void ReturnAction(Gem gem, Transform pos)
     {
-        gridObject.gameObject.SetActive(false);
+        gem.gameObject.SetActive(false);
+        gem.transform.SetParent(pos);
     }
 }

@@ -10,7 +10,6 @@ public class DestroyableObject : GridObject
     public bool ExistAfterDestroy = false;
     override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
     {
-        
         cell = gridCell;
         Subcribe();
         return base.SetGridCoord(gridCoord, gridCell);
@@ -40,7 +39,6 @@ public class DestroyableObject : GridObject
                 cell.DestroyGridObject();
             }
             OnDestroyableObjectDestroyed?.Invoke(this);
-
         }
     }
 }
