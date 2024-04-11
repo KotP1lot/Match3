@@ -9,13 +9,13 @@ public class Game : MonoBehaviour
     public void Start()
     {
         customerManager.Setup(200, 400);
-        customerManager.SpawnNewCustomer();
-        EventManager.instance.OnGemDestroy += (gem)=> OnGemDestroyedHandler(gem.Info.Score);
+        EventManager.instance.OnGemDestroy += (gem)=> OnGemDestroyedHandler(gem.GetScore());
+        EventManager.instance.OnChiefBonus += OnGemDestroyedHandler;
         TotalScore = 0;
     }
     public void OnGemDestroyedHandler(int score) 
     {
         TotalScore += score;
-        UIDebug.Instance.Show($"Score:", $"{TotalScore}");
+        UIDebug.Instance.Show($"score:", $"{TotalScore}");
     }
 }

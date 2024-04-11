@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ed2292c6646244080ac8e1419ef78b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b02e81c6914fa349a2a3d06eac93cd8, type: 3}
   m_Name: Drink
   m_EditorClassIdentifier: 
-  Name: Drink
-  Sprite: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
-  Score: 10
-  Type: 4
-  IsAffectedByGravity: 1
+  type: 4
+  sprite: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
+  score: 10

@@ -17,12 +17,12 @@ public class GemMatchLine
     {
         activeGridCells = new List<GridCell>();
         activableObjects = new Queue<ActivableObject>();
-        firstMatchType = cell.GridObject.Info.Type;
+        firstMatchType = cell.Gem.GetGemType();
         AddActiveGridCell(cell);
     }
     public bool AddMatch3Gem(GridCell cell) 
     {
-        if (cell.GridObject.Info.Type != firstMatchType) return false;
+        if (cell.Gem.GetGemType() != firstMatchType) return false;
         if (activeGridCells.Contains(cell))
         {
             if (activeGridCells.Count > 1)

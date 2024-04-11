@@ -1,53 +1,62 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-
 public class ChiefManager : MonoBehaviour
 {
-    public Dictionary<GemType, Chief> chiefs = new Dictionary<GemType, Chief>();
-    public ChiefPlace[] ChiefPlaces;
-    private void Start()
+    [Serializable]
+    private class BonusGemByType 
     {
-        EventManager.instance.OnGemDestroy += HandleGemDestroyed;   
+        public BGType type;
+        public BonusGem prefab;
     }
-    public void ChangeChief(GemType gemType, Chief chief)
+    public ChiefPlace[] chiefPlaces;
+    [SerializeField] BonusGemByType[] bonusGemsPrefab;
+    [SerializeField] Transform gemPoolTransform;
+    [SerializeField] ChiefChanger chiefChanger;
+    private ChiefPlace activePlace;
+
+    private void Start() 
     {
-        if (chiefs.ContainsKey(gemType))
+        EventManager.instance.OnGameStarted += OnStartGameHandler;
+        chiefChanger.Setup();
+        chiefChanger.OnChiefChoose += SetChiefToPlace;
+        chiefChanger.OnConfirmed += ClearActivePlace;
+        foreach (var place in chiefPlaces) 
         {
-            chiefs[gemType] = chief;
+            place.OnPlaceClick += ShowChiefMenu;
         }
     }
-    public void AddChief(GemType gemType, Chief chief)
+    private void ClearActivePlace() 
     {
-        if (!chiefs.ContainsKey(gemType))
-        {
-            chiefs[gemType] = chief;
-        }
+        activePlace = null;
     }
-    public void RemoveChef(GemType gemType)
+    private void SetChiefToPlace(ChiefSO chief) 
     {
-        if (chiefs.ContainsKey(gemType))
-        {
-            chiefs.Remove(gemType);
-        }
+        activePlace.SetChief(chief);
     }
-    public void HandleGemDestroyed(Gem gem)
+    private void ShowChiefMenu(GemType gemType, ChiefPlace place) 
     {
-        int totalScore = gem.GetScore();
-        GemType gemType = gem.GetGemType();
-        foreach (ChiefPlace place in ChiefPlaces) 
+        if (activePlace != null) return;
+        chiefChanger.ShowChiefs(gemType);
+        activePlace = place;
+    }
+    private BonusGem GetBGByType(BGType type)
+    {
+        foreach (BonusGemByType bg in bonusGemsPrefab) 
         {
-            Chief chief = place.Chief;
-            if (chief != null && chief.GemType == gemType) 
-            {
-                totalScore += chief.HandleBonus();
-                break;
-            }
+            if (bg.type == type) return bg.prefab;
         }
-        //if (chiefs.ContainsKey(gemType))
-        //{
-        //    Chief chief = chiefs[gemType];
-        //    totalScore += chief.HandleBonus();
-        //}
-        EventManager.instance.OnScoreUpdate?.Invoke(totalScore);
+        return null;
+    }
+    private void OnStartGameHandler() 
+    {
+ 
+        chiefChanger.OnChiefChoose -= SetChiefToPlace;
+        foreach (var place in chiefPlaces)
+        {
+            if (place.chief == null) continue;
+            place.Setup(gemPoolTransform, GetBGByType(place.chief.bgType));
+            place.OnPlaceClick -= ShowChiefMenu;
+        }
+
     }
 }

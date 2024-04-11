@@ -5,18 +5,24 @@ using UnityEngine.UI;
 
 public class Gem : GridObject
 {
+    private GemSO info;
     public Action<Gem> OnGemDestroy;
     public Action<Gem> OnGemDeactivate;
     private GameObject activeIndicator;
     private GameObject arrow;
     public bool isActive = false;
-    virtual public void Setup(GridObjectSO objectInfo)
+    public void Setup(GemSO objectInfo)
+    {
+        info = objectInfo;
+        SetupUI(info.sprite);
+        IsAffectedByGravity = true;
+    }
+    protected void SetupUI(Sprite sprite) 
     {
         UIGem ui = GetComponent<UIGem>();
         activeIndicator = ui.activeIndicator;
         arrow = ui.arrow;
-        Info = objectInfo;
-        GetComponent<Image>().sprite = Info.Sprite;
+        GetComponent<Image>().sprite = sprite;
     }
     public void SetActive(bool isActive)
     {
@@ -40,13 +46,15 @@ public class Gem : GridObject
     {
         DeactivateGem();
     }
-    private void DeactivateGem()
+    protected void DeactivateGem()
     {
-        SetActive(false);
         OnGemDeactivate?.Invoke(this);
+        arrow.SetActive(false);
+        SetActive(false);
         transform.localPosition = Vector2.zero;
         transform.localScale = Vector2.one;
     }
-    public GemType GetGemType() => Info.Type;
-    public int GetScore() => Info.Score;
+    virtual public GemType GetGemType() => info.type;
+    virtual public int GetScore() => info.score;
+
 }

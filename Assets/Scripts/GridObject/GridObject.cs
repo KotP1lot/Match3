@@ -2,8 +2,8 @@ using DG.Tweening;
 using UnityEngine;
 public class GridObject : MonoBehaviour
 { 
-    [field: SerializeField] public GridObjectSO Info { get; protected set; }
     public Vector2Int GridCoord { get; protected set; }
+    public bool IsAffectedByGravity;
     public Tween Spawn(Transform spawnPos, Vector2Int gridCoord, GridCell gridCell) 
     {
         transform.position = new Vector2(gridCell.transform.position.x, spawnPos.position.y);

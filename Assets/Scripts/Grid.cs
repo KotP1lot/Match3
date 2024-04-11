@@ -112,7 +112,7 @@ public class Grid
         {
             for (int y = centerY - radius; y <= centerY + radius; y++)
             {
-                if (!IsCoordInRange(x, y) || x == centerX && y == centerY)
+                if (!IsCoordInRange(x, y) || (x == centerX && y == centerY))
                 {
                     continue;
                 }

@@ -8,28 +8,28 @@ public class Customer : MonoBehaviour
     public Action<Customer> OnExitAnimFinished;
     public Action<Customer> OnCustomerReady;
     [SerializeField] StatusBar statusBar;
-    float necessarySat;
-    float currentSat;
+    int necessarySat;
+    int currentSat;
     public void Start()
     {
         statusBar.OnComplited += MoveOut;
     }
-    public void Setup(float necessarySat)
+    public void Setup(int necessarySat)
     {
         this.necessarySat = necessarySat;
         statusBar.Setup(necessarySat);
     }
-    public float Setup(float necessarySat, float currentSat)
+    public int Setup(int necessarySat, int currentSat)
     {
         this.necessarySat = necessarySat;
         statusBar.Setup(necessarySat, currentSat);
         return AddSatisfaction(currentSat);
     }
-    public float AddSatisfaction(float value)
+    public int AddSatisfaction(int value)
     {
         statusBar.AddProgress(value);
         currentSat += value;
-        float difference = currentSat - necessarySat;
+        int difference = currentSat - necessarySat;
         if (difference > 0)
         {
             EventManager.instance?.OnCustomerSatisfied?.Invoke();

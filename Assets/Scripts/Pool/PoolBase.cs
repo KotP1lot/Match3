@@ -18,7 +18,7 @@ public class PoolBase<T>
         this.returnAction = returnAction;
         if (preloadFunc == null)
         {
-            Debug.LogError("Preload function is null");
+            Debug.LogError("SpawnBG function is null");
             return;
         }
         for (int i = 0; i < preloadCount; i++)

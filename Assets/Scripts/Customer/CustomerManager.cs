@@ -5,16 +5,22 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] Transform poolPos;
     [SerializeField] Customer prefab;
     private CustomerPool pool;
-    private float minSat;
-    private float maxSat;
-    private float satPool;
+    private int minSat;
+    private int maxSat;
+    private int satPool;
     private Customer currentCus;
     void Start()
     {
         pool = new CustomerPool(poolPos, prefab, 10);
-        EventManager.instance.OnGemDestroy += AddSat;
+        EventManager.instance.OnGemDestroy += (gem)=> AddSat(gem.GetScore());
+        EventManager.instance.OnChiefBonus += AddSat;
+        EventManager.instance.OnGameStarted += OnGameStartHandler;
     }
-    public void Setup(float minSat, float maxSat) 
+    private void OnGameStartHandler()
+    {
+        SpawnNewCustomer();
+    }
+    public void Setup(int minSat, int maxSat) 
     {
         this.minSat = minSat;
         this.maxSat = maxSat;
@@ -44,13 +50,14 @@ public class CustomerManager : MonoBehaviour
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
     }
-    private void AddSat(Gem gem) 
+    private void AddSat(int sat) 
     {
-        satPool += gem.GetScore();
+        satPool += sat;
         if (currentCus != null)
         {
             satPool = currentCus.AddSatisfaction(satPool);
         }
         UIDebug.Instance.Show("SatPool", $"{satPool}");
     } 
+
 }

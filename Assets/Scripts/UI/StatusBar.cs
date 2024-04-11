@@ -1,35 +1,39 @@
 using DG.Tweening;
 using System;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StatusBar : MonoBehaviour
 {
     [SerializeField] Image progress;
+    [SerializeField] TextMeshProUGUI text;
     public event Action OnComplited;
-    private float progressValue;
-    private float maxValue;
-    public void Setup(float maxValue)
+    private int progressValue;
+    private int maxValue;
+    public void Setup(int maxValue)
     {
         this.maxValue = maxValue;
         transform.DOScaleX(0, 0f);
         progressValue = 0;
+        string textStr = $"{progressValue} / {maxValue}";
+        text.text = textStr;
     } 
-    public void Setup(float maxValue, float currentValue)
+    public void Setup(int maxValue, int currentValue)
     {
         this.maxValue = maxValue;
         progressValue = currentValue;
         OnChangeProgressValue();
     }
-    public void AddProgress(float value)
+    public void AddProgress(int value)
     {
         progressValue += value;
         if (progressValue >= maxValue) OnComplited?.Invoke(); 
         progressValue = Mathf.Clamp(progressValue, 0, maxValue);
         OnChangeProgressValue();
     }
-    public void ChangeProgress(float progressValue)
+    public void ChangeProgress(int progressValue)
     {
         this.progressValue = progressValue;
         if (progressValue >= maxValue) OnComplited?.Invoke();
@@ -48,7 +52,9 @@ public class StatusBar : MonoBehaviour
     }
     private void OnChangeProgressValue()
     {
-        float curentPercent = progressValue / maxValue;
+        string textStr = $"{progressValue} / {maxValue}";
+        text.text = textStr;
+        float curentPercent = (float)progressValue / (float)maxValue;
         transform.DOShakeScale(0.2f, 0.1f);
         progress.transform.DOScaleX(curentPercent, 0.2f);
     }

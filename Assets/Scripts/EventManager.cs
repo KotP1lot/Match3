@@ -15,9 +15,10 @@ public class EventManager: MonoBehaviour
             instance = this;
         }
     }
+    public Action OnGameStarted;
     public Action<ActivableObject> ObjectsActivatedEvent;
     public Action<Gem> OnGemDestroy;
-    public Action<int> OnScoreUpdate;
+    public Action<int> OnChiefBonus;
     public Action<BonusGem> OnBonusCharged;
     public Action TurnEndedEvent;
     public Action OnCustomerSatisfied;

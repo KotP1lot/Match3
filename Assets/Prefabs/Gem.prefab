@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955d0cefb772e0441ac18bba2bba5cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Info>k__BackingField: {fileID: 0}
+  IsAffectedByGravity: 1
   isActive: 0
 --- !u!1 &7941020975060755814
 GameObject:

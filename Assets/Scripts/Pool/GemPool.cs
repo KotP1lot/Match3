@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class GemPool : PoolBase<Gem>
 {
-    public GemPool(Transform pos, Gem prefab, GridObjectSO so, int preloadCount) :
+    public GemPool(Transform pos, Gem prefab, GemSO so, int preloadCount) :
         base(() => Preload(pos, prefab, so), (gem) => GetAction(gem, pos), (gem) => ReturnAction(gem, pos), preloadCount)
     { }
-    public static Gem Preload(Transform pos, Gem prefab, GridObjectSO so)
+    public static Gem Preload(Transform pos, Gem prefab, GemSO so)
     {
         Gem gridObject = Object.Instantiate(prefab, pos);
         gridObject.Setup(so);

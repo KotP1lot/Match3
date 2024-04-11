@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674073c038488f94a825b9d95856f5a3, type: 3}
+  m_Name: ChiefBD
+  m_EditorClassIdentifier: 
+  salad:
+  - {fileID: 11400000, guid: 7448ff84c3da3fe499d0aa1f1ad4d204, type: 2}
+  - {fileID: 11400000, guid: 52efbadf72a3a2449b35642d7b5183fc, type: 2}
+  meat:
+  - {fileID: 11400000, guid: f2683bad66834234a9ed9d7e76a8affa, type: 2}
+  - {fileID: 11400000, guid: 57096e601dff50744a6c510c7af0092d, type: 2}
+  fish:
+  - {fileID: 11400000, guid: cc94c65e53488e4489a0556f4cf109c7, type: 2}
+  - {fileID: 11400000, guid: af34098a6de7fa9439af908b46868fac, type: 2}
+  sweet:
+  - {fileID: 11400000, guid: 17b7f63450117624e8ceb8b42329bff1, type: 2}
+  - {fileID: 11400000, guid: 1c27b06bbbfbbff48864bd608094c318, type: 2}
+  drink:
+  - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+  - {fileID: 11400000, guid: 4f56f6578cba0a14cb58ea4fb5c9614d, type: 2}

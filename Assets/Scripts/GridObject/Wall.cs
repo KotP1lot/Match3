@@ -1,7 +1,7 @@
 using UnityEngine;
 public class Wall : GridObject
 {
-    [SerializeField] GridObjectSO objectSO;
+    [SerializeField] Sprite sprite;
     public override void Clear()
     {
         GameObject.Destroy(gameObject);

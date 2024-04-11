@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -12,21 +11,16 @@ public class GridManager : MonoBehaviour
     [SerializeField] int width;
     [SerializeField] int height;
     [SerializeField] Vector2Int CheckGem;
-    [SerializeField] GridObjectSO[] gemSo;
+    [SerializeField] GemSO[] gemSo;
     [SerializeField] Gem gem;
     [SerializeField] GridObject wall;
     [SerializeField] DestroyableObject destroyable;
     [SerializeField] LineDestroyer V_lineDestroyer;
     [SerializeField] LineDestroyer H_lineDestroyer;
-    [SerializeField] BonusGem BGLine;
-    [SerializeField] BonusGem BGBomb;
-    [SerializeField] GridObjectSO BGBombSo;
-    [SerializeField] GridObjectSO BGLineSo;
     [SerializeField] Transform SpawnPoint;
     GemPoolList gemPoolList;
-    GemPool bonusGemPool;
     [SerializeField] Transform gemPoolTransform;
-
+    List<BonusGem> waitForSpawn = new List<BonusGem>();
 
     public bool IsLineActive = false;
     public bool isBusy = false; 
@@ -37,32 +31,13 @@ public class GridManager : MonoBehaviour
         SetupGemPool();
         Setup();
     }
-
     private void SetupGemPool()
     {
         foreach (var obj in gemSo)
         {
-            gemPoolList.AddPool(obj.Type, new GemPool(gemPoolTransform, gem, obj, 20));
+            gemPoolList.AddPool(obj.type, new GemPool(gemPoolTransform, gem, obj, 20));
         }
     }
-
-    private void Start()
-    {
-        SpawnGem();
-        GemLine = new GemMatchLine();
-        GemLine.OnGridChanged += OnGridChangedHandler;
-        EventManager.instance.OnBonusCharged += OnBonusActivatedHandler;
-    }
-
-    private void OnBonusActivatedHandler(Gem bonus)
-    {
-        int randomX = Random.Range(0, width);
-        GridCell cell = grid.GetCell(randomX, height - 1);
-        cell.Clear();
-        cell.SetObject(bonus);
-        bonus.gameObject.SetActive(true);
-    }
-
     private void Setup()
     {
         GridCell[] visualCell = GetComponentsInChildren<GridCell>();
@@ -81,16 +56,12 @@ public class GridManager : MonoBehaviour
         grid.SetCells(gridCells);
         grid.OnGridChanged += OnGridChangedHandler;
     }
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnGem();
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log(grid.GetCell(CheckGem.x, CheckGem.y).GridObject.Info.Name);
-        }
+        SpawnGem();
+        GemLine = new GemMatchLine();
+        GemLine.OnGridChanged += OnGridChangedHandler;
+        EventManager.instance.OnBonusCharged += OnBonusActivatedHandler;
     }
     private void SpawnGem()
     {
@@ -119,22 +90,22 @@ public class GridManager : MonoBehaviour
             cell.Clear();
             cell.SetObject(gridObject);
         }
-        bonusGemPool = new GemPool(gemPoolTransform, BGLine, BGLineSo, 1);
-        OnBonusActivatedHandler(bonusGemPool.Get());
-        //BonusGem bonusGem = Instantiate(BGLine);
-        //int x1 = Random.Range(0, width);
-        //int y1 = Random.Range(0, height);
-        //bonusGem.Setup(gemSo[1]);
-        //grid.GetCell(x1, y1).DestroyGridObject();
-        //grid.SetValue(x1, y1, bonusGem);
-
-        //BonusGem bonusGem1 = Instantiate(BGBomb);
-        //x1 = Random.Range(0, width);
-        //y1 = Random.Range(0, height);
-        //bonusGem1.Setup(gemSo[3]);
-        //grid.GetCell(x1, y1).DestroyGridObject();
-        //grid.SetValue(x1, y1, bonusGem1);
-
+    }
+    private void OnBonusActivatedHandler(BonusGem bonus)
+    {
+        waitForSpawn.Add(bonus);
+    }
+    private async Task SpawnBonusGem() 
+    {
+        foreach (BonusGem bg in waitForSpawn) 
+        {
+            int randomX = Random.Range(0, width);
+            int randomY = Random.Range(0, height);
+            GridCell cell = grid.GetCell(randomX, randomY);
+            cell.Clear();
+            await cell.SetObject(bg).AsyncWaitForCompletion();
+        }
+        waitForSpawn.Clear();
     }
     private void OnGridChangedHandler()
     {
@@ -163,6 +134,7 @@ public class GridManager : MonoBehaviour
         {
             await FallInColumDiagonal(x, 1);
         }
+        await SpawnBonusGem();
         isBusy = false;
     }
     private async Task FallInColumDiagonal(int x, int y)
@@ -192,7 +164,7 @@ public class GridManager : MonoBehaviour
     private async Task GemFallInColumnDiagonal(int x, int y)
     {
         GridCell cell = grid.GetCell(x, y);
-        if (cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity || y == 0) return;
+        if (cell.IsEmpty() || !cell.GridObject.IsAffectedByGravity || y == 0) return;
         int[] xOffset;
         if (x == 0 )
         {
@@ -247,7 +219,7 @@ public class GridManager : MonoBehaviour
     private async Task GemFallInColumn(int x, int y)
     {
         GridCell cell = grid.GetCell(x, y);
-        if (cell.IsEmpty() || !cell.GridObject.Info.IsAffectedByGravity || y == 0) return;
+        if (cell.IsEmpty() || !cell.GridObject.IsAffectedByGravity || y == 0) return;
 
         GridCell cellUnder = grid.GetCell(x, y - 1);
         if (cellUnder.IsEmpty())
