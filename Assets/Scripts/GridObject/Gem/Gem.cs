@@ -7,11 +7,14 @@ public class Gem : GridObject
 {
     public Action<Gem> OnGemDestroy;
     public Action<Gem> OnGemDeactivate;
-    [SerializeField] GameObject activeIndicator;
-    [SerializeField] GameObject arrow;
+    private GameObject activeIndicator;
+    private GameObject arrow;
     public bool isActive = false;
     virtual public void Setup(GridObjectSO objectInfo)
     {
+        UIGem ui = GetComponent<UIGem>();
+        activeIndicator = ui.activeIndicator;
+        arrow = ui.arrow;
         Info = objectInfo;
         GetComponent<Image>().sprite = Info.Sprite;
     }
@@ -26,11 +29,12 @@ public class Gem : GridObject
         if (!isActive) return;
         arrow.transform.DORotate(new Vector3(0, 0, z), 0f);
     }
-    override public void Destroy()
+    override public bool Destroy()
     {
         OnGemDestroy?.Invoke(this);
         EventManager.instance.OnGemDestroy?.Invoke(this);
         DeactivateGem();
+        return true;
     }
     override public void Clear()
     {
@@ -39,7 +43,6 @@ public class Gem : GridObject
     private void DeactivateGem()
     {
         SetActive(false);
-        transform.SetParent(null);
         OnGemDeactivate?.Invoke(this);
         transform.localPosition = Vector2.zero;
         transform.localScale = Vector2.one;

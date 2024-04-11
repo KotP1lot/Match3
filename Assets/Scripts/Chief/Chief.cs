@@ -9,13 +9,13 @@ public class Chief : MonoBehaviour
     public BonusGem BonusGem;
     public GridObjectSO BonusGemSO;
     public int YumyBonus;
-    private void Start()
-    {
-        BonusGem = Instantiate(BonusGemPrefab, transform);
-        BonusGem.gameObject.SetActive(false);
-        BonusGem.OnBonusDestroy += HandleBonusDestroy;
-        BonusGem.Setup();
-    }
+    //private void Start()
+    //{
+    //    BonusGem = Instantiate(BonusGemPrefab, transform);
+    //    BonusGem.gameObject.SetActive(false);
+    //    BonusGem.OnBonusDestroy += HandleBonusDestroy;
+    //  //  BonusGem.Setup();
+    //}
     public int HandleBonus() 
     {
         BonusGem.Charge();

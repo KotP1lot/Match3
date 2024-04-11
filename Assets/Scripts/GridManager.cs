@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.XR;
 using Random = UnityEngine.Random;
 [DefaultExecutionOrder(1)]
 public class GridManager : MonoBehaviour
@@ -19,8 +20,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] LineDestroyer H_lineDestroyer;
     [SerializeField] BonusGem BGLine;
     [SerializeField] BonusGem BGBomb;
+    [SerializeField] GridObjectSO BGBombSo;
+    [SerializeField] GridObjectSO BGLineSo;
     [SerializeField] Transform SpawnPoint;
     GemPoolList gemPoolList;
+    GemPool bonusGemPool;
     [SerializeField] Transform gemPoolTransform;
 
 
@@ -47,14 +51,14 @@ public class GridManager : MonoBehaviour
         SpawnGem();
         GemLine = new GemMatchLine();
         GemLine.OnGridChanged += OnGridChangedHandler;
-        EventManager.instance.OnBonusActivated += OnBonusActivatedHandler;
+        EventManager.instance.OnBonusCharged += OnBonusActivatedHandler;
     }
 
-    private void OnBonusActivatedHandler(BonusGem bonus)
+    private void OnBonusActivatedHandler(Gem bonus)
     {
         int randomX = Random.Range(0, width);
         GridCell cell = grid.GetCell(randomX, height - 1);
-        cell.DestroyGridObject();
+        cell.Clear();
         cell.SetObject(bonus);
         bonus.gameObject.SetActive(true);
     }
@@ -115,6 +119,8 @@ public class GridManager : MonoBehaviour
             cell.Clear();
             cell.SetObject(gridObject);
         }
+        bonusGemPool = new GemPool(gemPoolTransform, BGLine, BGLineSo, 1);
+        OnBonusActivatedHandler(bonusGemPool.Get());
         //BonusGem bonusGem = Instantiate(BGLine);
         //int x1 = Random.Range(0, width);
         //int y1 = Random.Range(0, height);

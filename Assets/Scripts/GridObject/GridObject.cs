@@ -15,6 +15,6 @@ public class GridObject : MonoBehaviour
         transform.SetParent(gridCell.transform);
         return transform.DOLocalMove(Vector2.zero, 0.075f);
     }
-    virtual public void Destroy() { }
+    virtual public bool Destroy() { return false; }
     virtual public void Clear() { }
 }

@@ -18,7 +18,7 @@ public class EventManager: MonoBehaviour
     public Action<ActivableObject> ObjectsActivatedEvent;
     public Action<Gem> OnGemDestroy;
     public Action<int> OnScoreUpdate;
-    public Action<BonusGem> OnBonusActivated;
+    public Action<BonusGem> OnBonusCharged;
     public Action TurnEndedEvent;
     public Action OnCustomerSatisfied;
     public Action OnGemFallen;

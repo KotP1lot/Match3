@@ -114,8 +114,10 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
         {
             OnGemDestroyinCell?.Invoke();
         }
-        GridObject.Destroy();
-        SetEmpty();
+        if (GridObject.Destroy())
+        {
+            SetEmpty();
+        }
     }
     public void SetEmpty()
     { 

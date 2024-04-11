@@ -5,13 +5,13 @@ public class BGLineDestroyer : BonusGem
     [SerializeField] bool isHorizontal;
     [SerializeField] int gemCountToDestroy;
 
-    public override void Destroy()
+    public override bool Destroy()
     {
-        cells = isHorizontal ? cell.GetRow(3) : cell.GetColumn(3);
+        cells = isHorizontal ? cell.GetRow(gemCountToDestroy) : cell.GetColumn(gemCountToDestroy);
         foreach (GridCell cell in cells)
         {
             cell.DestroyGridObject();
         }
-        base.Destroy();
+        return base.Destroy();
     }
 }
