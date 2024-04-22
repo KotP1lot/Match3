@@ -14,10 +14,10 @@ public class BonusGem : Gem
         this.gemType = gemType;
         SetupUI(bgInfo.GetSpriteByType(gemType));
     }
-    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    override public Tween SetGridCoord(GridCell gridCell)
     {
         cell = gridCell;
-        return base.SetGridCoord(gridCoord, gridCell);
+        return base.SetGridCoord(gridCell);
     }
     public override int GetScore() => bgInfo.score;
     public override GemType GetGemType() => gemType;

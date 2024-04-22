@@ -22,5 +22,4 @@ public class EventManager: MonoBehaviour
     public Action<BonusGem> OnBonusCharged;
     public Action TurnEndedEvent;
     public Action OnCustomerSatisfied;
-    public Action OnGemFallen;
 }

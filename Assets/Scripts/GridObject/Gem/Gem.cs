@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class Gem : GridObject
 {
-    private GemSO info;
+    [SerializeField]private GemSO info;
     public Action<Gem> OnGemDestroy;
     public Action<Gem> OnGemDeactivate;
     private GameObject activeIndicator;
     private GameObject arrow;
     public bool isActive = false;
+    private void Awake()
+    {
+       if(info is not null) SetupUI(info.sprite); 
+    }
     public void Setup(GemSO objectInfo)
     {
         info = objectInfo;

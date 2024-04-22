@@ -1,18 +1,29 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyableObject : GridObject
 {
     public Action<DestroyableObject> OnDestroyableObjectDestroyed;
     private GridCell cell;
-    public int Health;
-    public bool ExistAfterDestroy = false;
-    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    [SerializeField] List<Sprite> allState = new List<Sprite>();
+    private Image image;
+    private int health;
+    [SerializeField] bool existAfterDestroy = false;
+    public override Tween Spawn(Transform spawnPos, GridCell gridCell)
+    {
+        image = GetComponent<Image>();
+        health = allState.Count;
+        image.sprite = allState[health-1];
+        return base.Spawn(spawnPos, gridCell);
+    }
+    override public Tween SetGridCoord(GridCell gridCell)
     {
         cell = gridCell;
         Subcribe();
-        return base.SetGridCoord(gridCoord, gridCell);
+        return base.SetGridCoord(gridCell);
     }
     private void Subcribe() 
     {
@@ -30,15 +41,21 @@ public class DestroyableObject : GridObject
     }
     private void OnGemsDestroyedInNeighboringCells() 
     {
-        Health--;
-        if (Health <= 0)
+        health = Math.Clamp(health-1, 1, health);
+        image.sprite = allState[health-1];
+        if (health-1 <= 0)
         {
-            if (!ExistAfterDestroy)
+            if (!existAfterDestroy)
             {
-                Unsubcribe();
-                cell.DestroyGridObject();
+                cell.Clear();
             }
+            Unsubcribe();
             OnDestroyableObjectDestroyed?.Invoke(this);
         }
+    }
+    public override void Clear()
+    {
+        Unsubcribe();
+        GameObject.Destroy(gameObject);
     }
 }

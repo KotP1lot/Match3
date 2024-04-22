@@ -4,61 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
+public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
 {
     public Action OnGemDestroyinCell;
     private Grid grid;
     private GridManager gridManager;
-    public int X { get; private set; }
-    public int Y { get; private set; }
-  [field:SerializeField]  public GridObject GridObject { get; private set; }
+    private BorderManager borderManager;
+    public int x { get; private set; }
+    public int y { get; private set; }
+    public GridObject GridObject { get; private set; }
     public Gem Gem { get; private set; }
-    public bool isHasGem;
-    public enum Direction
+
+    private void Start()
     {
-        None,
-        Top,
-        Bottom,
-        Left,
-        Right,
-        TopLeft,
-        TopRight,
-        BottomLeft,
-        BottomRight
+        borderManager = GetComponent<BorderManager>();
     }
-    public Direction LookAt(GridCell target)
+    public bool IsBorderExist(Direction dir) 
     {
-        if (target.X == X && target.Y == Y)
-        {
-            return Direction.None;
-        }
-        else if (target.X == X)
-        {
-            return target.Y > Y ? Direction.Top : Direction.Bottom;
-        }
-        else if (target.Y == Y)
-        {
-            return target.X > X ? Direction.Right : Direction.Left;
-        }
-        else
-        {
-            return target.Y > Y ? (target.X > X ? Direction.TopRight : Direction.TopLeft) : (target.X > X ? Direction.BottomRight : Direction.BottomLeft);
-        }
-    }
+        return borderManager.IsBorderExist(dir);
+    } 
     public void Setup(GridManager gridManager, Grid grid, int x, int y)
     {
         this.gridManager = gridManager;
         this.grid = grid;
-        X = x;
-        Y = y;
+        this.x = x;
+        this.y = y;
         GridObject = null;
     }
     private void SetGridObject(GridObject gridObject)
     {
         GridObject = gridObject;
         Gem gem = GridObject as Gem;
-        isHasGem = gem != null;
-        if (isHasGem)
+        if (gem != null)
         {
             Gem = gem;
         }
@@ -66,19 +43,43 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
     public Tween SpawnObject(Transform spawnPoint, GridObject gridObject)
     {
         SetGridObject(gridObject);
-        return gridObject.Spawn(spawnPoint, new Vector2Int(X, Y), this);
+        return gridObject.Spawn(spawnPoint, this);
     }
-
+    public Tween SpawnNewObject(GridObject pref)
+    {
+        GridObject obj = Instantiate(pref, transform);
+        SetGridObject(obj);
+        return obj.SetGridCoord(this);
+    }
     public Tween SetObject(GridObject gridObject)
     {
         SetGridObject(gridObject);
-        return gridObject.SetGridCoord(new Vector2Int(X, Y), this);
+        return gridObject.SetGridCoord(this);
     }
     public void SetGemActive(bool isActive) 
     {
         if (IsHasGem())
         {
             Gem.SetActive(isActive);
+        }
+    }
+    public Direction LookAt(GridCell target)
+    {
+        if (target.x == x && target.y == y)
+        {
+            return Direction.None;
+        }
+        else if (target.x == x)
+        {
+            return target.y > y ? Direction.Top : Direction.Bottom;
+        }
+        else if (target.y == y)
+        {
+            return target.x > x ? Direction.Right : Direction.Left;
+        }
+        else
+        {
+            return target.y > y ? (target.x > x ? Direction.TopRight : Direction.TopLeft) : (target.x > x ? Direction.BottomRight : Direction.BottomLeft);
         }
     }
     public void SetGemArrow(bool isActive, GridCell cell)
@@ -128,6 +129,7 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
     {
         if (GridObject == null) return;
         GridObject.Clear();
+        SetEmpty();
     }
     public bool IsHasGem() => Gem != null;
     public bool IsEmpty() => GridObject == null;
@@ -140,6 +142,10 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
     public List<GridCell> GetNeighboringCells()
     {
         return grid.GetNeighboringCells(this);
+    }
+    public List<GridCell> GetAdjacentCells()
+    {
+        return grid.GetAdjacentCells(this);
     }
     public List<GridCell> GetRow()
     {
@@ -180,4 +186,16 @@ public class GridCell: MonoBehaviour, IPointerDownHandler, IPointerEnterHandler,
         }
     }
     #endregion
+}
+public enum Direction
+{
+    None,
+    Top,
+    Bottom,
+    Left,
+    Right,
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight
 }

@@ -11,11 +11,11 @@ public class ActivableObject : GridObject
     [SerializeField]protected int predictCount;
     protected bool isActive = false;
     protected bool isPredicted = false;
-    override public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    override public Tween SetGridCoord(GridCell gridCell)
     {
         cell = gridCell;
         Subcribe();
-        return base.SetGridCoord(gridCoord, gridCell);
+        return base.SetGridCoord(gridCell);
 
     }
     private void Subcribe()

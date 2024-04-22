@@ -33,8 +33,14 @@ public class UIDebug : MonoBehaviour
             _debugs.Add(newDebug);
             return;
         }
-
+        debug.SetActive(true);
         debug.Update(value);
+    }
+    public void Hide(string label) 
+    {
+        DebugText debug = _debugs.Find(x => x.Label == label);
+        if (debug == null) return;
+        debug.SetActive(false);
     }
 
     private class DebugText
@@ -55,6 +61,10 @@ public class UIDebug : MonoBehaviour
         public void Update(string value)
         {
             Text.text = $"<color={LabelColor}>{Label}</color> <color={ValueColor}>{value}</color>\n";
+        }
+        public void SetActive(bool isActive) 
+        {
+            Text.gameObject.SetActive(isActive);
         }
     }
 }

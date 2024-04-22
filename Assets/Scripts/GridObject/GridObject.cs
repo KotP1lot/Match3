@@ -1,18 +1,19 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
+[Serializable]
 public class GridObject : MonoBehaviour
 { 
-    public Vector2Int GridCoord { get; protected set; }
     public bool IsAffectedByGravity;
-    public Tween Spawn(Transform spawnPos, Vector2Int gridCoord, GridCell gridCell) 
+    virtual public Tween Spawn(Transform spawnPos, GridCell gridCell) 
     {
         transform.position = new Vector2(gridCell.transform.position.x, spawnPos.position.y);
-        return SetGridCoord(gridCoord, gridCell);
+        return SetGridCoord(gridCell);
     }
-    virtual public Tween SetGridCoord(Vector2Int gridCoord, GridCell gridCell)
+    virtual public Tween SetGridCoord(GridCell gridCell)
     {
-        GridCoord = gridCoord;
         transform.SetParent(gridCell.transform);
+        transform.localScale = Vector2.one;
         return transform.DOLocalMove(Vector2.zero, 0.075f);
     }
     virtual public bool Destroy() { return false; }

@@ -52,21 +52,23 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
         BonusGem bg = Instantiate(prefab, pos);
         bg.Setup(type);
         poolPos = pos;
+        bg.gameObject.SetActive(false);
         return bg;
     }
     public void ActivateBG()
     {
         EventManager.instance.OnBonusCharged?.Invoke(bg);
         bg.gameObject.SetActive(true);
-        bg.OnGemDeactivate += DeactivateBG;
+        bg.OnGemDeactivate += (gem) => DeactivateBG((BonusGem)gem);
         isActive = true;
     }
-    public void DeactivateBG(Gem bg)
+    public void DeactivateBG(BonusGem bg)
     {
         bg.gameObject.SetActive(false);
         bg.transform.SetParent(poolPos);
         countToUltimate = 0;
         isActive = false;
+        bg.isActivated = false;
     }
     #endregion
 

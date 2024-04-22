@@ -37,15 +37,16 @@ public class Grid
         {
             return Cells[x, y];
         }
+        Debug.LogError($"Координати не в межах сітки {x}, {y}");
         return null;
     }
     public List<GridCell> GetRow(GridCell cell) 
     {
         List<GridCell> rowCells = new List<GridCell>();
-        int y = cell.Y;
+        int y = cell.y;
         for (int x = 0; x < Width; x++)
         {
-            if (x == cell.X) continue;
+            if (x == cell.x) continue;
             rowCells.Add(GetCell(x, y));
         }
         return rowCells;
@@ -53,8 +54,8 @@ public class Grid
    
     public List<GridCell> GetRow(GridCell cell, int count, bool isTwoWayCheck = true, bool isRightCheck = false)
     {
-        int x = cell.X;
-        int y = cell.Y;
+        int x = cell.x;
+        int y = cell.y;
         int startX = isTwoWayCheck ? x - count : (isRightCheck ? x : x - count);
 
         Func<int, bool> continueCondition = isTwoWayCheck ?
@@ -65,7 +66,7 @@ public class Grid
         {
             if (IsCoordInRange(checkX, y))
             {
-                if (checkX == cell.X) continue;
+                if (checkX == cell.x) continue;
                 resultCells.Add(GetCell(checkX, y));
             }
         }
@@ -74,18 +75,18 @@ public class Grid
     public List<GridCell> GetColumn(GridCell cell) 
     {
         List<GridCell> columnCells = new List<GridCell>();
-        int x = cell.X;
+        int x = cell.x;
         for (int y = 0; y < Height; y++)
         {
-            if (y == cell.Y) continue;
+            if (y == cell.y) continue;
             columnCells.Add(GetCell(x, y));
         }
         return columnCells;
     }
     public List<GridCell> GetColumn(GridCell cell, int count, bool isTwoWayCheck = true, bool isUpwardCheck = false)
     {
-        int x = cell.X;
-        int y = cell.Y;
+        int x = cell.x;
+        int y = cell.y;
         int startY = isTwoWayCheck ? y - count : (isUpwardCheck ? y : y - count);
         Func<int, bool> continueCondition = isTwoWayCheck ?
                                        (checkY => checkY < y + count) :
@@ -95,7 +96,7 @@ public class Grid
         {
             if (IsCoordInRange(x, checkY))
             {
-                if (checkY == cell.Y) continue;
+                if (checkY == cell.y) continue;
                 resultCells.Add(GetCell(x,checkY));
             }
         }
@@ -105,8 +106,8 @@ public class Grid
     {
         List<GridCell> neighborCells = new List<GridCell>();
 
-        int centerX = cell.X;
-        int centerY = cell.Y;
+        int centerX = cell.x;
+        int centerY = cell.y;
 
         for (int x = centerX - radius; x <= centerX + radius; x++)
         {
@@ -126,8 +127,8 @@ public class Grid
     {
         List<GridCell> adjacentCells = new List<GridCell>();
 
-        int x = cell.X;
-        int y = cell.Y;
+        int x = cell.x;
+        int y = cell.y;
 
         // Перевірка клітинок в околиці поточної клітинки (верх, низ, ліво, право)
         if (IsCoordInRange(x, y - 1))
@@ -144,8 +145,8 @@ public class Grid
     {
         List<GridCell> adjacentCells = new List<GridCell>();
 
-        int x = cell.X;
-        int y = cell.Y;
+        int x = cell.x;
+        int y = cell.y;
 
         // Перевірка клітинок в околиці поточної клітинки (верх, низ, ліво, право)
         for (int xOffset = -1; xOffset <= 1; xOffset++)
