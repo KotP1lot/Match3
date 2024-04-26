@@ -7,9 +7,10 @@ using UnityEngine.EventSystems;
 public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
 {
     public Action OnGemDestroyinCell;
-    private Grid grid;
+    public Grid grid;
     private GridManager gridManager;
     private BorderManager borderManager;
+    private FloorManager floorManager;
     public int x { get; private set; }
     public int y { get; private set; }
     public GridObject GridObject { get; private set; }
@@ -18,11 +19,20 @@ public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     private void Start()
     {
         borderManager = GetComponent<BorderManager>();
+        floorManager = GetComponent<FloorManager>();
     }
-    public bool IsBorderExist(Direction dir) 
+    public bool IsBorderExist(Direction dir)
     {
         return borderManager.IsBorderExist(dir);
-    } 
+    }
+    public void AddBorder(Direction dir, BorderType type) 
+    {
+        borderManager.AddBorder(dir, type);
+    }
+    public void AddFloor(FloorType type)
+    {
+        floorManager.AddFloor(type);
+    }
     public void Setup(GridManager gridManager, Grid grid, int x, int y)
     {
         this.gridManager = gridManager;

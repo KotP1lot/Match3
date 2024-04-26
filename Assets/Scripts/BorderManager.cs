@@ -5,7 +5,7 @@ using UnityEngine;
 public class BorderManager : MonoBehaviour
 {
     [SerializeField] db_BorderSO db;
-    [SerializeField] Border borderPref;
+    [SerializeField] Border prefab;
     Grid grid;
     GridCell cell;
     Dictionary<Direction, Border> borders = new();
@@ -16,13 +16,14 @@ public class BorderManager : MonoBehaviour
     private void Start()
     {
         cell = GetComponent<GridCell>();
+        grid = cell.grid;
     }
     public void AddBorder(Direction dir, BorderType type)
     {
         BorderSO so = db.GetByType(type);
         if (so != null)
         {
-            Border b = Instantiate(borderPref, cell.transform);
+            Border b = Instantiate(prefab, cell.transform);
             float z = dir switch
             {
                 Direction.Top => 90f,

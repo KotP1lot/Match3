@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6289649304330172670}
   - component: {fileID: 5461380837689771946}
   - component: {fileID: 4351930909208108766}
+  - component: {fileID: 3286815100942438233}
+  - component: {fileID: 5187147655845924693}
   m_Layer: 5
   m_Name: GridCell
   m_TagString: Untagged
@@ -110,5 +112,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a23fcea2d0674446ab7ab2f844b550b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <GridObject>k__BackingField: {fileID: 0}
-  isHasGem: 0
+--- !u!114 &3286815100942438233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327772730210442446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe7438c1d1d82248a4dc5e412d3deea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  db: {fileID: 0}
+  borderPref: {fileID: 0}
+--- !u!114 &5187147655845924693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327772730210442446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d591689e286d34485dec7265c1f894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  db: {fileID: 0}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class db_BorderSO : MonoBehaviour
+public class db_BorderSO : ScriptableObject
 {
     [SerializeField] BorderSO[] borders;
     public BorderSO GetByType(BorderType type)
