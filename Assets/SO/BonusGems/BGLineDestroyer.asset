@@ -24,4 +24,5 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 9cd330d6d2dd7b743b44ad9838540d64, type: 3}
     gemType: 4
   score: 20
+  isMoveWithLine: 1
   type: 1

@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe7438c1d1d82248a4dc5e412d3deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  db: {fileID: 0}
-  borderPref: {fileID: 0}
+  db: {fileID: 11400000, guid: 436dc1dcaa380584d963e8337b4969f3, type: 2}
+  prefab: {fileID: 7529747036810086543, guid: aefa0823f3843a24c913a944c5b4cbda, type: 3}
 --- !u!114 &5187147655845924693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,5 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d591689e286d34485dec7265c1f894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
   db: {fileID: 0}
+  prefab: {fileID: 0}

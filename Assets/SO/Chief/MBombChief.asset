@@ -17,4 +17,4 @@ MonoBehaviour:
   gemType: 1
   bgType: 0
   yumyBonus: 5
-  countToUltimate: 10
+  countToUltimate: 3
