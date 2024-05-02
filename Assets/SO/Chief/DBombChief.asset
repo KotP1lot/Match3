@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd25b4162b4a3b447b22554af6096ff3, type: 3}
   m_Name: DBombChief
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 97643f017bcd72a449e80650f10dad51, type: 3}
+  lvlInfo:
+  - lvl: 0
+    sprite: {fileID: 21300000, guid: 97643f017bcd72a449e80650f10dad51, type: 3}
+    yumyBonus: 10
+    countToUltimate: 10
   name: Barman
   gemType: 4
   bgType: 0
-  yumyBonus: 5
-  countToUltimate: 3

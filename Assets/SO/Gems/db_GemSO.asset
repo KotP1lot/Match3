@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc46d9dc62e7c14c9f6036a780ce96f, type: 3}
+  m_Name: db_GemSO
+  m_EditorClassIdentifier: 
+  gemSo:
+  - {fileID: 11400000, guid: 61d079a4d72c12447a0c24f654a0ab83, type: 2}
+  - {fileID: 11400000, guid: 002e57a8218675e42adae2a76a779568, type: 2}
+  - {fileID: 11400000, guid: a86114f36a818e041ba7e3812f890f1c, type: 2}
+  - {fileID: 11400000, guid: 3a2b7fdb4c3b65946a9b86022c60db85, type: 2}
+  - {fileID: 11400000, guid: c194f4f612a02d242aa97b2fc65c4491, type: 2}

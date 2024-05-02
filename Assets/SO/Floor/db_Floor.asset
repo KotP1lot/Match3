@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd25b4162b4a3b447b22554af6096ff3, type: 3}
-  m_Name: SWLine
+  m_Script: {fileID: 11500000, guid: 4afeb893466454649b4fc91fbae9870c, type: 3}
+  m_Name: db_Floor
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 620a667d6da6d9742976e47d121c5f02, type: 3}
-  name: SweetSnake
-  gemType: 3
-  bgType: 1
-  yumyBonus: 5
-  countToUltimate: 3
+  floors:
+  - {fileID: 11400000, guid: 0e144b88778dd1045847d33b91a7d994, type: 2}

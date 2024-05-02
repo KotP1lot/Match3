@@ -33,7 +33,7 @@ public class LineDestroyer : ActivableObject
     }
     override public void PredictionActivate()
     {
-        EventManager.instance.ObjectsActivatedEvent?.Invoke(this);
+        EventManager.instance.ObjectsActivated?.Invoke(this);
     }
     override public void Activate()
     {

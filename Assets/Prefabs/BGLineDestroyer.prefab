@@ -124,8 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAffectedByGravity: 1
+  info: {fileID: 0}
   isActive: 0
-  bgInfo: {fileID: 11400000, guid: 37fd9dd573728a94ebfe1776627aeabf, type: 2}
+  bgSo: {fileID: 11400000, guid: 37fd9dd573728a94ebfe1776627aeabf, type: 2}
   isActivated: 0
   isHorizontal: 1
-  gemCountToDestroy: 2
+  gemCountToDestroy: 3

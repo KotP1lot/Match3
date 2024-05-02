@@ -12,8 +12,8 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         pool = new CustomerPool(poolPos, prefab, 10);
-        EventManager.instance.OnGemDestroy += (gem)=> AddSat(gem.GetScore());
-        EventManager.instance.OnChiefBonus += AddSat;
+        EventManager.instance.OnGemDestroy += AddSat;
+        //EventManager.instance.OnChiefBonus += AddSat;
         EventManager.instance.OnGameStarted += OnGameStartHandler;
     }
     private void OnGameStartHandler()
@@ -50,12 +50,12 @@ public class CustomerManager : MonoBehaviour
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
     }
-    private void AddSat(int sat) 
+    private void AddSat(Gem gem) 
     {
-        satPool += sat;
+        satPool += gem.GetScore();
         if (currentCus != null)
         {
-            satPool = currentCus.AddSatisfaction(satPool);
+            satPool = currentCus.AddSatisfaction(gem);
         }
         UIDebug.Instance.Show("SatPool", $"{satPool}");
     } 

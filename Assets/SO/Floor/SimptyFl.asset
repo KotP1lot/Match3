@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd25b4162b4a3b447b22554af6096ff3, type: 3}
-  m_Name: SaBoxer
+  m_Script: {fileID: 11500000, guid: d310e5529864c764b9302a94e76eb34c, type: 3}
+  m_Name: SimptyFl
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 109128ec6df59dc47b637050d1bcab50, type: 3}
-  name: SaladBoxer
-  gemType: 2
-  bgType: 2
-  yumyBonus: 1
-  countToUltimate: 3
+  type: 0
+  hp_sprites:
+  - {fileID: 21300000, guid: 0f2253b8b031df044b01b2d9416556d1, type: 3}
+  - {fileID: 21300000, guid: df6ca81efc4a82241af95f201afcf75c, type: 3}

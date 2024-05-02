@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd25b4162b4a3b447b22554af6096ff3, type: 3}
   m_Name: FLine
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2d350415dda9f714b83d555a854cd934, type: 3}
+  lvlInfo:
+  - lvl: 0
+    sprite: {fileID: 21300000, guid: 2d350415dda9f714b83d555a854cd934, type: 3}
+    yumyBonus: 10
+    countToUltimate: 10
   name: FishSnake
   gemType: 0
   bgType: 1
-  yumyBonus: 5
-  countToUltimate: 3

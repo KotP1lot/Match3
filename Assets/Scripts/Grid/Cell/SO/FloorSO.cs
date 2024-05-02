@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[CreateAssetMenu()]
 public class FloorSO : ScriptableObject
 {
     public FloorType type;

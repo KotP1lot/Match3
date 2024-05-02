@@ -14,21 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   salad:
   - {fileID: 11400000, guid: 7448ff84c3da3fe499d0aa1f1ad4d204, type: 2}
-  - {fileID: 11400000, guid: 52efbadf72a3a2449b35642d7b5183fc, type: 2}
-  - {fileID: 11400000, guid: b796ece6fe3bfae49bc73e8ad5a63985, type: 2}
   meat:
-  - {fileID: 11400000, guid: f2683bad66834234a9ed9d7e76a8affa, type: 2}
-  - {fileID: 11400000, guid: 57096e601dff50744a6c510c7af0092d, type: 2}
   - {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
   fish:
-  - {fileID: 11400000, guid: cc94c65e53488e4489a0556f4cf109c7, type: 2}
   - {fileID: 11400000, guid: af34098a6de7fa9439af908b46868fac, type: 2}
-  - {fileID: 11400000, guid: a0bc9af8f5407644399cdae392d1dec6, type: 2}
   sweet:
-  - {fileID: 11400000, guid: 17b7f63450117624e8ceb8b42329bff1, type: 2}
-  - {fileID: 11400000, guid: 1c27b06bbbfbbff48864bd608094c318, type: 2}
   - {fileID: 11400000, guid: f03f307eed8ca204588794570484228d, type: 2}
   drink:
   - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
-  - {fileID: 11400000, guid: 4f56f6578cba0a14cb58ea4fb5c9614d, type: 2}
-  - {fileID: 11400000, guid: ef3081d18c5a8434b876f81595d13970, type: 2}

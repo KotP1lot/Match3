@@ -8,9 +8,8 @@ public class BGridCell : MonoBehaviour, IPointerClickHandler
     private GridObject gridObject;
     public void SetGridObject(GridObject gridObjectPrefab) 
     {
-        if (gridObjectPrefab is null)
+        if (gridObjectPrefab == null)
         {
-
             Clear(); 
             return;
         }

@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAffectedByGravity: 1
+  info: {fileID: 0}
   isActive: 0
-  bgInfo: {fileID: 11400000, guid: 66ac2364aab9a564c8323456dba3432d, type: 2}
+  bgSo: {fileID: 11400000, guid: 66ac2364aab9a564c8323456dba3432d, type: 2}
   isActivated: 0
-  radius: 1
+  radius: 2

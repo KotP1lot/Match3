@@ -268,7 +268,7 @@ MonoBehaviour:
   IsAffectedByGravity: 1
   info: {fileID: 0}
   isActive: 0
-  bgInfo: {fileID: 11400000, guid: 2d7de32eff9452046bef86a5e97aca7c, type: 2}
+  bgSo: {fileID: 11400000, guid: 2d7de32eff9452046bef86a5e97aca7c, type: 2}
   isActivated: 0
   radius: 2
 --- !u!114 &2870001024396976030

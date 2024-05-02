@@ -11,23 +11,15 @@ public class FloorManager : MonoBehaviour
     {
         cell = GetComponent<GridCell>();
     }
-    public void AddFloor(FloorType type) 
+    public void AddFloor(FloorType type)
     {
-        if (floor is null) return;
+        if (floor != null) return;
         FloorSO so = db.GetByType(type);
-        if (so is not null)
-        {
-            floor = Instantiate(prefab, cell.transform);
-            floor.Setup(so);
-            floor.Subcribe(cell);
-            floor.OnFloorDestroy += OnFloorDestroyHandler;
-        }
-#if UNITY_EDITOR
-        else
-        {
-            Debug.LogError("Відсутній такий тип у db_BorderSO");
-        }
-#endif
+        floor = Instantiate(prefab, cell.transform);
+        floor.transform.SetAsFirstSibling();
+        floor.Setup(so);
+        floor.Subcribe(cell);
+        floor.OnFloorDestroy += OnFloorDestroyHandler;
     }
     private void OnFloorDestroyHandler()
     {

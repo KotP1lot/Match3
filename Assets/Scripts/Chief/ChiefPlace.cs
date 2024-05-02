@@ -7,6 +7,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
 {
     public GemType gemType;
     public ChiefSO chief;
+    public ChiefLvlInfo lvl_Info;
     public event Action<GemType, ChiefPlace> OnPlaceClick;
     [SerializeField] Image chiefImg;
     private BonusGem bg;
@@ -23,10 +24,11 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         OnPlaceClick?.Invoke(gemType, this);
     }
-    public void SetChief(ChiefSO chief) 
+    public void SetChief(ChiefSO chief, int lvl = 0) 
     {
         this.chief = chief;
-        chiefImg.sprite = chief.sprite;
+        lvl_Info = chief.GetLvlInfo(lvl);
+        chiefImg.sprite = lvl_Info.sprite;
     }
 
     #region BonusGem
@@ -34,11 +36,11 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         if (gem.GetGemType() == gemType)
         {
-            EventManager.instance.OnChiefBonus?.Invoke(chief.yumyBonus);
+            EventManager.instance.OnChiefBonus?.Invoke(lvl_Info.yumyBonus);
             if (!isActive) 
             {
                 countToUltimate++;
-                if (countToUltimate >= chief.countToUltimate)
+                if (countToUltimate >= lvl_Info.countToUltimate)
                 {
                     ActivateBG();
                 }

@@ -33,6 +33,7 @@ public class BorderManager : MonoBehaviour
                 _ => 0f
             };
             b.transform.DORotate(new Vector3(0, 0, z), 0f);
+         
             b.Setup(so, dir);
             b.Subcribe(GetCells(dir));
             b.OnBorderDestroy += OnBorderDestroyHandler;

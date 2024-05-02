@@ -10,7 +10,7 @@ public class BGBox : BonusGem
         public Gem gem;
     }
     [SerializeField] int radius;
-    List<CellInfo> cellInfos= new();
+    readonly List<CellInfo> cellInfos= new();
     public override void SetActive(bool isActive)
     {
         if (isActive)
@@ -20,7 +20,8 @@ public class BGBox : BonusGem
             {
                 if (cell.IsHasGem())
                 {
-                    CellInfo info = new CellInfo()
+                    if (cell.Gem.isActive || cell.Gem is BonusGem) continue;
+                    CellInfo info = new()
                     {
                         cell = cell,
                         gem = cell.Gem
@@ -28,7 +29,7 @@ public class BGBox : BonusGem
 
                     cellInfos.Add(info);
                     cell.Clear();
-                    cell.SetGemByType(gemType);
+                    cell.SetGemByType(GetGemType());
                 }
             }
             isActivated = true;

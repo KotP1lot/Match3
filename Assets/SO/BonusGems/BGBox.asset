@@ -23,6 +23,9 @@ MonoBehaviour:
     gemType: 2
   - sprite: {fileID: 21300000, guid: c0c57ca57a17140409c8d0194dafade5, type: 3}
     gemType: 3
-  score: 10
+  lvlInfo:
+  - lvl: 0
+    range: 1
+    score: 10
   isMoveWithLine: 0
   type: 2

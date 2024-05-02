@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -7,6 +8,7 @@ public class Customer : MonoBehaviour
     public Action<Customer> OnCustomerSatisfied;
     public Action<Customer> OnExitAnimFinished;
     public Action<Customer> OnCustomerReady;
+    private FastManager fastManager;
     [SerializeField] StatusBar statusBar;
     int necessarySat;
     int currentSat;
@@ -14,10 +16,11 @@ public class Customer : MonoBehaviour
     {
         statusBar.OnComplited += MoveOut;
     }
-    public void Setup(int necessarySat)
+    public void Setup(int necessarySat, CustomerType customer = new())
     {
         this.necessarySat = necessarySat;
         statusBar.Setup(necessarySat);
+        fastManager.Setup(customer);
     }
     public int Setup(int necessarySat, int currentSat)
     {
@@ -25,14 +28,16 @@ public class Customer : MonoBehaviour
         statusBar.Setup(necessarySat, currentSat);
         return AddSatisfaction(currentSat);
     }
-    public int AddSatisfaction(int value)
+    public int AddSatisfaction(Gem gem)
     {
-        statusBar.AddProgress(value);
-        currentSat += value;
+        int sat = fastManager.SatWithFast(gem);
+        statusBar.AddProgress(sat);
+        currentSat += sat;
+
         int difference = currentSat - necessarySat;
         if (difference > 0)
         {
-            EventManager.instance?.OnCustomerSatisfied?.Invoke();
+            EventManager.instance.OnCustomerSatisfied?.Invoke();
             OnCustomerSatisfied?.Invoke(this);
             return difference;
         }

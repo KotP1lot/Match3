@@ -23,7 +23,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] LvlSO lvl;
     public GemPoolList gemPoolList;
     [SerializeField] Transform gemPoolTransform;
-    List<BonusGem> waitForSpawn = new List<BonusGem>();
+    readonly List<BonusGem> waitForSpawn = new();
 
     public bool IsLineActive = false;
     public bool isBusy = false;
@@ -40,7 +40,7 @@ public class GridManager : MonoBehaviour
             gemPoolList.AddPool(obj.type, new GemPool(gemPoolTransform, gem, obj, 20));
         }
     }
-    private async Task Setup()
+    private /*async Task*/ void Setup()
     {
         GridCell[] visualCell = GetComponentsInChildren<GridCell>();
         GridCell[,] gridCells = new GridCell[width, height];
@@ -55,31 +55,30 @@ public class GridManager : MonoBehaviour
                 index++;
             }
         }
-        if (lvl is not null)
-        {
-            index = 0;
-            for (int y = height - 1; y >= 0; y--)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    if (lvl.gridObjects[index] is null) 
-                    {
-                        index++;
-                        continue;
-                    }
-                  await  gridCells[x, y].SpawnNewObject(lvl.gridObjects[index]).AsyncWaitForCompletion();
-                    index++;
-                }
-            }
-
-        }
+        //if (lvl is not null)
+        //{
+        //    index = 0;
+        //    for (int y = height - 1; y >= 0; y--)
+        //    {
+        //        for (int x = 0; x < width; x++)
+        //        {
+        //            if (lvl.gridObjects[index] is null) 
+        //            {
+        //                index++;
+        //                continue;
+        //            }
+        //          await  gridCells[x, y].SpawnNewObject(lvl.gridObjects[index]).AsyncWaitForCompletion();
+        //            index++;
+        //        }
+        //    }
+        //}
         grid.SetCells(gridCells);
         grid.OnGridChanged += OnGridChangedHandler;
     }
     private async void Start()
     {
         isBusy = true;
-        await Setup();
+        /*await*/ Setup();
         SpawnGem();
         GemLine = new GemMatchLine();
         GemLine.OnLineDestroy += OnGridChangedHandler;
@@ -96,13 +95,22 @@ public class GridManager : MonoBehaviour
                cell.SpawnObject(SpawnPoint, gemPoolList.GetRandomPool().Get());
             }
         }
-        GridCell borderCell = grid.GetCell(2, 2);
-        borderCell.AddBorder(Direction.Top, BorderType.simplyWood);
-        borderCell.AddBorder(Direction.Left, BorderType.simplyWood);
-        borderCell.AddBorder(Direction.Right, BorderType.simplyWood);
-        borderCell.AddBorder(Direction.Bottom, BorderType.simplyWood);
+        for (int x = 0; x < grid.Width; x++)
+        {
+            GridCell cell = grid.GetCell(x, 2);
+            cell.AddBorder(Direction.Top, BorderType.simplyWood);
+        }
+        for (int x = 0; x < grid.Width; x++)
+        {
+            for (int y = 0; y < grid.Height; y++)
+            {
+                GridCell cell = grid.GetCell(x, y);
+                cell.AddFloor(FloorType.simpty);
+            }
+        }
         await ChekForPosibleMathcLine();
         isBusy = false;
+   
     }
     private void OnBonusActivatedHandler(BonusGem bonus)
     {
@@ -142,8 +150,8 @@ public class GridManager : MonoBehaviour
     }
     private async Task ShuffleGem()
     {
-        List<GridCell> cells = new List<GridCell>();
-        Dictionary<GemType, Queue<Gem>> gems = new Dictionary<GemType, Queue<Gem>>();
+        List<GridCell> cells = new();
+        Dictionary<GemType, Queue<Gem>> gems = new();
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
@@ -222,7 +230,7 @@ public class GridManager : MonoBehaviour
     }
     private async void FallGem()
     {
-        List<Task> tasks = new List<Task>();
+        List<Task> tasks = new();
         for (int x = 0; x < grid.Width; x++)
         {
             tasks.Add(FallCollumn(x, 1));
@@ -239,6 +247,7 @@ public class GridManager : MonoBehaviour
         await SpawnBonusGem();
         await ChekForPosibleMathcLine();
         isBusy = false;
+        EventManager.instance.TurnEnded?.Invoke();
     }
     private async Task FallInColumDiagonal(int x, int y)
     {
@@ -284,7 +293,7 @@ public class GridManager : MonoBehaviour
 
         foreach (int xOff in xOffset)
         {
-            GridCell cellUnder = grid.GetCell(x + xOff, y - 1);
+            GridCell next = grid.GetCell(x + xOff, y - 1);
             Direction dir = xOff switch
             {
                 0 => Direction.Bottom,
@@ -292,16 +301,17 @@ public class GridManager : MonoBehaviour
                 1 => Direction.Right,
                 _ => Direction.Bottom
             };
-            if (cellUnder.IsEmpty())
+            if (next.IsEmpty())
             {
-                if (dir == Direction.Bottom && cellUnder.IsBorderExist(Direction.Top) || cell.IsBorderExist(dir)) continue;
-                if (dir == Direction.Right && (cellUnder.IsBorderExist(Direction.Top) && cellUnder.IsBorderExist(Direction.Left)) || (cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(dir))) continue;
-                if (dir == Direction.Left && (cellUnder.IsBorderExist(Direction.Top) && cellUnder.IsBorderExist(Direction.Right)) || (cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(dir))) continue;
-
-                await cellUnder.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
+                GridCell under = grid.GetCell(x, y - 1);
+                if (dir == Direction.Bottom && next.IsBorderExist(Direction.Top) || cell.IsBorderExist(dir)) continue;
+                if (dir == Direction.Right && (next.IsBorderExist(Direction.Top) && next.IsBorderExist(Direction.Left)) || (cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(dir)))continue;
+                if (dir == Direction.Left && (next.IsBorderExist(Direction.Top) && next.IsBorderExist(Direction.Right)) || (cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(dir))) continue;
+                if ((under.IsBorderExist(Direction.Top) && next.IsBorderExist(Direction.Top))) continue;
+                await next.SetObject(cell.GridObject).AsyncWaitForCompletion(); // Очікуємо завершення анімації
 
                 cell.SetEmpty();
-                await GemFallInColumnDiagonal(cellUnder.x, --y);
+                await GemFallInColumnDiagonal(next.x, --y);
                 return;
             }
         }

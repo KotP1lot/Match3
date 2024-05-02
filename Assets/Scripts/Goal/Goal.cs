@@ -1,6 +1,4 @@
 using System;
-using UnityEngine;
-
 [Serializable]
 public class Goal
 {
@@ -30,7 +28,10 @@ public class Goal
             case GoalType.feed:
                 EventManager.instance.OnCustomerSatisfied += () => { ChangeState(); };
                 break;
-         }
+            case GoalType.clean:
+                EventManager.instance.OnFloorCleaned += () => { ChangeState(); };
+                break;
+        }
     
     }
     void ChangeState() 
@@ -50,4 +51,5 @@ public enum GoalType
 {
     gem,
     feed,
+    clean
 }
