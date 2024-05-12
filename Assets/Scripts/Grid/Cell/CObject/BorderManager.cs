@@ -18,12 +18,16 @@ public class BorderManager : MonoBehaviour
         cell = GetComponent<GridCell>();
         grid = cell.grid;
     }
-    public void AddBorder(Direction dir, BorderType type)
+    public void AddBorder(Direction dir, BorderType type, bool needSubcribe = true)
     {
         BorderSO so = db.GetByType(type);
-        if (so != null && !borders.ContainsKey(dir))
+        if (so != null)
         {
-            Border b = Instantiate(prefab, cell.transform);
+            if (borders.ContainsKey(dir))
+            {
+                RemoveBorder(dir);
+            }
+            Border b = Instantiate(prefab, transform);
             float z = dir switch
             {
                 Direction.Top => 90f,
@@ -34,17 +38,25 @@ public class BorderManager : MonoBehaviour
             };
             b.transform.DORotate(new Vector3(0, 0, z), 0f);
          
-            b.Setup(so, dir);
-            b.Subcribe(GetCells(dir));
-            b.OnBorderDestroy += OnBorderDestroyHandler;
+            b.Setup(so, dir, type);
+            if (needSubcribe)
+            {
+                b.Subcribe(GetCells(dir));
+                b.OnBorderDestroy += OnBorderDestroyHandler;
+            }
             borders.Add(dir, b);
+           
         }
-#if UNITY_EDITOR
         else
         {
             Debug.LogError("Відсутній такий тип у db_BorderSO");
         }
-#endif
+    }
+    public void RemoveBorder(Direction dir) 
+    {
+        if (!borders.ContainsKey(dir)) return;
+        Destroy(borders[dir].gameObject);
+        borders.Remove(dir);
     }
     private void OnBorderDestroyHandler(Direction dir)
     {
@@ -75,5 +87,21 @@ public class BorderManager : MonoBehaviour
                 break;
         }
         return cells;
+    }
+    public BorderNDirection[] GetBorderInfo()
+    {
+        BorderNDirection[] result = new BorderNDirection[borders.Count];
+        int index = 0;
+
+        foreach (var kvp in borders)
+        {
+            result[index] = new BorderNDirection
+            {
+                type = kvp.Value.type,
+                direction = kvp.Key
+            };
+            index++;
+        }
+        return result;
     }
 }

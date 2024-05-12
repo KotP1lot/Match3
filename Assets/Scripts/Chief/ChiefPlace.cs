@@ -11,6 +11,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     public event Action<GemType, ChiefPlace> OnPlaceClick;
     [SerializeField] Image chiefImg;
     private BonusGem bg;
+    private bool isReady;
     private bool isActive;
     private int countToUltimate;
     private Transform poolPos;
@@ -18,7 +19,14 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         if (chief == null) return;
         EventManager.instance.OnGemDestroy += OnGemDestroyHandler;
+        EventManager.instance.OnTurnEnded += OnTurnEndedHandler;
         bg = SpawnBG(poolPos, prefab, gemType);
+    }
+
+
+    public void Setup()
+    {
+        EventManager.instance.OnGemDestroy += OnGemDestroyHandler;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -34,19 +42,31 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     #region BonusGem
     private void OnGemDestroyHandler(Gem gem)
     {
+       
         if (gem.GetGemType() == gemType)
         {
-            EventManager.instance.OnChiefBonus?.Invoke(lvl_Info.yumyBonus);
-            if (!isActive) 
+            if (chief == null)
+            {
+                EventManager.instance.OnChiefBonus?.Invoke(gem.GetGemType(), gem.GetScore());
+                return;
+            }
+            EventManager.instance.OnChiefBonus?.Invoke(gem.GetGemType(), gem.GetScore() + lvl_Info.yumyBonus);
+            if (isReady) 
             {
                 countToUltimate++;
                 if (countToUltimate >= lvl_Info.countToUltimate)
                 {
                     ActivateBG();
                 }
-
             }
           
+        }
+    }
+    private void OnTurnEndedHandler()
+    {
+        if (!isActive) 
+        {
+            isReady = true;
         }
     }
     public BonusGem SpawnBG(Transform pos, BonusGem prefab, GemType type)
@@ -55,14 +75,18 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
         bg.Setup(type);
         poolPos = pos;
         bg.gameObject.SetActive(false);
+        isReady = true;
         return bg;
     }
     public void ActivateBG()
     {
         EventManager.instance.OnBonusCharged?.Invoke(bg);
+        bg.ChangeCanvasLayout(2);
+        bg.transform.position = transform.position;
         bg.gameObject.SetActive(true);
         bg.OnGemDeactivate += (gem) => DeactivateBG((BonusGem)gem);
         isActive = true;
+        isReady = false;
     }
     public void DeactivateBG(BonusGem bg)
     {

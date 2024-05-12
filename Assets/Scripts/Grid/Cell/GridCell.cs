@@ -1,16 +1,16 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
+public class GridCell : MonoBehaviour
 {
     public Action OnGemDestroyinCell;
     public Grid grid;
     private GridManager gridManager;
     private BorderManager borderManager;
     private FloorManager floorManager;
+    [SerializeField] PointManager pointManager;
     public int x { get; private set; }
     public int y { get; private set; }
     public GridObject GridObject { get; private set; }
@@ -34,16 +34,41 @@ public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         this.x = x;
         this.y = y;
         GridObject = null;
+        Gem = null;
         borderManager = GetComponent<BorderManager>();
         borderManager.Setup();
         floorManager = GetComponent<FloorManager>();
+        pointManager.Setup(OnPointerDown, OnPointerEnter, OnPointerUp);
+    }
+    public void Setup(CelLLvlInfo info)
+    {
+        if (info.prefab != null)
+        {
+            if (info.prefab is Gem)
+            {
+                SetGemByType(info.gemType);
+            }
+            else
+            {
+
+                SetObject(Instantiate(info.prefab, transform));
+            }
+        }
+        AddFloor(info.floorType);
+        if (info.borders.Length > 0)
+        {
+            foreach (var borderInfo in info.borders)
+            {
+                AddBorder(borderInfo.direction, borderInfo.type);
+            }
+        }
     }
     public void SetGemByType(GemType type) 
     {
         Gem gem = gridManager.gemPoolList.GetPoolByType(type).Get();
         GridObject = gem;
         Gem = gem;
-        gem.SetGridCoord(this);
+        Gem.SetGridCoord(this);
     }
     private void SetGridObject(GridObject gridObject)
     {
@@ -121,18 +146,22 @@ public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
             Gem.SetArrowDir(isActive, z);
         }
     }
-    public void DestroyGridObject()
+    public async Task DestroyGridObject(Transform target = null)
     {
         if (GridObject == null) return;
-
         if (IsHasGem())
         {
             OnGemDestroyinCell?.Invoke();
         }
-        if (GridObject.Destroy())
+        await GridObject.Destroy(() => SetEmpty(), GetPoint(target));
+    }
+    private Transform GetPoint(Transform target)
+    {
+        if (target == null || Gem is BonusGem)
         {
-            SetEmpty();
+            return gridManager.GetDestroyPoint();
         }
+        return target;
     }
     public void SetEmpty()
     { 
@@ -180,19 +209,19 @@ public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     #endregion
 
     #region PointerFunc
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown()
     {
         if(IsHasGem())
         gridManager.StartLine(this);
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter()
     {
         if (gridManager.IsLineActive && IsHasGem()) 
         {
             gridManager.AddActiveGridCell(this);
         }
     }
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp()
     {
         if (gridManager.IsLineActive)
         {

@@ -16,7 +16,7 @@ MonoBehaviour:
   - lvl: 0
     sprite: {fileID: 21300000, guid: b764abd76b634a04cacdd06beae37919, type: 3}
     yumyBonus: 10
-    countToUltimate: 10
+    countToUltimate: 2
   name: Salad
   gemType: 2
   bgType: 0

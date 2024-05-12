@@ -1,5 +1,8 @@
+using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BGBox : BonusGem
@@ -13,9 +16,11 @@ public class BGBox : BonusGem
     readonly List<CellInfo> cellInfos= new();
     public override void SetActive(bool isActive)
     {
+        this.isActive = isActive;
         if (isActive)
         {
             List<GridCell> cells = cell.GetNeighborCellsInRadius(radius);
+            cellInfos.Clear();
             foreach (GridCell cell in cells)
             {
                 if (cell.IsHasGem())
@@ -30,12 +35,13 @@ public class BGBox : BonusGem
                     cellInfos.Add(info);
                     cell.Clear();
                     cell.SetGemByType(GetGemType());
+                   
                 }
             }
-            isActivated = true;
         }
-        else 
+        else
         {
+            if (isActivated) return;
             foreach (CellInfo info in cellInfos) 
             {
                 info.cell.Clear();
@@ -43,13 +49,19 @@ public class BGBox : BonusGem
                 info.cell.SetObject(info.gem);
             }
             cellInfos.Clear();
-            isActivated = false;
         }
     }
     
-    public override bool Destroy() 
+    public override async Task Destroy(Action callback, Transform target)
     {
-        if(isActivated) return base.Destroy();
-        return false;
+       
+        if (isActive) 
+        {
+            isActivated = true;
+            Deactivate();
+            await MoveTo(target).AsyncWaitForCompletion();
+            DeactivateGem();
+            callback();
+        }
     }
 }

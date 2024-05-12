@@ -18,14 +18,12 @@ public class EventManager: MonoBehaviour
     public Action OnGameStarted;
     public Action<ActivableObject> ObjectsActivated;
     public Action<Gem> OnGemDestroy;
-    public Action<int> OnChiefBonus;
+    public Action<GemType, int> OnChiefBonus;
     public Action<BonusGem> OnBonusCharged;
-    public Action TurnEnded;
+    public Action OnTurnEnded;
     public Action OnCustomerSatisfied;
     public Action OnFloorCleaned;
     public Action OnAllGoalAchived;
     
     public Action<int> OnMaxComboChanged;
-    public Action OnGameFinidhed;
-
 }

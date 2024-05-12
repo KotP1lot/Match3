@@ -49,11 +49,14 @@ public class ChiefManager : MonoBehaviour
     }
     private void OnStartGameHandler() 
     {
- 
         chiefChanger.OnChiefChoose -= SetChiefToPlace;
         foreach (var place in chiefPlaces)
         {
-            if (place.chief == null) continue;
+            if (place.chief == null) 
+            {
+                place.Setup();
+                continue;
+            }
             place.Setup(gemPoolTransform, GetBGByType(place.chief.bgType));
             place.OnPlaceClick -= ShowChiefMenu;
         }

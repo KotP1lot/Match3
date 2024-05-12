@@ -14,4 +14,9 @@ public class db_GemSO : ScriptableObject
         Debug.LogError($"Не знайдений тип {type} гему");
         return null;
     }
+    public Sprite GetIconByType(GemType type) 
+    {
+        GemSO so = GetGemSOByType(type);
+        return so.icon;
+    }
 }

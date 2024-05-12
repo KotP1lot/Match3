@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 [Serializable]
 public class GridObject : MonoBehaviour
@@ -16,6 +17,6 @@ public class GridObject : MonoBehaviour
         transform.localScale = Vector2.one;
         return transform.DOLocalMove(Vector2.zero, 0.075f);
     }
-    virtual public bool Destroy() { return false; }
+    virtual public async Task Destroy(Action callback, Transform target) {}
     virtual public void Clear() { }
 }

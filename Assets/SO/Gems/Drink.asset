@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   sprite: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
+  doubleSprite: {fileID: 0}
+  icon: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
   score: 10

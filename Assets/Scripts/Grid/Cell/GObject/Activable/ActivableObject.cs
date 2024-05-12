@@ -1,39 +1,42 @@
 using DG.Tweening;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ActivableObject : GridObject
 {
-    public Action<ActivableObject> OnActivated;
     protected GridCell cell;
     public int CountToActivate;
     protected int count;
-    [SerializeField]protected int predictCount;
-    protected bool isActive = false;
+    protected bool isReady;
     protected bool isPredicted = false;
     override public Tween SetGridCoord(GridCell gridCell)
     {
         cell = gridCell;
+        Setup();
         Subcribe();
         return base.SetGridCoord(gridCell);
 
     }
-    private void Subcribe()
+    protected void Subcribe()
     {
         foreach (GridCell cell in cell.GetNeighboringCells())
         {
             cell.OnGemDestroyinCell += OnGemsDestroyInNeighboringCells;
         }
+        EventManager.instance.OnTurnEnded += Deactivate;
     }
-    private void Unsubcribe()
+    protected void Unsubcribe()
     {
         foreach (GridCell cell in cell.GetNeighboringCells())
         {
             cell.OnGemDestroyinCell -= OnGemsDestroyInNeighboringCells;
         }
+        EventManager.instance.OnTurnEnded -= Deactivate;
     }
+    virtual public void Setup() { }
     virtual public void OnGemsDestroyInNeighboringCells() { }
     virtual public void PredictionActivate() { }
-    virtual public void PredictionDeactivate() { }
-    virtual public void Activate() { }
+    virtual public void Deactivate() { isReady = true; }
+    virtual public async Task Activate() { }
 }

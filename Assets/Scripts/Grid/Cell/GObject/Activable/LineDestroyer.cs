@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 public class LineDestroyer : ActivableObject
 {
@@ -6,10 +8,10 @@ public class LineDestroyer : ActivableObject
     [SerializeField] bool isTwoWay = true;
     [SerializeField] bool isRight_Upward = true;
     private List<GridCell> cells;
-
-    public void Start()
+    override public void Setup()
     {
-        predictCount = 0;
+        isReady = true;
+        count = 0;
         if (isTwoWay)
         {
             cells = isHorizontal ? cell.GetRow() : cell.GetColumn();
@@ -21,33 +23,36 @@ public class LineDestroyer : ActivableObject
     }
     override public void OnGemsDestroyInNeighboringCells()
     {
-        if (!isPredicted)
+        Debug.Log("Tik-Line");
+        if (isReady)
         {
-            predictCount++;
-            if (predictCount >= CountToActivate)
+            isReady = false;
+            count++;
+            if (count >= CountToActivate)
             {
-                isPredicted = true;
                 PredictionActivate();
             }
+            Debug.Log("Tack");
         }
     }
     override public void PredictionActivate()
     {
         EventManager.instance.ObjectsActivated?.Invoke(this);
     }
-    override public void Activate()
+    override public async Task Activate()
     {
-        if (isPredicted) 
+        List<Task> tasks = new();
+        foreach (GridCell cell in cells)
         {
-            predictCount = 0;
-            isPredicted = false;
-            foreach (GridCell cell in cells) 
-            {
-                cell.DestroyGridObject();
-            }
+            tasks.Add(cell.DestroyGridObject(transform));
         }
+        await Task.WhenAll(tasks);
+        count = 0;
     }
-
+    public override async Task Destroy(Action callback, Transform target)
+    {
+        PredictionActivate();
+    }
     public override void Clear()
     {
         GameObject.Destroy(gameObject);

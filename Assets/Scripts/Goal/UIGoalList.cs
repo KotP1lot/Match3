@@ -10,7 +10,7 @@ public class UIGoalList : MonoBehaviour
         foreach (Goal goal in goals) 
         {
             UIGoal ui = Instantiate(goalPrefab, transform);
-            ui.goal = goal;
+            ui.Setup(goal);
         }
     }
 }

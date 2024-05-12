@@ -8,4 +8,5 @@ public class FloorSO : ScriptableObject
 public enum FloorType 
 {
     simpty,
+    none
 }

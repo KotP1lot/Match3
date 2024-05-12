@@ -12,8 +12,7 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         pool = new CustomerPool(poolPos, prefab, 10);
-        EventManager.instance.OnGemDestroy += AddSat;
-        //EventManager.instance.OnChiefBonus += AddSat;
+        EventManager.instance.OnChiefBonus += AddSat;
         EventManager.instance.OnGameStarted += OnGameStartHandler;
     }
     private void OnGameStartHandler()
@@ -45,17 +44,17 @@ public class CustomerManager : MonoBehaviour
     {
         Customer customer = pool.Get();
         customer.transform.SetParent(transform);
-        customer.Setup(Random.Range(minSat,maxSat));
+        customer.Setup(Random.Range(minSat,maxSat), new CustomerType { isMeh = true, isBad = true});
         customer.Spawn();
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
     }
-    private void AddSat(Gem gem) 
+    private void AddSat(GemType type, int value) 
     {
-        satPool += gem.GetScore();
+        satPool += value;
         if (currentCus != null)
         {
-            satPool = currentCus.AddSatisfaction(gem);
+            satPool = currentCus.SatWithFast(type, value);
         }
         UIDebug.Instance.Show("SatPool", $"{satPool}");
     } 

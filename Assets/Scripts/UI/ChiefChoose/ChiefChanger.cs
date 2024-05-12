@@ -26,7 +26,7 @@ public class ChiefChanger : MonoBehaviour
         }
         public List<ChiefRow> GetRows() { return rows; }
     }
-    [SerializeField] ChiefDB chiefDB;
+    [SerializeField] db_Chief chiefDB;
     [SerializeField] ChiefRow prefab;
     private Dictionary<GemType, RowConroler> rows = new Dictionary<GemType, RowConroler>();
     public event Action<ChiefSO> OnChiefChoose;
@@ -34,6 +34,7 @@ public class ChiefChanger : MonoBehaviour
     private ChiefSO chosen;
     public void Setup()
     {
+        chiefDB.Setup();
         RowInit(GemType.fish);
         RowInit(GemType.sweet);
         RowInit(GemType.salad);
@@ -50,7 +51,7 @@ public class ChiefChanger : MonoBehaviour
     private void RowInit(GemType type) 
     {
         RowConroler conroler = new RowConroler();
-        ChiefSO[] chiefs = GetChiefs(type);
+        List<ChiefSO> chiefs = GetChiefs(type);
         foreach (var chief in chiefs)
         {
             ChiefRow row = Instantiate(prefab, transform);
@@ -60,15 +61,15 @@ public class ChiefChanger : MonoBehaviour
         }
         rows.Add(type, conroler);
     }
-    private ChiefSO[] GetChiefs(GemType gemType) 
+    private List<ChiefSO> GetChiefs(GemType gemType) 
     {
-        ChiefSO[] chiefs = gemType switch
+        List<ChiefSO> chiefs = gemType switch
         {
-            GemType.drink => chiefDB.drink,
-            GemType.meat => chiefDB.meat,
-            GemType.fish => chiefDB.fish,
-            GemType.salad => chiefDB.salad,
-            GemType.sweet => chiefDB.sweet,
+            GemType.drink => chiefDB.GetUnlockedChiefsByType(GemType.drink),
+            GemType.meat => chiefDB.GetUnlockedChiefsByType(GemType.meat),
+            GemType.fish => chiefDB.GetUnlockedChiefsByType(GemType.fish),
+            GemType.salad => chiefDB.GetUnlockedChiefsByType(GemType.salad),
+            GemType.sweet => chiefDB.GetUnlockedChiefsByType(GemType.sweet),
             _ => null
         };
         return chiefs;

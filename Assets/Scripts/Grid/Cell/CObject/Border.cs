@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Border : MonoBehaviour
 {
+    public BorderType type;
     public event Action<Direction> OnBorderDestroy;
     private Image image;
     private Sprite[] sprites;
@@ -16,12 +17,13 @@ public class Border : MonoBehaviour
     {
         image = GetComponent<Image>();
     }
-    public void Setup(BorderSO so, Direction dir) 
+    public void Setup(BorderSO so, Direction dir, BorderType type) 
     {
         direction = dir;
         sprites = so.hp_sprites;
         hp = sprites.Length;
         image.sprite = sprites[hp-1];
+        this.type = type;
     }
     public void Subcribe(List<GridCell> cells) 
     {

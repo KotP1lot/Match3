@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.52156866, g: 0.40000004, b: 0.2901961, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf874df4408bf8f48bcd42ec6268be46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Info>k__BackingField: {fileID: 11400000, guid: 3d654c5fe675d6643a2d8c51f5d8911a, type: 2}
-  objectSO: {fileID: 11400000, guid: 3d654c5fe675d6643a2d8c51f5d8911a, type: 2}
+  IsAffectedByGravity: 0
+  sprite: {fileID: 0}
 --- !u!114 &1074610072005192325
 MonoBehaviour:
   m_ObjectHideFlags: 0

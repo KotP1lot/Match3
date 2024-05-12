@@ -1,71 +1,129 @@
+using UnityEditor;
 using UnityEngine;
 
 public class BuilderManager : MonoBehaviour
 {
-    //public LvlSO lvl;
-    //int width = 7;
-    //int height = 7;
-    //private GridObject currentPref;
-    //BGridCell[] visualCell;
-    //BGridCell[,] gridCells;
-    //private void Start()
-    //{
-    //    visualCell = GetComponentsInChildren<BGridCell>();
-    //    gridCells = new BGridCell[width, height];
-    //    int index = 0;
-    //    for (int y = height - 1; y >= 0; y--)
-    //    {
-    //        for (int x = 0; x < width; x++)
-    //        {
-    //            gridCells[x, y] = visualCell[index];
-    //            gridCells[x, y].OnBGCClick += SetObjectToCell;
-    //            gridCells[x, y].SetGridObject(lvl.gridObjects[index]);
-    //            index++;
-    //        }
-    //    }
-    //}
+    public LvlSO lvl;
+    int width = 7;
+    int height = 7;
+    public FloorType floorType;
+    public BorderType borderType;
+    public GemType gemType;
+    private GridObject currentPref;
+    private BGridCell activeCell;
+    BGridCell[] visualCell;
+    BGridCell[,] gridCells;
+    private void Start()
+    {
+        visualCell = GetComponentsInChildren<BGridCell>();
+        gridCells = new BGridCell[width, height];
+        int index = 0;
+        for (int y = height - 1; y >= 0; y--)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                gridCells[x, y] = visualCell[index];
+                gridCells[x, y].OnBGCClick += SetActiveCell;
+                gridCells[x, y].Setup(lvl.cells[index]);
+                index++;
+            }
+        }
+    }
 
-    //private void SetObjectToCell(BGridCell cell)
-    //{
-    //    Debug.Log($"Set");
-    //    cell.SetGridObject(currentPref);
-    //}
-    //public void Clear()
-    //{
-    //    Debug.Log($"Chosen is null");
-    //    currentPref = null;
-    //}
-    //public void ChoosePref(GridObject pref)
-    //{
-    //    Debug.Log($"{pref.name} chosen");
-    //    currentPref = pref;
-    //}
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.S))
-    //    {
-    //        Save();
-    //    }
-    //} 
-
-    //public void Save()
-    //{
-    //    int index = 0;
-    //    Debug.Log("Save");
-    //    for (int y = height - 1; y >= 0; y--)
-    //    {
-    //        for (int x = 0; x < width; x++)
-    //        {
-    //            if (gridCells[x, y].gridObjectPrefab is null)
-    //            {
-    //                lvl.gridObjects[index] = null;
-    //            }
-    //            lvl.gridObjects[index] = gridCells[x, y].gridObjectPrefab;
-    //            index++;
-    //        }
-    //    }
-    //    lvl.S = 69;
-    //    EditorUtility.SetDirty(lvl);
-    //    AssetDatabase.SaveAssets();
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            SetObjectToCell();
+        }
+        if (Input.GetKeyDown(KeyCode.W)) 
+        {
+            AddFloorToCell();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            RemoveFloorInCell();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        {
+            AddBorderToCell(Direction.Left);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            AddBorderToCell(Direction.Top);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            AddBorderToCell(Direction.Right);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4)) 
+        {
+            AddBorderToCell(Direction.Bottom);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            RemoveBorderInCell(Direction.Left);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            RemoveBorderInCell(Direction.Top);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            RemoveBorderInCell(Direction.Right);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            RemoveBorderInCell(Direction.Bottom);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Save();
+        }
+    }
+    private void SetObjectToCell()
+    {
+        activeCell.SetGridObject(currentPref, gemType);
+    }
+    private void AddBorderToCell(Direction dir)
+    {
+        activeCell.AddBorder(dir, borderType);
+    }
+    private void RemoveBorderInCell(Direction dir)
+    {
+        activeCell.RemoveBorder(dir);
+    }
+    private void AddFloorToCell()
+    {
+        activeCell.AddFloor(floorType);
+    }
+    private void RemoveFloorInCell()
+    {
+        activeCell.RemoveFloor();
+    }
+    private void SetActiveCell(BGridCell cell)
+    {
+        activeCell = cell;
+    }
+    public void Clear()
+    {
+        Debug.Log($"Chosen is null");
+        currentPref = null;
+    }
+    public void ChoosePref(GridObject pref)
+    {
+        Debug.Log($"{pref.name} chosen");
+        currentPref = pref;
+    }
+    public void Save()
+    {
+        Debug.Log("Save");
+        lvl.cells = new CelLLvlInfo[49];
+        for (int x = 0; x < 49; x++)
+        {
+            lvl.cells[x] = visualCell[x].GetCellInfo();
+        };
+        EditorUtility.SetDirty(lvl);
+        AssetDatabase.SaveAssets();
+    }
 }

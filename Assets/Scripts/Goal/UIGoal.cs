@@ -5,15 +5,30 @@ using UnityEngine.UI;
 
 public class UIGoal : MonoBehaviour
 {
-   public Goal goal;
+    public Goal goal;
     [SerializeField] TextMeshProUGUI textMeshPro;
     [SerializeField] Image image;
+    [SerializeField] db_GemSO gemSo;
 
-    private void Start()
+    public void Setup(Goal newGoal)
     {
-        goal.OnGoalAchived += Destroy;
+        goal = newGoal;
+        goal.OnGoalAchived += (Goal goal) => Destroy();
         goal.OnGoalStateChanged += TextUpdate;
         TextUpdate(goal.count);
+        SpriteSetup();
+    }
+
+    private void SpriteSetup()
+    {
+        switch (goal.type) 
+        {
+            case GoalType.gem:
+                image.sprite = gemSo.GetIconByType(goal.gemType);
+                break;
+            case GoalType.clean:
+                break;
+        }
     }
 
     private void TextUpdate(int count)
