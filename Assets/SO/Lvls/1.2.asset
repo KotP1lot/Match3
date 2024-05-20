@@ -210,15 +210,24 @@ MonoBehaviour:
     prefab: {fileID: 7383814921043162925, guid: a0a81a755fdef9948b07f718bafc2362, type: 3}
     gemType: 0
   turns:
-    max: 5
-    minFor1Star: 4
-    minFor2Star: 3
-    minFor3Star: 2
+    max: 9
+    minFor1Star: 8
+    minFor2Star: 7
+    minFor3Star: 5
   goals:
   - type: 0
     gemType: 3
     count: 6
-  customers: []
-  moneyFromCustomer: 0
+  customers:
+  - type:
+      isFine: 1
+      isMeh: 0
+      isBad: 0
+    chancePercent: 10
+    bonusPercent: 0
+    minSat: 100
+    maxSat: 150
+  moneyFromCustomer: 15
+  moneyFromLvl: 200
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}

@@ -13,12 +13,12 @@ public class ChiefRow : MonoBehaviour, IPointerClickHandler
     ChiefLvlInfo lvl_Info;
     public event Action<ChiefSO> OnRowClick;
 
-    public void Setup(ChiefSO chief, int lvl = 0) 
+    public void Setup(ChiefPlayerData data) 
     {
-        chiefSO = chief;
-        lvl_Info = chief.GetLvlInfo(lvl);
+        chiefSO = data.chief;
+        lvl_Info = data.chief.GetLvlInfo(data.lvl-1); // HARD CODE
         image.sprite = lvl_Info.sprite;
-        name.text = chief.name;
+        name.text = data.chief.name;
         string description = $"Bonus: {lvl_Info.yumyBonus}\n" +
             $"Ultimative: {chiefSO.bgType}\n" +
             $"Count to charge: {lvl_Info.countToUltimate}";

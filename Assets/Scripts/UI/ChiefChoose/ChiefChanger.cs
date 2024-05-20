@@ -34,7 +34,6 @@ public class ChiefChanger : MonoBehaviour
     private ChiefSO chosen;
     public void Setup()
     {
-        chiefDB.Setup();
         RowInit(GemType.fish);
         RowInit(GemType.sweet);
         RowInit(GemType.salad);
@@ -48,10 +47,10 @@ public class ChiefChanger : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void RowInit(GemType type) 
+    private void RowInit(GemType type)
     {
         RowConroler conroler = new RowConroler();
-        List<ChiefSO> chiefs = GetChiefs(type);
+        List<ChiefPlayerData> chiefs = GetChiefs(type);
         foreach (var chief in chiefs)
         {
             ChiefRow row = Instantiate(prefab, transform);
@@ -61,9 +60,9 @@ public class ChiefChanger : MonoBehaviour
         }
         rows.Add(type, conroler);
     }
-    private List<ChiefSO> GetChiefs(GemType gemType) 
+    private List<ChiefPlayerData> GetChiefs(GemType gemType)
     {
-        List<ChiefSO> chiefs = gemType switch
+        List<ChiefPlayerData> chiefs = gemType switch
         {
             GemType.drink => chiefDB.GetUnlockedChiefsByType(GemType.drink),
             GemType.meat => chiefDB.GetUnlockedChiefsByType(GemType.meat),

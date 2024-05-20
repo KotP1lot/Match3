@@ -1,47 +1,79 @@
 using UnityEngine;
 using System;
 
-public class EnergyManager: MonoBehaviour
+public class EnergyManager : MonoBehaviour
 {
-    public int Energy { get; private set; }
-    private int energyRecoveryTime;
-    private int maxEnergy;
-    private DateTime nextRecoveryDate;
-    private DateTime curentTimer;
+    public event Action OnTimeChanged;
+    public event Action OnEnergyCharged;
+    public event Action OnEnergyChanged;
+    public EnergySO energySO;
+    private bool isCharging;
+    private bool delete;
 
-    public void Setup(EnergySO so)
+    // Залишений час до наступного поповнення енергії
+
+    private void Awake()
     {
-        energyRecoveryTime = so.energyRecoveryTime;
-        maxEnergy = so.maxEnergy;
-        if (Energy < maxEnergy)
+        energySO.OnSetup += Setup;
+        energySO.Load();
+        energySO.Setup();
+    }
+
+    private void Setup()
+    {
+        if (energySO.energy < energySO.maxEnergy)
         {
-            int spended = DateTime.Now.Second - nextRecoveryDate.Second;
-            int energyCharged = Mathf.Clamp(spended / energyRecoveryTime, 0, maxEnergy - Energy);
-            AddEnergy(energyCharged);
-            if (Energy != maxEnergy)
+            isCharging = true;
+            InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Виклик методу кожну секунду
+        }
+        else
+        {
+            OnEnergyCharged?.Invoke();
+        }
+    }
+
+    private void UpdateEnergy()
+    {
+        energySO.timeLeftToRecharge -= 1; // Зменшуємо час до поповнення енергії на одну секунду
+        OnTimeChanged?.Invoke();
+
+        if (energySO.timeLeftToRecharge <= 0)
+        {
+            energySO.AddEnergy(1);
+            energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
+            OnEnergyChanged?.Invoke();
+
+            if (energySO.energy >= energySO.maxEnergy)
             {
-                nextRecoveryDate = DateTime.Now.AddSeconds(spended % energyRecoveryTime);
+                isCharging = false;
+                CancelInvoke(nameof(UpdateEnergy)); // Скасувати виклик методу, коли енергія досягнута максимуму
+                OnEnergyCharged?.Invoke();
             }
         }
     }
-    private void UpdateTime() 
+    private void Update()
     {
-        curentTimer = DateTime.Now;
-        nextRecoveryDate.AddSeconds(energyRecoveryTime);
-       // InvokeRepeating(nameof(RegenerateEnergy), interval, interval);
+        if (Input.GetKeyDown(KeyCode.Q)) delete = true;
+        if (Input.GetKeyDown(KeyCode.Space)) SpendEnergy();
     }
-    public void AddEnergy(int value) 
+    public void SpendEnergy()
     {
-        if(Energy + value >= maxEnergy) Energy = maxEnergy;
-        Energy += value;
+        if (energySO.SpendEnergy(1))
+        {
+            if (!isCharging)
+            {
+                isCharging = true;
+                energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
+                InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Почати відлік, якщо енергія була витрачена і вона не досягла максимуму
+            }
+            OnEnergyChanged?.Invoke();
+        }
     }
-    public void SetEnergyFull() => Energy = maxEnergy;
-    public void Save() 
+
+    private void OnDisable()
     {
-    
+        if (!delete) energySO.Save();
+        else energySO.Clear();
     }
-    public void Load() 
-    {
-    
-    }
+    public int GetEnergy() => energySO.energy;
 }

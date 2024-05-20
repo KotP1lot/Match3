@@ -4,15 +4,24 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class LvlSO : ScriptableObject
 {
+    public MonthType Month;
+    public int Day;
     public CelLLvlInfo[] cells;
     public TurnInfo turns;
     public GoalInfo[] goals;
     public CustomerInfo[] customers;
     public int moneyFromCustomer;
+    public int moneyFromLvl;
     public RecomededChief[] recChiefs;
     public ChiefSO unlockChief;
     //Тутор
     //Діалог
+}
+public enum MonthType 
+{
+    cherven,
+    lupen,
+    serpen
 }
 [Serializable]
 public struct CustomerInfo 
@@ -20,6 +29,8 @@ public struct CustomerInfo
     public CustomerType type;
     public int chancePercent;
     public int bonusPercent;
+    public int minSat;
+    public int maxSat;
 }
 [Serializable]
 public struct CustomerType

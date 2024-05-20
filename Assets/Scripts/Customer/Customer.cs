@@ -12,9 +12,19 @@ public class Customer : MonoBehaviour
     [SerializeField] UIFast UIfast;
     int necessarySat;
     int currentSat;
+    public int bonus;
     public void Start()
     {
         statusBar.OnComplited += MoveOut;
+    }
+    public void Setup(CustomerInfo customerInfo)
+    {
+        necessarySat = UnityEngine.Random.Range(customerInfo.minSat, customerInfo.maxSat);
+        bonus = customerInfo.bonusPercent;
+        statusBar.Setup(necessarySat);
+        fastManager = new FastManager();
+        fastManager.Setup(customerInfo.type);
+        UIfast.Setup(fastManager.fastidiousnesses);
     }
     public void Setup(int necessarySat, CustomerType customer = new())
     {

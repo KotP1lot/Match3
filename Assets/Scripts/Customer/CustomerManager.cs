@@ -5,10 +5,11 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] Transform poolPos;
     [SerializeField] Customer prefab;
     private CustomerPool pool;
-    private int minSat;
-    private int maxSat;
     private int satPool;
     private Customer currentCus;
+    int moneyFromCustomer;
+    CustomerInfo[] customerInfo;
+    public int totalMoney = 0;
     void Start()
     {
         pool = new CustomerPool(poolPos, prefab, 10);
@@ -19,10 +20,10 @@ public class CustomerManager : MonoBehaviour
     {
         SpawnNewCustomer();
     }
-    public void Setup(int minSat, int maxSat) 
+    public void Setup(CustomerInfo[] customer, int moneyFromCustomer)
     {
-        this.minSat = minSat;
-        this.maxSat = maxSat;
+        this.customerInfo = customer;
+        this.moneyFromCustomer = moneyFromCustomer;
     }
     private void OnCusReadyHandler(Customer customer) 
     {
@@ -35,6 +36,7 @@ public class CustomerManager : MonoBehaviour
     }
     private void OnCusSatHandler(Customer customer) 
     {
+        totalMoney += moneyFromCustomer + (moneyFromCustomer * customer.bonus / 100);
         customer.OnCustomerSatisfied -= OnCusSatHandler;
         customer.OnCustomerReady -= OnCusReadyHandler;
         currentCus = null;
@@ -44,10 +46,29 @@ public class CustomerManager : MonoBehaviour
     {
         Customer customer = pool.Get();
         customer.transform.SetParent(transform);
-        customer.Setup(Random.Range(minSat,maxSat), new CustomerType { isMeh = true, isBad = true});
+        customer.Setup(GetCustomerInfo());
         customer.Spawn();
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
+    }
+    private CustomerInfo GetCustomerInfo()
+    {
+        int totalChance = 0;
+        foreach (var info in customerInfo)
+        {
+            totalChance += info.chancePercent;
+        }
+        int randomNum = Random.Range(0, totalChance);
+        int cumulativeChance = 0;
+        foreach (var info in customerInfo)
+        {
+            cumulativeChance += info.chancePercent;
+            if (randomNum < cumulativeChance)
+            {
+                return info;
+            }
+        }
+        return customerInfo[0];
     }
     private void AddSat(GemType type, int value) 
     {

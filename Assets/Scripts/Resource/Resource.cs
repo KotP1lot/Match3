@@ -1,9 +1,11 @@
 using System;
+using UnityEngine;
 
+[Serializable]
 public class Resource 
 {
     public event Action OnResourceChanged;
-    public int Amount { get; private set; }
+    [field:SerializeField] public int Amount { get; private set; }
     public void AddAmount(int value) 
     {
         Amount += value;

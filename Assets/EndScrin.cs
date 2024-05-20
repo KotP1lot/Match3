@@ -1,19 +1,34 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndScrin : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI statText;
+    [SerializeField] TextMeshProUGUI star;
+    [SerializeField] TextMeshProUGUI money;
+    [SerializeField] Image continueBtn;
     [SerializeField] Game game;
-    public void ShowStat(string stat) 
+    private void Start()
+    {
+        EventManager.instance.OnAllGoalAchived += Show;
+        gameObject.SetActive(false);
+    }
+
+    private void Show()
     {
         gameObject.SetActive(true);
-        statText.text = stat;
+        int stars = game.turnManager.GetStars();
+        star.text += stars.ToString();
+        money.text += "багацько";
+        if (stars == 0) 
+        {
+            continueBtn.gameObject.SetActive(false); 
+        }
     }
     public void StartNewGame() 
     {
-        gameObject.SetActive(false);
         SceneManager.LoadScene(0);
     }
 }

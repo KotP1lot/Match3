@@ -13,18 +13,17 @@ public class ChiefSO : ScriptableObject
         foreach (var lvlInfo in lvlInfo)
         {
             if (lvlInfo.lvl == lvl)
-            {
                 return lvlInfo;
-            }
         }
-        return new ChiefLvlInfo();
+        return null;
     }
 }
 [Serializable]
-public struct ChiefLvlInfo
+public class ChiefLvlInfo
 {
     public int lvl;
     public Sprite sprite;
     public int yumyBonus;
     public int countToUltimate;
+    public int lvlCost;
 }

@@ -23,7 +23,6 @@ public class LineDestroyer : ActivableObject
     }
     override public void OnGemsDestroyInNeighboringCells()
     {
-        Debug.Log("Tik-Line");
         if (isReady)
         {
             isReady = false;
@@ -32,7 +31,6 @@ public class LineDestroyer : ActivableObject
             {
                 PredictionActivate();
             }
-            Debug.Log("Tack");
         }
     }
     override public void PredictionActivate()

@@ -12,16 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674073c038488f94a825b9d95856f5a3, type: 3}
   m_Name: db_ChiefSo
   m_EditorClassIdentifier: 
-  unlocked:
-  - {fileID: 11400000, guid: 7448ff84c3da3fe499d0aa1f1ad4d204, type: 2}
   all:
   - {fileID: 11400000, guid: 7448ff84c3da3fe499d0aa1f1ad4d204, type: 2}
   - {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
   - {fileID: 11400000, guid: af34098a6de7fa9439af908b46868fac, type: 2}
   - {fileID: 11400000, guid: f03f307eed8ca204588794570484228d, type: 2}
   - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
-  notUnlocked:
-  - {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
-  - {fileID: 11400000, guid: af34098a6de7fa9439af908b46868fac, type: 2}
-  - {fileID: 11400000, guid: f03f307eed8ca204588794570484228d, type: 2}
   - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+  - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+  - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+  - {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+  playerChief:
+  - chief: {fileID: 11400000, guid: 7448ff84c3da3fe499d0aa1f1ad4d204, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: af34098a6de7fa9439af908b46868fac, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: f03f307eed8ca204588794570484228d, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+    lvl: 0
+    unlocked: 0
+  - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+    lvl: 0
+    unlocked: 1
+  - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
+    lvl: 0
+    unlocked: 0

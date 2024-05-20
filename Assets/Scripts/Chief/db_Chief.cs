@@ -2,58 +2,89 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu()]
-public class db_Chief : ScriptableObject
+public class db_Chief : ISaveLoadSO
 {
-    public List<ChiefSO> unlocked;
     public List<ChiefSO> all;
-    public List<ChiefSO> notUnlocked;
-    [Serializable]
-    class UnlockedChiefData
-    {
-        public List<ChiefSO> unlocked;
-    }
+    public List<ChiefPlayerData> playerChief;
+    private List<ChiefPlayerData> loadedData;
     public void UnlockChief(ChiefSO chief)
     {
-        if (unlocked.Contains(chief)) return;
-        unlocked.Add(chief);
-        notUnlocked.Remove(chief);
+        if (playerChief.Find(x => x.chief == chief) == null) return;
+        ChiefPlayerData data = playerChief.Find(x => x.chief == chief);
+        data.unlocked = true;
+        data.lvl = 0;
         Save();
     }
-    public List<ChiefSO> GetUnlockedChiefsByType(GemType gem)
+    public void UpdateChiefData(ChiefSO chief, int lvl) 
     {
-        return unlocked.FindAll(chief => chief.gemType == gem);
+        if (playerChief.Find(x => x.chief == chief) == null) return;
+        ChiefPlayerData data = playerChief.Find(x => x.chief == chief);
+        data.lvl = lvl;
+        Save();
     }
-    public List<ChiefSO> GetChiefsByType(GemType gem) 
+    public List<ChiefPlayerData> GetUnlockedChiefsByType(GemType gem)
     {
-        return all.FindAll(chief => chief.gemType == gem);
+        return playerChief.FindAll(x => x.chief.gemType == gem && x.unlocked);
     }
-    private List<ChiefSO> GetAllNotUnlocked()
+    public List<ChiefPlayerData> GetChiefsByType(GemType gem)
     {
-        List<ChiefSO> notUnlocked = new List<ChiefSO>();
-        foreach (var chief in all)
+        return playerChief.FindAll(x => x.chief.gemType == gem);
+    }
+    private List<ChiefPlayerData> GetAllNotUnlocked(GemType gem)
+    {
+        return playerChief.FindAll(x => x.chief.gemType == gem && !x.unlocked);
+    }
+    override public void Setup()
+    {
+        playerChief.Clear();
+        for (int i = 0; i < all.Count; i++)
         {
-            if (!unlocked.Contains(chief))
+            playerChief.Add(new() { chief = all[i], lvl = 0, unlocked = false });
+        }
+        if (loadedData == null) return;
+        foreach (var load in loadedData)
+        {
+            if (playerChief.Find(x => x.chief == load.chief) != null)
             {
-                notUnlocked.Add(chief);
+                ChiefPlayerData data = playerChief.Find(x => x.chief == load.chief);
+                data.lvl = load.lvl;
+                data.unlocked = load.unlocked;
             }
         }
-        return notUnlocked;
     }
-    public void Setup() 
+    override public void Save()
     {
-        Load();
-        notUnlocked = GetAllNotUnlocked();
-    }
-    public void Save() 
-    {
-        string chiefs = JsonUtility.ToJson(new UnlockedChiefData() {unlocked = unlocked});
-        PlayerPrefs.SetString("UnlockedChief", chiefs);
+        string chiefs = JsonUtility.ToJson(new ChiefsPlayerDataSave() { chiefs = playerChief });
+        PlayerPrefs.SetString("UnlockChief", chiefs);
         Debug.Log(chiefs);
     }
-    public void Load() 
+    override public void Load()
     {
-        string chiefs = PlayerPrefs.GetString("UnlockedChief");
-        UnlockedChiefData data = JsonUtility.FromJson<UnlockedChiefData>(chiefs);
-        unlocked = data.unlocked; 
+        loadedData = null;
+        string chiefs = PlayerPrefs.GetString("UnlockChief");
+        ChiefsPlayerDataSave data = JsonUtility.FromJson<ChiefsPlayerDataSave>(chiefs);
+        if (data == null) return;
+        loadedData = data.chiefs;
     }
+    public override void SaveGameStat(GameStat stat)
+    {
+        UnlockChief(stat.lvl.unlockChief);
+    }
+    public override void Clear()
+    {
+        loadedData = null;
+        playerChief.Clear();
+        PlayerPrefs.DeleteKey("UnlockChief");
+    }
+}
+public class ChiefsPlayerDataSave
+{
+    public List<ChiefPlayerData> chiefs;
+}
+[Serializable]
+public class ChiefPlayerData
+{
+    public ChiefSO chief;
+    public int lvl;
+    public bool unlocked;
 }
