@@ -4,10 +4,16 @@ using UnityEngine.UI;
 
 public class StartLvl : MonoBehaviour
 {
-    [SerializeField] Image openBtn;
+    [SerializeField] Transform openBtn;
+    [SerializeField] RectTransform goalManager;
+    [SerializeField] RectTransform customerBar;
     public void StartLvlBtn() 
     {
-        openBtn.transform.DOLocalMoveY(1970f, 2f).SetEase(Ease.InOutBack);
+        GetComponent<Image>().enabled = false;
+        openBtn.DOLocalMoveY(1970f, 2f).SetEase(Ease.InOutBack);
+        goalManager.DOAnchorPosY(-20f, 2f).SetEase(Ease.InOutBack);
+        customerBar.DOAnchorPosX(20f, 2f).SetEase(Ease.InOutBack);
+    
         //EventManager.instance.OnGameStarted?.Invoke();
         //gameObject.SetActive(false);
     }
