@@ -1,6 +1,3 @@
-using DG.Tweening;
-using Unity.VisualScripting;
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

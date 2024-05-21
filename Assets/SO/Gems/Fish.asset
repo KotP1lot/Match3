@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   type: 0
-  sprite: {fileID: 21300000, guid: 06580e20d758e5e4fad516f3baf75998, type: 3}
-  doubleSprite: {fileID: 0}
-  icon: {fileID: 21300000, guid: 06580e20d758e5e4fad516f3baf75998, type: 3}
+  sprite: {fileID: 21300000, guid: 24fcc5ed43354ef41b320a3324c073cd, type: 3}
+  doubleSprite: {fileID: 21300000, guid: 24fcc5ed43354ef41b320a3324c073cd, type: 3}
+  icon: {fileID: 21300000, guid: 24fcc5ed43354ef41b320a3324c073cd, type: 3}
   score: 10

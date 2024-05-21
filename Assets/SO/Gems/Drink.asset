@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Drink
   m_EditorClassIdentifier: 
   type: 4
-  sprite: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
-  doubleSprite: {fileID: 0}
-  icon: {fileID: 21300000, guid: 66af2db43a818d444aba49b37981100b, type: 3}
+  sprite: {fileID: 21300000, guid: 22c64b27f69b508448b5d6b88ef06453, type: 3}
+  doubleSprite: {fileID: 21300000, guid: 22c64b27f69b508448b5d6b88ef06453, type: 3}
+  icon: {fileID: 21300000, guid: 22c64b27f69b508448b5d6b88ef06453, type: 3}
   score: 10

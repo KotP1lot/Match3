@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   type: 1
-  sprite: {fileID: 21300000, guid: 23740bdd83edd4149845ff9d78dc9739, type: 3}
-  doubleSprite: {fileID: 0}
-  icon: {fileID: 21300000, guid: 23740bdd83edd4149845ff9d78dc9739, type: 3}
+  sprite: {fileID: 21300000, guid: 16bb381aaab6d824b87860c6f6d237d9, type: 3}
+  doubleSprite: {fileID: 21300000, guid: 16bb381aaab6d824b87860c6f6d237d9, type: 3}
+  icon: {fileID: 21300000, guid: 16bb381aaab6d824b87860c6f6d237d9, type: 3}
   score: 10

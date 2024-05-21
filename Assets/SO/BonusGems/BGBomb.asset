@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: BGBomb
   m_EditorClassIdentifier: 
   sprites:
-  - sprite: {fileID: 21300000, guid: 1cbebba16948d044fa3a5e272fb5b81d, type: 3}
+  - sprite: {fileID: 21300000, guid: 1e43678831d46da4190f20048305913c, type: 3}
     gemType: 4
-  - sprite: {fileID: 21300000, guid: adbb4e6b707a8a0479b9817f62c079a8, type: 3}
+  - sprite: {fileID: 21300000, guid: 8007afbcff640474081c94c1369baeb9, type: 3}
     gemType: 0
-  - sprite: {fileID: 21300000, guid: 8fed827e70bd1a44b84fcfad33331b7f, type: 3}
+  - sprite: {fileID: 21300000, guid: 5e4b45452ba651e459e92f29a07ca16d, type: 3}
     gemType: 1
-  - sprite: {fileID: 21300000, guid: 77243766c32cdb94387a8ba6bb585c83, type: 3}
+  - sprite: {fileID: 21300000, guid: a76be2bb730ebdd4a80d38c15db3571a, type: 3}
     gemType: 2
-  - sprite: {fileID: 21300000, guid: ff395bccc9c74a44f8a6176bff5c8c73, type: 3}
+  - sprite: {fileID: 21300000, guid: cfd776722012db94a91ddf68fef3a6cd, type: 3}
     gemType: 3
   lvlInfo:
   - lvl: 0
