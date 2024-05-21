@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76b53eed44dbf654ba0321b5c5e47858
+guid: a60d9e9c144bf2743a8a3b52306c29b2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,22 +34,22 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 749, z: 0, w: 215}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,22 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartBtn 1_0
+      name: Stil_0
       rect:
         serializedVersion: 2
-        x: 242
-        y: 315
-        width: 640
-        height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 150, y: 434, z: 156, w: 0}
+        x: 168
+        y: 111
+        width: 720
+        height: 795
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c63d93f18566f64ebb4fdfad0b778a9
-      internalID: -859629478
+      spriteID: b4271dba12e341740a432d24870630b6
+      internalID: 632699334
       vertices: []
       indices: 
       edges: []
@@ -147,14 +147,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      StartBtn 1_0: -859629478
+      Stil_0: 632699334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76b53eed44dbf654ba0321b5c5e47858
+guid: 853ef83b495e86b4d9cc23532e44e5cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,19 +37,19 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 749, z: 0, w: 215}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -123,22 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartBtn 1_0
+      name: ChiefsTable_0
       rect:
         serializedVersion: 2
-        x: 242
-        y: 315
-        width: 640
-        height: 476
+        x: 75
+        y: 1140
+        width: 157
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 150, y: 434, z: 156, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c63d93f18566f64ebb4fdfad0b778a9
-      internalID: -859629478
+      spriteID: 8116bfcc5cacdf54a87f8738454d88c9
+      internalID: 1441433187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChiefsTable_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1145
+        width: 139
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c874db81200b3d4c80284a6fa20cd32
+      internalID: -95988458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChiefsTable_2
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1146
+        width: 128
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d1247bef9c94c47aeb4906c079f0f2
+      internalID: 677447977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChiefsTable_3
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 1140
+        width: 136
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac47d2af27213b248b9c0a3062083db5
+      internalID: -732354034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChiefsTable_4
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1144
+        width: 156
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2576a3f94123438459f749ffffa1404e
+      internalID: -1892222360
       vertices: []
       indices: 
       edges: []
@@ -147,14 +231,18 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      StartBtn 1_0: -859629478
+      ChiefsTable_0: 1441433187
+      ChiefsTable_1: -95988458
+      ChiefsTable_2: 677447977
+      ChiefsTable_3: -732354034
+      ChiefsTable_4: -1892222360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
