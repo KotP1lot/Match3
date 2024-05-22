@@ -9,14 +9,14 @@ public class Goal
     public int count;
     public int currentCount;
     public GemType gemType;
-    virtual public void Setup(GoalType type, int count, GemType gem = GemType.fish) 
+    virtual public void Setup(GoalType type, int count, GemType gem = GemType.fish, bool subcribe = true) 
     {
         this.type = type;
         this.count = count;
         gemType = gem;
         isDone = false;
         currentCount = count;
-        Subcribe();
+        if(subcribe)Subcribe();
     }
     virtual public void Setup()
     {

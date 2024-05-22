@@ -13,9 +13,9 @@ public class TurnManager
     }
     public int GetStars()
     {
-        if (curentTurn <= turnInfo.minFor3Star) return 3;
-        else if (curentTurn <= turnInfo.minFor2Star) return 2;
-        else if (curentTurn <= turnInfo.minFor1Star) return 1;
+        if (curentTurn <= turnInfo.turnForStar[0]) return 3;
+        else if (curentTurn <= turnInfo.turnForStar[1]) return 2;
+        else if (curentTurn <= turnInfo.turnForStar[2]) return 1;
         else return 0;
     }
     private void Subcribe() 
@@ -35,9 +35,9 @@ public class TurnManager
     private void OnTurnEndedHandler() 
     {
         curentTurn++;
-        if (curentTurn >= turnInfo.minFor3Star) OnStartInfoChanged?.Invoke(2);
-        else if (curentTurn >= turnInfo.minFor2Star) OnStartInfoChanged?.Invoke(1);
-        else if (curentTurn >= turnInfo.minFor1Star) OnStartInfoChanged?.Invoke(0);
+        if (curentTurn >= turnInfo.turnForStar[2]) OnStartInfoChanged?.Invoke(2);
+        else if (curentTurn >= turnInfo.turnForStar[1]) OnStartInfoChanged?.Invoke(1);
+        else if (curentTurn >= turnInfo.turnForStar[0]) OnStartInfoChanged?.Invoke(0);
         if (curentTurn > turnInfo.max) 
         {
             OnTurnsEnded?.Invoke();

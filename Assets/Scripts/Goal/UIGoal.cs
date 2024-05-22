@@ -16,12 +16,11 @@ public class UIGoal : MonoBehaviour
         goal.OnGoalAchived += (Goal goal) => Destroy();
         goal.OnGoalStateChanged += TextUpdate;
         TextUpdate(goal.count);
-        SpriteSetup();
+        SpriteSetup(goal.type);
     }
-
-    private void SpriteSetup()
+    private void SpriteSetup(GoalType type)
     {
-        switch (goal.type) 
+        switch (type) 
         {
             case GoalType.gem:
                 image.sprite = gemSo.GetIconByType(goal.gemType);

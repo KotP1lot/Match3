@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LvlSelector : MonoBehaviour
@@ -12,8 +11,10 @@ public class LvlSelector : MonoBehaviour
     [SerializeField] db_LvlSo db;
     [SerializeField] EnergyManager energyManager;
     [SerializeField] Image recoveryEnergy;
+    [SerializeField] UIStatLvl stat;
     [SerializeField] TextMeshProUGUI monthTxt;
     [SerializeField] List<MonthInfo> monthInfo;
+
     [SerializeField] Button left;
     [SerializeField] Button right;
     private MonthType[] monthTypes = (MonthType[]) Enum.GetValues(typeof(MonthType));
@@ -42,18 +43,10 @@ public class LvlSelector : MonoBehaviour
             lvl.OnLvlClick -= OnLvlClick;
         }
     }
-    private void OnLvlClick(LvlPlayerData data) 
+    private void OnLvlClick(LvlPlayerData data)
     {
-        if (energyManager.GetEnergy() > 0)
-        {
-            energyManager.SpendEnergy();
-            LvL = data;
-            SceneManager.LoadScene(0);
-        }
-        else 
-        {
-            recoveryEnergy.gameObject.SetActive(true);
-        }
+        stat.Setup(data);
+        LvL = data;
     }
     private void ChangeMonthInfo() 
     {

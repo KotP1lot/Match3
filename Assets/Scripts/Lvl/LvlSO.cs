@@ -64,9 +64,7 @@ public struct CelLLvlInfo
 public struct TurnInfo 
 {
     public int max;
-    public int minFor1Star;
-    public int minFor2Star;
-    public int minFor3Star;
+    public int[] turnForStar;
 }
 [Serializable]
 public struct BorderNDirection 

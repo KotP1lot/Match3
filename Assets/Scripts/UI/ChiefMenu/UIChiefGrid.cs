@@ -7,9 +7,11 @@ public class UIChiefGrid : MonoBehaviour
     [SerializeField] UITypeLine typeLine;
     [SerializeField] UIChiefCard card;
     [SerializeField] UIStatChief stat;
+    private GemType currType;
     List<UIChiefCard> cards = new();
     public void Start() 
     {
+        stat.OnStatClose += UpdateShow;
         for (int i = 0; i < 9; i++)
         {
             UIChiefCard newCard = Instantiate(card, transform);
@@ -20,10 +22,13 @@ public class UIChiefGrid : MonoBehaviour
         typeLine.OnTypeClick += ShowType;
         typeLine.Setup();
     }
-
+    private void UpdateShow() 
+    {
+        ShowType(currType);
+    }
     private void ShowType(GemType type)
     {
-        Debug.Log("safasf");
+        currType = type;
         List<ChiefPlayerData> playerData = db.GetChiefsByType(type);
         for (int i = 0; i < 9; i++) 
         {

@@ -37,6 +37,7 @@ public class UIChiefCard : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!isUnlocked) return;
+        Debug.Log(data);
         OnOpenChief?.Invoke(data);
     }
 }

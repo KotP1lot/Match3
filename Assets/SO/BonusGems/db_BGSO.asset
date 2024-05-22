@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e490dbc281781af46aeb5feabe2fb8c2, type: 3}
+  m_Name: db_BGSO
+  m_EditorClassIdentifier: 
+  bonusGems:
+  - {fileID: 11400000, guid: 66ac2364aab9a564c8323456dba3432d, type: 2}
+  - {fileID: 11400000, guid: 2d7de32eff9452046bef86a5e97aca7c, type: 2}
+  - {fileID: 11400000, guid: 37fd9dd573728a94ebfe1776627aeabf, type: 2}

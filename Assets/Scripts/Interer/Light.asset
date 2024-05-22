@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259b583aca9d8df47b218e6c8394332f, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  type: 0
+  lvlInfo:
+  - cost: 0
+    lvl: 0
+    bonus: 0
+    sprites:
+    - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
+    - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
+    - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
+  - cost: 0
+    lvl: 1
+    bonus: 0
+    sprites:
+    - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
+    - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
+    - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
+  - cost: 0
+    lvl: 2
+    bonus: 0
+    sprites:
+    - {fileID: 21300000, guid: 140e4c894d3161e418cb3379ba1b4677, type: 3}
+    - {fileID: 21300000, guid: 140e4c894d3161e418cb3379ba1b4677, type: 3}
+    - {fileID: 21300000, guid: 140e4c894d3161e418cb3379ba1b4677, type: 3}
