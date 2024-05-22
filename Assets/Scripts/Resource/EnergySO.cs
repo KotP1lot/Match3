@@ -16,6 +16,9 @@ public class EnergySO : ISaveLoadSO
     public override void Clear()
     {
         PlayerPrefs.DeleteKey("PlayerEnergy");
+        energy = 1;
+        maxEnergy = 15;
+        timeLeftToRecharge = energyRecoveryTime;
     }
 
     public override void Setup()
@@ -46,7 +49,8 @@ public class EnergySO : ISaveLoadSO
         else
         {
             energy = 1;
-            timeLeftToRecharge = energyRecoveryTime;
+            maxEnergy = 15;
+           timeLeftToRecharge = energyRecoveryTime;
         }
 
         OnSetup?.Invoke();
@@ -67,7 +71,11 @@ public class EnergySO : ISaveLoadSO
         Save();
         return true;
     }
-
+    public void AddMaxEnergy(int value) 
+    {
+        maxEnergy += value;
+        Save();
+    }
     public override void Load()
     {
         string strData = PlayerPrefs.GetString("PlayerEnergy");

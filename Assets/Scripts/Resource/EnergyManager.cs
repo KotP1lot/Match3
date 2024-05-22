@@ -15,8 +15,6 @@ public class EnergyManager : MonoBehaviour
     private void Awake()
     {
         energySO.OnSetup += Setup;
-        energySO.Load();
-        energySO.Setup();
     }
 
     private void Setup()
@@ -54,11 +52,11 @@ public class EnergyManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) delete = true;
-        if (Input.GetKeyDown(KeyCode.Space)) SpendEnergy();
+        if (Input.GetKeyDown(KeyCode.Space)) SpendEnergy(2);
     }
-    public void SpendEnergy()
+    public void SpendEnergy(int value)
     {
-        if (energySO.SpendEnergy(1))
+        if (energySO.SpendEnergy(value))
         {
             if (!isCharging)
             {
@@ -68,6 +66,17 @@ public class EnergyManager : MonoBehaviour
             }
             OnEnergyChanged?.Invoke();
         }
+    }
+    public void AddMaxEnergy(int value) 
+    { 
+        energySO.AddMaxEnergy(value);
+        if (energySO.energy < energySO.maxEnergy && !isCharging)
+        {
+            isCharging = true;
+            energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
+            InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Виклик методу кожну секунду
+        }
+        OnEnergyChanged?.Invoke();
     }
 
     private void OnDisable()

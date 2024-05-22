@@ -36,6 +36,10 @@ public class LvlSelector : MonoBehaviour
             lvl.OnLvlClick += OnLvlClick;
         }
     }
+    private void OnEnable()
+    {
+        Subscribe();
+    }
     private void OnDisable()
     {
         foreach (LvlBtn lvl in lvls)
@@ -45,6 +49,7 @@ public class LvlSelector : MonoBehaviour
     }
     private void OnLvlClick(LvlPlayerData data)
     {
+        Debug.Log("adgfasfadgibsdfjashgijsgbiadsghai");
         stat.Setup(data);
         LvL = data;
     }

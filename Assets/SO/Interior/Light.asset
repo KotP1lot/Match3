@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259b583aca9d8df47b218e6c8394332f, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   lvlInfo:
   - cost: 0
     lvl: 0

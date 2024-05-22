@@ -8,14 +8,13 @@ public class InteriorSO : ScriptableObject
     public List<InteriorLvlInfo> lvlInfo;
     public InteriorLvlInfo GetLvlInfo(int lvl) 
     {
-        return lvlInfo.Find(x => x.lvl == lvl);
+        return lvlInfo[lvl];
     }
 }
 [Serializable]
 public struct InteriorLvlInfo
 {
     public int cost;
-    public int lvl;
     public int bonus;
     public Sprite[] sprites;
 }

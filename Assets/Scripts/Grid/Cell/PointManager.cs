@@ -15,16 +15,16 @@ public class PointManager : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Down();
+        Down?.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Enter();
+        Enter?.Invoke();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Up();
+        Up?.Invoke();
     }
 }

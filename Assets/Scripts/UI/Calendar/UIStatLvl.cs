@@ -26,6 +26,7 @@ public class UIStatLvl : MonoBehaviour
 
     public void Setup(LvlPlayerData data) 
     {
+
         day.text = data.lvl.Day.ToString();
         month.text = data.lvl.Month.ToString();
         goals.Setup(data.lvl.goals);

@@ -1,52 +1,85 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 [CreateAssetMenu()]
 public class db_Interior : ISaveLoadSO
 {
-    [SerializeField]public List<InteriorSO> interiors;
+    [SerializeField] List<InteriorSO> interiorSO;
     [SerializeField]public List<PlayerInteriorData> data;
+    [SerializeField] public BonusSO bonus;
+    PlayerInteriorDataSave loadedData;
+   public Action OnDataUpdate;
 
-    public InteriorLvlInfo GetInteriorByType(InteriorType type, int lvl) 
+    public void UpgradeType(InteriorType type) 
     {
-        return interiors.Find(x => x.type == type).GetLvlInfo(lvl);
+        PlayerInteriorData data = GetPlayerDataByType(type);
+        data.lvl++;
+        OnDataUpdate?.Invoke();
+        Save();
     }
-    public InteriorLvlInfo GetCurrentInteriorByType(InteriorType type) 
+    public void ChangeCurrSpriteByType(InteriorType type, int curr) 
     {
-        int lvl = GetPlayerDataByType(type).lvl;
-        return interiors.Find(x => x.type == type).GetLvlInfo(lvl);
+        PlayerInteriorData data = GetPlayerDataByType(type);
+        data.currSprite = curr;
+        OnDataUpdate?.Invoke();
+        Save();
     }
     public PlayerInteriorData GetPlayerDataByType(InteriorType type) 
     {
         return data.Find(x => x.type == type);
     }
-    public Sprite GetCurrentFurnitureByType(InteriorType type) 
+    public override void Clear()
     {
-        PlayerInteriorData data = GetPlayerDataByType(type);
-        InteriorLvlInfo lvlInfo = GetCurrentInteriorByType(type);
-        return lvlInfo.sprites[data.currSprite];
+        PlayerPrefs.DeleteKey("PlayerInterier");
+    }
+    public override void Setup()
+    {
+        if (loadedData == null)
+        {
+            data = new()
+            {
+            new(){ type = InteriorType.stul, currSprite= 0, lvl = 0 },
+            new(){ type = InteriorType.stil, currSprite= 0, lvl = 0 },
+            new(){ type = InteriorType.light, currSprite= 0, lvl = 0 }
+            };
+        }
+        else
+        {
+            data = loadedData.data;
+        }
+        bonus.moneyBonus = interiorSO.Find(x=>x.type == InteriorType.stul).GetLvlInfo(data.Find(x=>x.type == InteriorType.stul).lvl).bonus;
+        bonus.yummyBonus = interiorSO.Find(x=>x.type == InteriorType.stil).GetLvlInfo(data.Find(x=>x.type == InteriorType.stil).lvl).bonus;
+        bonus.energyBonus = interiorSO.Find(x=>x.type == InteriorType.light).GetLvlInfo(data.Find(x=>x.type == InteriorType.light).lvl).bonus;
+        OnDataUpdate?.Invoke();
     }
     public override void Load()
     {
-        foreach (InteriorSO interior in interiors) 
-        {
-            data.Add(new() { type = interior.type, currSprite = 0, lvl = 0 });
-        }
+        string strData = PlayerPrefs.GetString("PlayerInterier");
+        loadedData = JsonUtility.FromJson<PlayerInteriorDataSave>(strData);
     }
 
     public override void Save()
     {
-        base.Save();
-    }
-
-    public override void Setup()
-    {
-        base.Setup();
+        string data = JsonUtility.ToJson(new PlayerInteriorDataSave() { data = this.data });
+        PlayerPrefs.SetString("PlayerInterier", data);
+        Debug.Log(data);
     }
 }
 [Serializable]
-public struct PlayerInteriorData 
+public struct InteriorInfo 
+{
+    public InteriorSO so;
+    public PlayerInteriorData data;
+}
+[Serializable]
+public class PlayerInteriorDataSave
+{
+    public List<PlayerInteriorData> data;
+}
+[Serializable]
+public class PlayerInteriorData 
 {
     public InteriorType type;
     public int lvl;
