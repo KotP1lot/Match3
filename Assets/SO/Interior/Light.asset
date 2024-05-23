@@ -15,22 +15,19 @@ MonoBehaviour:
   type: 2
   lvlInfo:
   - cost: 0
-    lvl: 0
     bonus: 0
     sprites:
     - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
     - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
     - {fileID: 21300000, guid: 6900a8b5be929db4e8c79b1861d1d4ea, type: 3}
   - cost: 0
-    lvl: 1
-    bonus: 0
+    bonus: 1
     sprites:
     - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
     - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
     - {fileID: 21300000, guid: c8fec748f64c4984191266c24703cce1, type: 3}
   - cost: 0
-    lvl: 2
-    bonus: 0
+    bonus: 2
     sprites:
     - {fileID: 21300000, guid: 140e4c894d3161e418cb3379ba1b4677, type: 3}
     - {fileID: 21300000, guid: 140e4c894d3161e418cb3379ba1b4677, type: 3}

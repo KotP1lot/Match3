@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIStatLvl : MonoBehaviour
@@ -24,10 +25,11 @@ public class UIStatLvl : MonoBehaviour
     [SerializeField] Image all;
 
     [SerializeField] UIGoalCalendar goals;
-
+    LvlPlayerData lvlData;
     public void Setup(LvlPlayerData data, bool isActive = true) 
     {
         if (data == null) return;
+        lvlData = data;
         day.text = data.lvl.Day.ToString();
         month.text = data.lvl.Month.ToString();
         goals.Setup(data.lvl.goals);
@@ -52,5 +54,10 @@ public class UIStatLvl : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(info.GetComponent<RectTransform>());
         LayoutRebuilder.ForceRebuildLayoutImmediate(all.GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();
+    }
+    public void StartLvl() 
+    {
+        LvlSelector.LvL = lvlData;
+        SceneManager.LoadScene(0);
     }
 }

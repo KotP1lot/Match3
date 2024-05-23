@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnergySO : ISaveLoadSO
 {
     public Action OnSetup;
+    public Action OnUpdate;
     public int maxEnergy;
     public int energyRecoveryTime;
     public int energy;
@@ -74,6 +75,7 @@ public class EnergySO : ISaveLoadSO
     public void AddMaxEnergy(int value) 
     {
         maxEnergy += value;
+        OnUpdate?.Invoke();
         Save();
     }
     public override void Load()

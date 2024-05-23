@@ -73,7 +73,6 @@ public class UICaffeStat : MonoBehaviour
     public void Upgrade()
     {
         db.UpgradeType(data.type);
-        if (data.type == InteriorType.stul) energyManager.AddMaxEnergy(currInt.GetLvlInfo(data.lvl).bonus);
         Setup(db.GetPlayerDataByType(data.type), currInt);
     }
 }

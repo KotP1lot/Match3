@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6800243560b724b8b5988478f7db3d, type: 3}
   m_Name: Bonus
   m_EditorClassIdentifier: 
+  energyBonus: 0
   moneyBonus: 0
   yummyBonus: 0

@@ -27,3 +27,4 @@ MonoBehaviour:
     lvl: 0
     currSprite: 0
   bonus: {fileID: 11400000, guid: 5902de3c74e5d1b49831ddb05ee2d267, type: 2}
+  energy: {fileID: 11400000, guid: 030eb7485454b7f46b3ae8d19fc9d91d, type: 2}

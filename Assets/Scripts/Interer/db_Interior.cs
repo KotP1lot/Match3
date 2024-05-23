@@ -9,13 +9,27 @@ public class db_Interior : ISaveLoadSO
     [SerializeField] List<InteriorSO> interiorSO;
     [SerializeField]public List<PlayerInteriorData> data;
     [SerializeField] public BonusSO bonus;
+    [SerializeField] public EnergySO energy;
     PlayerInteriorDataSave loadedData;
    public Action OnDataUpdate;
 
     public void UpgradeType(InteriorType type) 
     {
-        PlayerInteriorData data = GetPlayerDataByType(type);
-        data.lvl++;
+        PlayerInteriorData currData = GetPlayerDataByType(type); 
+        currData.lvl++;
+        switch (type) 
+        {
+            case InteriorType.stul:
+                bonus.moneyBonus += interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
+                break;
+            case InteriorType.stil:
+                bonus.yummyBonus += interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
+                break;
+            case InteriorType.light:
+                bonus.energyBonus += interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
+                energy.AddMaxEnergy(bonus.energyBonus);
+                break;
+        }
         OnDataUpdate?.Invoke();
         Save();
     }
@@ -49,9 +63,25 @@ public class db_Interior : ISaveLoadSO
         {
             data = loadedData.data;
         }
-        bonus.moneyBonus = interiorSO.Find(x=>x.type == InteriorType.stul).GetLvlInfo(data.Find(x=>x.type == InteriorType.stul).lvl).bonus;
-        bonus.yummyBonus = interiorSO.Find(x=>x.type == InteriorType.stil).GetLvlInfo(data.Find(x=>x.type == InteriorType.stil).lvl).bonus;
-        bonus.energyBonus = interiorSO.Find(x=>x.type == InteriorType.light).GetLvlInfo(data.Find(x=>x.type == InteriorType.light).lvl).bonus;
+        bonus.Clear();
+        InteriorSO so = interiorSO.Find(x => x.type == InteriorType.stul);
+        PlayerInteriorData playerData = GetPlayerDataByType(InteriorType.stul);
+        for (int i = 0; i <= playerData.lvl; i++) 
+        {
+            bonus.moneyBonus += so.GetLvlInfo(i).bonus;
+        }
+        so = interiorSO.Find(x => x.type == InteriorType.stil);
+        playerData = GetPlayerDataByType(InteriorType.stil);
+        for (int i = 0; i <= playerData.lvl; i++)
+        {
+            bonus.yummyBonus += so.GetLvlInfo(i).bonus;
+        }
+        so = interiorSO.Find(x => x.type == InteriorType.light);
+        playerData = GetPlayerDataByType(InteriorType.light);
+        for (int i = 0; i <= playerData.lvl; i++)
+        {
+            bonus.energyBonus += so.GetLvlInfo(i).bonus;
+        }
         OnDataUpdate?.Invoke();
     }
     public override void Load()

@@ -15,6 +15,7 @@ public class EnergyManager : MonoBehaviour
     private void Awake()
     {
         energySO.OnSetup += Setup;
+        energySO.OnUpdate += AddMaxEnergy;
     }
 
     public void Setup()
@@ -62,9 +63,8 @@ public class EnergyManager : MonoBehaviour
             OnEnergyChanged?.Invoke();
         }
     }
-    public void AddMaxEnergy(int value) 
+    public void AddMaxEnergy() 
     { 
-        energySO.AddMaxEnergy(value);
         if (energySO.energy < energySO.maxEnergy && !isCharging)
         {
             isCharging = true;
