@@ -5,7 +5,10 @@ public class GoalManager : MonoBehaviour
 {
     [SerializeField] List<Goal> goalList = new();
     [SerializeField] UIGoalList UIGoalList;
+    [SerializeField] UITurns uiTurns;
 
+    public void SetupTurns(TurnManager turnManager) => uiTurns.Setup(turnManager);
+    public void UpdateTurns(TurnManager turnManager) => uiTurns.UpdateValue(turnManager);
     public void Setup(GoalInfo[] goalInfos = null)
     {
         if (goalInfos == null)

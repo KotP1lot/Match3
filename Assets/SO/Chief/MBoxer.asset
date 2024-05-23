@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlInfo:
   - lvl: 0
-    sprite: {fileID: 21300000, guid: 25073f73adbb29a4f8b6592686d142b8, type: 3}
     yumyBonus: 10
     countToUltimate: 2
+    lvlCost: 0
   name: MeatBoxer
+  sprite: {fileID: 21300000, guid: c2f2660a18fdf2e419335e7111c8fc8a, type: 3}
   gemType: 1
   bgType: 2

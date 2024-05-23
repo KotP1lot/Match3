@@ -115,7 +115,7 @@ public class GemMatchLine
                 tasks.Add(cell.DestroyGridObject());
             }
             await Task.WhenAll(tasks);
-            EventManager.instance.OnMaxComboChanged?.Invoke(gridCells.Count);
+            EventManager.instance.OnComboChanged?.Invoke(gridCells.Count);
             await CheckForActiveObject();
             OnLineDestroy?.Invoke();
         }
@@ -200,15 +200,7 @@ public class GemMatchLine
     private void CheckComboDebug()
     {
         int count = gridCells.Count;
-        if (count > 3)
-        {
-
-            UIDebug.Instance.Show($"COMBO", $" x{count}!");
-        }
-        else 
-        {
-            UIDebug.Instance.Hide("COMBO");
-        }
+        EventManager.instance.OnComboChanged?.Invoke(count);
     }
     private void OnObjectsActivatedHendler(ActivableObject activableObject)
     {

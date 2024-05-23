@@ -17,7 +17,7 @@ public class EnergyManager : MonoBehaviour
         energySO.OnSetup += Setup;
     }
 
-    private void Setup()
+    public void Setup()
     {
         if (energySO.energy < energySO.maxEnergy)
         {
@@ -48,11 +48,6 @@ public class EnergyManager : MonoBehaviour
                 OnEnergyCharged?.Invoke();
             }
         }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q)) delete = true;
-        if (Input.GetKeyDown(KeyCode.Space)) SpendEnergy(2);
     }
     public void SpendEnergy(int value)
     {

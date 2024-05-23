@@ -9,15 +9,17 @@ public class ChiefRow : MonoBehaviour, IPointerClickHandler
     [SerializeField] Image image;
     [SerializeField] new TextMeshProUGUI name;
     [SerializeField] TextMeshProUGUI desc;
+    ChiefPlayerData data;
     ChiefSO chiefSO;
     ChiefLvlInfo lvl_Info;
-    public event Action<ChiefSO> OnRowClick;
+    public event Action<ChiefPlayerData> OnRowClick;
 
     public void Setup(ChiefPlayerData data) 
     {
+        this.data = data;
         chiefSO = data.chief;
-        lvl_Info = data.chief.GetLvlInfo(data.lvl-1); // HARD CODE
-        image.sprite = lvl_Info.sprite;
+        lvl_Info = data.chief.GetLvlInfo(data.lvl); // HARD CODE
+        image.sprite = chiefSO.sprite;
         name.text = data.chief.name;
         string description = $"Bonus: {lvl_Info.yumyBonus}\n" +
             $"Ultimative: {chiefSO.bgType}\n" +
@@ -27,7 +29,7 @@ public class ChiefRow : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnRowClick?.Invoke(chiefSO);
+        OnRowClick?.Invoke(data);
     }
 
 }

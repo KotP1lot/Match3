@@ -3,54 +3,79 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    public int TotalScore{ get; private set; }
     [SerializeField] GridManager gridManager;
     [SerializeField] CustomerManager customerManager;
     [SerializeField] GoalManager goalManager;
     [SerializeField] LvlPlayerData playerLvlData;
+    [SerializeField] LvlPlayerData textData;
     [SerializeField] db_Chief chiefs;
-    [SerializeField] EndScrin endScrin;
     public TurnManager turnManager;
+    public EnergyManager energyManager;
     public static GameStat gameStat;
 
+    [Header("Menu bars")]
+    [SerializeField] UIStatStart menuStart;
+    [SerializeField] UIStatLvl menuPause;
+    [SerializeField] UISuccess menuSuccess;
+    [SerializeField] UIFailure menuFailure;
+   
     public void Start()
     {
         playerLvlData = LvlSelector.LvL;
-        LvlSO lvl = playerLvlData.lvl;
-        turnManager = new TurnManager(lvl.turns);
+        if (playerLvlData == null)
+            playerLvlData = textData;
+        LvlSO lvl = playerLvlData?.lvl;
+        turnManager = new TurnManager(lvl.turns) ;
         turnManager.OnTurnsEnded += OnGameFailed;
         customerManager.Setup(lvl.customers, lvl.moneyFromCustomer);
-        goalManager.Setup(lvl.goals);
+        goalManager.Setup(lvl?.goals);
+        goalManager.SetupTurns(turnManager);
         gridManager.Setup(lvl);
-        EventManager.instance.OnChiefBonus += (type, value) => OnScoreChange(value);
-        TotalScore = 0;
+        menuStart.Setup(playerLvlData);
+        menuPause.Setup(playerLvlData, false);
+        energyManager.Setup();
+
+        EventManager.instance.OnAllGoalAchived += OnGameSuccess;
     }
-    public void OnGameRestart() 
+    public void RestartGame() 
     {
+        energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
         SceneManager.LoadScene(0);
     }
-    public void OnGameFinished()
+    public void BackToMenu()
     {
+        SceneManager.LoadScene(1);
+    }
+    public void GetBonusMoney()
+    {
+        menuSuccess.ShowAd();
+        gameStat.money += gameStat.money * 50 / 100;
+        menuSuccess.Setup(gameStat);
+    }
+    public void GetExtraTurns() 
+    {
+        turnManager.curentTurn -= 2;
+        goalManager.UpdateTurns(turnManager);
+        menuFailure.gameObject.SetActive(false);
+    }
+    private void OnGameSuccess() 
+    {
+        menuSuccess.gameObject.SetActive(true);
         int stars = Mathf.Clamp(turnManager.GetStars() - playerLvlData.stars, 0, 3);
         gameStat = new()
         {
             lvl = playerLvlData.lvl,
             lvlStars = turnManager.GetStars(),
             stars = stars,
-            money = playerLvlData.moneyReceived?customerManager.totalMoney: customerManager.totalMoney + playerLvlData.lvl.moneyFromLvl,
+            money = playerLvlData.moneyReceived ? customerManager.totalMoney : customerManager.totalMoney + playerLvlData.lvl.moneyFromLvl,
             moneyFromLvlRecived = true
         };
-        SceneManager.LoadScene(1);
+        menuSuccess.Setup(gameStat);
     }
     private void OnGameFailed() 
     {
-        Debug.LogError($" ≤Õ≈÷‹ Á≥ÓÍ{turnManager.GetStars()}");
-    }
-    public void OnScoreChange(int score) 
-    {
-        TotalScore += score;
-        UIDebug.Instance.Show($"score:", $"{TotalScore}");
+        menuFailure.gameObject.SetActive(true);
     }
 }
 public class GameStat 

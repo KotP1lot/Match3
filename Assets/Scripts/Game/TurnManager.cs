@@ -4,6 +4,7 @@ public class TurnManager
 {
     public event Action<int> OnStartInfoChanged;
     public event Action OnTurnsEnded;
+    public event Action OnTurnEnded;
     public TurnInfo turnInfo;
     public int curentTurn;
     public TurnManager(TurnInfo turnInfo) 
@@ -35,6 +36,7 @@ public class TurnManager
     private void OnTurnEndedHandler() 
     {
         curentTurn++;
+        OnTurnEnded?.Invoke();
         if (curentTurn >= turnInfo.turnForStar[2]) OnStartInfoChanged?.Invoke(2);
         else if (curentTurn >= turnInfo.turnForStar[1]) OnStartInfoChanged?.Invoke(1);
         else if (curentTurn >= turnInfo.turnForStar[0]) OnStartInfoChanged?.Invoke(0);

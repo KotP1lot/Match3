@@ -9,6 +9,7 @@ public class UIStatLvl : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI day;
     [SerializeField] TextMeshProUGUI month;
+    [SerializeField] TextMeshProUGUI money;
     [SerializeField] List<TextMeshProUGUI> starsTxt;
     
     [SerializeField] List<Image> stars;
@@ -24,9 +25,9 @@ public class UIStatLvl : MonoBehaviour
 
     [SerializeField] UIGoalCalendar goals;
 
-    public void Setup(LvlPlayerData data) 
+    public void Setup(LvlPlayerData data, bool isActive = true) 
     {
-
+        if (data == null) return;
         day.text = data.lvl.Day.ToString();
         month.text = data.lvl.Month.ToString();
         goals.Setup(data.lvl.goals);
@@ -46,7 +47,8 @@ public class UIStatLvl : MonoBehaviour
             start.interactable = false;
             ad.gameObject.SetActive(true);
         }
-        gameObject.SetActive(true); 
+        money.text = data.lvl.moneyFromLvl.ToString();
+        gameObject.SetActive(isActive); 
         LayoutRebuilder.ForceRebuildLayoutImmediate(info.GetComponent<RectTransform>());
         LayoutRebuilder.ForceRebuildLayoutImmediate(all.GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();

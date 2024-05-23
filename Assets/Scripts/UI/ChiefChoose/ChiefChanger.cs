@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChiefChanger : MonoBehaviour
 {
@@ -26,12 +27,12 @@ public class ChiefChanger : MonoBehaviour
         }
         public List<ChiefRow> GetRows() { return rows; }
     }
+    [SerializeField] Image empty;
     [SerializeField] db_Chief chiefDB;
     [SerializeField] ChiefRow prefab;
     private Dictionary<GemType, RowConroler> rows = new Dictionary<GemType, RowConroler>();
-    public event Action<ChiefSO> OnChiefChoose;
-    public event Action OnConfirmed;
-    private ChiefSO chosen;
+    public event Action<ChiefPlayerData> OnChiefChoose;
+    private ChiefPlayerData chosen;
     public void Setup()
     {
         RowInit(GemType.fish);
@@ -73,24 +74,26 @@ public class ChiefChanger : MonoBehaviour
         };
         return chiefs;
     }
-    public void ShowChiefs(GemType gemType) 
+    public void ShowChiefs(GemType gemType)
     {
         chosen = null;
         gameObject.SetActive(true);
-        foreach (var key in rows.Keys) 
+        foreach (var key in rows.Keys)
         {
             RowConroler conroler = rows[key];
+            Debug.Log(conroler.GetRows().Count);
+       
             conroler.SetActive(gemType == key);
         }
+        empty.gameObject.SetActive(rows[gemType].GetRows().Count == 0);
     }
-    private void ChooseChief(ChiefSO chief) 
+    private void ChooseChief(ChiefPlayerData chief) 
     {
         chosen = chief;
         OnChiefChoose?.Invoke(chosen);
     }
     public void ConfirmChoose()
     {
-        OnConfirmed?.Invoke();
         gameObject.SetActive(false);
     }
 }

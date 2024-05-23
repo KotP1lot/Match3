@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -8,8 +10,9 @@ public class Customer : MonoBehaviour
     public Action<Customer> OnExitAnimFinished;
     public Action<Customer> OnCustomerReady;
     private FastManager fastManager;
-    [SerializeField] StatusBar statusBar;
-    [SerializeField] UIFast UIfast;
+    [SerializeField] Image accessoryPref;
+    StatusBar statusBar;
+    UIFast UIfast;
     int necessarySat;
     int currentSat;
     public int bonus;
@@ -17,14 +20,26 @@ public class Customer : MonoBehaviour
     {
         statusBar.OnComplited += MoveOut;
     }
-    public void Setup(CustomerInfo customerInfo)
+    public void SetupVisual(List<Sprite> sprites) 
     {
+        for(int i = 0; i < sprites.Count; i++) 
+        {
+            if (i == 0)
+            {
+                GetComponent<Image>().sprite = sprites[i];
+                continue;
+            }
+            Instantiate(accessoryPref, transform).GetComponent<Image>().sprite = sprites[i];
+        }
+    }
+    public void Setup(CustomerInfo customerInfo, StatusBar bar, UIFast fast)
+    {
+        statusBar = bar;
+        UIfast = fast;
         necessarySat = UnityEngine.Random.Range(customerInfo.minSat, customerInfo.maxSat);
         bonus = customerInfo.bonusPercent;
-        statusBar.Setup(necessarySat);
         fastManager = new FastManager();
         fastManager.Setup(customerInfo.type);
-        UIfast.Setup(fastManager.fastidiousnesses);
     }
     public void Setup(int necessarySat, CustomerType customer = new())
     {
@@ -68,15 +83,16 @@ public class Customer : MonoBehaviour
     {
         MoveAnim(true, () =>
         {
-            statusBar.Activate(); 
+            statusBar.Setup(necessarySat);
+            UIfast.Setup(fastManager.fastidiousnesses);
+            statusBar.SetActive(true);
             transform.DOLocalMoveY(0, 0.2f); 
             OnCustomerReady?.Invoke(this);
         });
     }
-    public async void MoveOut() 
+    public void MoveOut() 
     {
-        await statusBar.Deactivate();
-
+        statusBar.SetActive(false);
         MoveAnim(false, () => { OnExitAnimFinished?.Invoke(this); });
     }
     public void MoveAnim(bool isEnter, Action func) 

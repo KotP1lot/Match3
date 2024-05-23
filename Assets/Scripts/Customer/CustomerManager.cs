@@ -4,11 +4,15 @@ public class CustomerManager : MonoBehaviour
 {
     [SerializeField] Transform poolPos;
     [SerializeField] Customer prefab;
+    [SerializeField] UIFast fast;
+    [SerializeField] StatusBar bar;
+
     private CustomerPool pool;
     private int satPool;
     private Customer currentCus;
     int moneyFromCustomer;
-    CustomerInfo[] customerInfo;
+    [SerializeField]  CustomerInfo[] customerInfo;
+    [SerializeField]  db_CustomerSO customersSO;
     public int totalMoney = 0;
     void Start()
     {
@@ -31,7 +35,6 @@ public class CustomerManager : MonoBehaviour
         if (satPool > 0) 
         {
             satPool = currentCus.AddSatisfaction(satPool);
-            UIDebug.Instance.Show("SatPool", $"{satPool}");
         }
     }
     private void OnCusSatHandler(Customer customer) 
@@ -46,7 +49,8 @@ public class CustomerManager : MonoBehaviour
     {
         Customer customer = pool.Get();
         customer.transform.SetParent(transform);
-        customer.Setup(GetCustomerInfo());
+        customer.SetupVisual(customersSO.GetRandomCustomer());
+        customer.Setup(GetCustomerInfo(), bar, fast);
         customer.Spawn();
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
@@ -77,7 +81,6 @@ public class CustomerManager : MonoBehaviour
         {
             satPool = currentCus.SatWithFast(type, value);
         }
-        UIDebug.Instance.Show("SatPool", $"{satPool}");
     } 
 
 }

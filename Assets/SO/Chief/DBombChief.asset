@@ -14,60 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlInfo:
   - lvl: 0
-    sprite: {fileID: 21300000, guid: 97643f017bcd72a449e80650f10dad51, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 0
   - lvl: 1
-    sprite: {fileID: 21300000, guid: 1cbebba16948d044fa3a5e272fb5b81d, type: 3}
-    yumyBonus: 10
+    yumyBonus: 35
     countToUltimate: 2
     lvlCost: 0
   - lvl: 2
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 3
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 4
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 5
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 10
   - lvl: 6
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 7
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 8
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 9
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   - lvl: 10
-    sprite: {fileID: 21300000, guid: 95f3c586a99f44f4b91677a8b863926c, type: 3}
     yumyBonus: 10
     countToUltimate: 2
     lvlCost: 5
   name: Barman
+  sprite: {fileID: 21300000, guid: 023c276edf04c0140942abd992733c77, type: 3}
   gemType: 4
   bgType: 0

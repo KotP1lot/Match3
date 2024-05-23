@@ -15,6 +15,7 @@ public class PointManager : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log("Gay");
         Down?.Invoke();
     }
 

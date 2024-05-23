@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821b8fd95d3ad18469d7bc258a90f7a7, type: 3}
   m_Name: 1.2
   m_EditorClassIdentifier: 
+  Month: 0
+  Day: 1
   cells:
   - borders: []
     floorType: 1
@@ -210,10 +212,8 @@ MonoBehaviour:
     prefab: {fileID: 7383814921043162925, guid: a0a81a755fdef9948b07f718bafc2362, type: 3}
     gemType: 0
   turns:
-    max: 9
-    minFor1Star: 8
-    minFor2Star: 7
-    minFor3Star: 5
+    max: 2
+    turnForStar: 0d0000000a00000008000000
   goals:
   - type: 0
     gemType: 3

@@ -10,6 +10,7 @@ public class ChiefManager : MonoBehaviour
     }
     public ChiefPlace[] chiefPlaces;
     [SerializeField] BonusGemByType[] bonusGemsPrefab;
+    [SerializeField] db_CustomerSO customers;
     [SerializeField] Transform gemPoolTransform;
     [SerializeField] ChiefChanger chiefChanger;
     private ChiefPlace activePlace;
@@ -19,23 +20,17 @@ public class ChiefManager : MonoBehaviour
         EventManager.instance.OnGameStarted += OnStartGameHandler;
         chiefChanger.Setup();
         chiefChanger.OnChiefChoose += SetChiefToPlace;
-        chiefChanger.OnConfirmed += ClearActivePlace;
         foreach (var place in chiefPlaces) 
         {
             place.OnPlaceClick += ShowChiefMenu;
         }
     }
-    private void ClearActivePlace() 
-    {
-        activePlace = null;
-    }
-    private void SetChiefToPlace(ChiefSO chief) 
+    private void SetChiefToPlace(ChiefPlayerData chief) 
     {
         activePlace.SetChief(chief);
     }
     private void ShowChiefMenu(GemType gemType, ChiefPlace place) 
     {
-        if (activePlace != null) return;
         chiefChanger.ShowChiefs(gemType);
         activePlace = place;
     }
@@ -52,13 +47,15 @@ public class ChiefManager : MonoBehaviour
         chiefChanger.OnChiefChoose -= SetChiefToPlace;
         foreach (var place in chiefPlaces)
         {
+            place.OnPlaceClick -= ShowChiefMenu;
             if (place.chief == null) 
             {
                 place.Setup();
                 continue;
             }
             place.Setup(gemPoolTransform, GetBGByType(place.chief.bgType));
-            place.OnPlaceClick -= ShowChiefMenu;
+
+
         }
 
     }

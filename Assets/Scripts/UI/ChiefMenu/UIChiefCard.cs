@@ -26,7 +26,7 @@ public class UIChiefCard : MonoBehaviour, IPointerClickHandler
         isUnlockedImg.gameObject.SetActive(false);
         lvlText.text = data.lvl.ToString();
         lvlText.gameObject.SetActive(true);
-        chiefImg.sprite = data.chief.GetLvlInfo(data.lvl).sprite;
+        chiefImg.sprite = data.chief.sprite;
         chiefImg.gameObject.SetActive(true);
     }
     public void SetActive(bool isActive) 

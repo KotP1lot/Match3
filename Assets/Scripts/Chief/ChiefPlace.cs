@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ChiefPlace : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField] BonusSO bonuses;
     public GemType gemType;
     public ChiefSO chief;
     public ChiefLvlInfo lvl_Info;
@@ -32,26 +33,22 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         OnPlaceClick?.Invoke(gemType, this);
     }
-    public void SetChief(ChiefSO chief, int lvl = 0) 
+    public void SetChief(ChiefPlayerData data) 
     {
-        this.chief = chief;
-        lvl_Info = chief.GetLvlInfo(lvl);
-        chiefImg.sprite = lvl_Info.sprite;
+        chief = data.chief;
+        lvl_Info = data.chief.GetLvlInfo(data.lvl);
+        chiefImg.sprite = chief.sprite;
     }
 
     #region BonusGem
     private void OnGemDestroyHandler(Gem gem)
     {
-       
+
         if (gem.GetGemType() == gemType)
         {
-            if (chief == null)
-            {
-                EventManager.instance.OnChiefBonus?.Invoke(gem.GetGemType(), gem.GetScore());
-                return;
-            }
-            EventManager.instance.OnChiefBonus?.Invoke(gem.GetGemType(), gem.GetScore() + lvl_Info.yumyBonus);
-            if (isReady) 
+            EventManager.instance.OnChiefBonus?.Invoke(gem.GetGemType(), GetScore(gem));
+            if (chief == null) return;
+            if (isReady)
             {
                 countToUltimate++;
                 if (countToUltimate >= lvl_Info.countToUltimate)
@@ -59,8 +56,18 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
                     ActivateBG();
                 }
             }
-          
         }
+    }
+    private int GetScore(Gem gem) 
+    {
+        int score = 0;
+        score += gem.GetScore();
+        Debug.Log($"Without all: {score}");
+        if (chief != null) score += lvl_Info.yumyBonus;
+        Debug.Log($"With chief: {score}");
+        score += score * bonuses.yummyBonus / 100;
+        Debug.Log($"With bonuses: {score} (+{bonuses.yummyBonus}%)");
+        return score;
     }
     private void OnTurnEndedHandler()
     {

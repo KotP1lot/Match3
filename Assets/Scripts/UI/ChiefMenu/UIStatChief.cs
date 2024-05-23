@@ -63,7 +63,7 @@ public class UIStatChief : MonoBehaviour
        
         bonusImg.sprite = gemSO.GetGemSOByType(chief.gemType).sprite;
         ultimateImg.sprite = bGSO.GetBGByType(chief.bgType).GetSprite(chief.gemType);
-        foto.sprite = data.chief.GetLvlInfo(data.lvl).sprite;
+        foto.sprite = data.chief.sprite;
         if (chief.GetLvlInfo(data.lvl + 1) == null)
         {
             btn.interactable = false;
