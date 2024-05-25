@@ -11,6 +11,7 @@ public class UIStatLvl : MonoBehaviour
     [SerializeField] TextMeshProUGUI day;
     [SerializeField] TextMeshProUGUI month;
     [SerializeField] TextMeshProUGUI money;
+    [SerializeField] TextMeshProUGUI chiefs;
     [SerializeField] List<TextMeshProUGUI> starsTxt;
     
     [SerializeField] List<Image> stars;
@@ -23,6 +24,7 @@ public class UIStatLvl : MonoBehaviour
     [SerializeField] Image ad;
     [SerializeField] Image info;
     [SerializeField] Image all;
+    [SerializeField] Image chief;
 
     [SerializeField] UIGoalCalendar goals;
     LvlPlayerData lvlData;
@@ -48,6 +50,15 @@ public class UIStatLvl : MonoBehaviour
         {
             start.interactable = false;
             ad.gameObject.SetActive(true);
+        }
+        if (data.lvl.unlockChief != null)
+        {
+            chief.gameObject.SetActive(true);
+            chiefs.text = data.lvl.unlockChief.name;
+        }
+        else 
+        {
+            chief.gameObject.SetActive(false);
         }
         money.text = data.lvl.moneyFromLvl.ToString();
         gameObject.SetActive(isActive); 

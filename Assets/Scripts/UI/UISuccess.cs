@@ -8,11 +8,13 @@ public class UISuccess : MonoBehaviour
     [SerializeField] TextMeshProUGUI day;
     [SerializeField] TextMeshProUGUI month;
     [SerializeField] TextMeshProUGUI money;
+    [SerializeField] TextMeshProUGUI chiefs;
     [SerializeField] List<TextMeshProUGUI> starsTxt;
 
     [SerializeField] List<Image> stars;
 
     [SerializeField] Image ad;
+    [SerializeField] Image chief;
 
     [SerializeField] Sprite Completed;
     [SerializeField] Sprite None;
@@ -27,6 +29,15 @@ public class UISuccess : MonoBehaviour
         {
             starsTxt[i].text = data.lvl.turns.turnForStar[i].ToString();
             stars[i].sprite = i + 1 <= data.stars ? Completed : None;
+        }
+        if (data.lvl.unlockChief != null)
+        {
+            chief.gameObject.SetActive(true);
+            chiefs.text = data.lvl.unlockChief.name;
+        }
+        else
+        {
+            chief.gameObject.SetActive(false);
         }
         ad.gameObject.SetActive(!isAddView);
         money.text = data.money.ToString(); 
