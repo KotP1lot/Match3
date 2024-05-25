@@ -11,6 +11,7 @@ public class LvlSelector : MonoBehaviour
     [SerializeField] db_LvlSo db;
     [SerializeField] EnergyManager energyManager;
     [SerializeField] Image recoveryEnergy;
+    [SerializeField] Image monthImg;
     [SerializeField] UIStatLvl stat;
     [SerializeField] TextMeshProUGUI monthTxt;
     [SerializeField] List<MonthInfo> monthInfo;
@@ -59,6 +60,7 @@ public class LvlSelector : MonoBehaviour
         monthTxt.text = curMonth.ToString();
         List<LvlPlayerData> lvlPlayerDatas = db.GetLvlsByMonth(curMonth);
         MonthInfo curInfo = monthInfo.Find(x => x.month == curMonth);
+        monthImg.sprite = curInfo.sprite;
         for (int i = 0, j = 0; i < 35; i++)
         {
             if (i < curInfo.startDay || j >= curInfo.days)
@@ -95,6 +97,7 @@ public class LvlSelector : MonoBehaviour
         public MonthType month;
         public int days;
         public int startDay;
+        public Sprite sprite;
     }
 
 }
