@@ -17,18 +17,18 @@ MonoBehaviour:
   - cost: 0
     bonus: 0
     sprites:
-    - {fileID: 1427187289, guid: 45eb201052ef0d44180763e05a3c8763, type: 3}
-    - {fileID: 21300000, guid: aea01bb342913ca42b4d5bed00a9d8cf, type: 3}
-    - {fileID: 21300000, guid: aea01bb342913ca42b4d5bed00a9d8cf, type: 3}
+    - {fileID: 21300000, guid: 91f85fa6b97c59742b600a851284c050, type: 3}
+    - {fileID: 21300000, guid: 2ecf206bd1c1bad4bb4a321fbbd8ae88, type: 3}
+    - {fileID: 21300000, guid: f330d3e479f13f443875f75a638c48b4, type: 3}
   - cost: 0
     bonus: 1
     sprites:
-    - {fileID: 21300000, guid: 7945f97e7bdef064498b3c224bb05916, type: 3}
-    - {fileID: 21300000, guid: 7945f97e7bdef064498b3c224bb05916, type: 3}
-    - {fileID: 21300000, guid: 7945f97e7bdef064498b3c224bb05916, type: 3}
+    - {fileID: 21300000, guid: 1b4b8271586aba742bbb0ffd762c891e, type: 3}
+    - {fileID: 21300000, guid: 96d1e09a91178db4bb96db239c3b39e6, type: 3}
+    - {fileID: 21300000, guid: 4d6bb12701007c04a85f1002abb406ce, type: 3}
   - cost: 0
     bonus: 2
     sprites:
-    - {fileID: 21300000, guid: 57212dd901d1f204481ecd1447416c34, type: 3}
-    - {fileID: 21300000, guid: 57212dd901d1f204481ecd1447416c34, type: 3}
-    - {fileID: 21300000, guid: 57212dd901d1f204481ecd1447416c34, type: 3}
+    - {fileID: 21300000, guid: 42cff1ef1aee73c4898dd90f646ce39f, type: 3}
+    - {fileID: 21300000, guid: 39fe3815186e5a9419fa21fad5abb912, type: 3}
+    - {fileID: 21300000, guid: 5fd5eefe4a8781b4b8583bba5e292979, type: 3}
