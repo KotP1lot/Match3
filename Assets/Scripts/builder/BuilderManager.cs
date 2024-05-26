@@ -30,57 +30,57 @@ public class BuilderManager : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space)) 
-    //    {
-    //        SetObjectToCell();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.W)) 
-    //    {
-    //        AddFloorToCell();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Q))
-    //    {
-    //        RemoveFloorInCell();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha1)) 
-    //    {
-    //        AddBorderToCell(Direction.Left);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha2))
-    //    {
-    //        AddBorderToCell(Direction.Top);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha3))
-    //    {
-    //        AddBorderToCell(Direction.Right);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha4)) 
-    //    {
-    //        AddBorderToCell(Direction.Bottom);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha5))
-    //    {
-    //        RemoveBorderInCell(Direction.Left);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha6))
-    //    {
-    //        RemoveBorderInCell(Direction.Top);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha7))
-    //    {
-    //        RemoveBorderInCell(Direction.Right);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha8))
-    //    {
-    //        RemoveBorderInCell(Direction.Bottom);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.S))
-    //    {
-    //        Save();
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetObjectToCell();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            AddFloorToCell();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            RemoveFloorInCell();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            AddBorderToCell(Direction.Left);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            AddBorderToCell(Direction.Top);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            AddBorderToCell(Direction.Right);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            AddBorderToCell(Direction.Bottom);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            RemoveBorderInCell(Direction.Left);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            RemoveBorderInCell(Direction.Top);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            RemoveBorderInCell(Direction.Right);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            RemoveBorderInCell(Direction.Bottom);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Save();
+        }
+    }
     private void SetObjectToCell()
     {
         activeCell.SetGridObject(currentPref, gemType);
@@ -115,15 +115,15 @@ public class BuilderManager : MonoBehaviour
         Debug.Log($"{pref.name} chosen");
         currentPref = pref;
     }
-    //public void Save()
-    //{
-    //    Debug.Log("Save");
-    //    lvl.cells = new CelLLvlInfo[49];
-    //    for (int x = 0; x < 49; x++)
-    //    {
-    //        lvl.cells[x] = visualCell[x].GetCellInfo();
-    //    };
-    //    EditorUtility.SetDirty(lvl);
-    //    AssetDatabase.SaveAssets();
-    //}
+    public void Save()
+    {
+        Debug.Log("Save");
+        lvl.cells = new CelLLvlInfo[49];
+        for (int x = 0; x < 49; x++)
+        {
+            lvl.cells[x] = visualCell[x].GetCellInfo();
+        };
+        EditorUtility.SetDirty(lvl);
+        AssetDatabase.SaveAssets();
+    }
 }

@@ -7,32 +7,34 @@ using UnityEngine.UI;
 public class DestroyableObject : ActivableObject
 {
     [SerializeField] List<Sprite> allState = new List<Sprite>();
-    private Image image;
+    [SerializeField] Image image;
+    [SerializeField] RectTransform inside;
+    [SerializeField] Image fon;
     [SerializeField] bool existAfterDestroy = false;
     public override Tween Spawn(Transform spawnPos, GridCell gridCell)
     {
         image = GetComponent<Image>();
-        CountToActivate = allState.Count;
-        image.sprite = allState[CountToActivate - 1];
+        CountToActivate = allState.Count-1;
+        image.sprite = allState[CountToActivate];
         return base.Spawn(spawnPos, gridCell);
     }
     public override void Setup()
     {
-
         isReady = true;
-        image = GetComponent<Image>();
-        CountToActivate = allState.Count;
-        image.sprite = allState[CountToActivate - 1];
+        fon.enabled = true;
+        CountToActivate = allState.Count-1;
+        image.sprite = allState[CountToActivate];
     }
     override public void OnGemsDestroyInNeighboringCells()
     {
         if (isReady)
         {
-            CountToActivate--;
+           CountToActivate--;
             isReady = false;
-            if (CountToActivate - 1 >= 0)
+            if (CountToActivate >= 0)
             {
-                image.sprite = allState[CountToActivate - 1];
+                Debug.Log("afasf");
+                image.sprite = allState[CountToActivate];
             }
             if (CountToActivate <= 0)
             {
@@ -40,6 +42,9 @@ public class DestroyableObject : ActivableObject
                 {
                     cell.Clear();
                 }
+                inside.DOAnchorPosY(50, 2).SetEase(Ease.OutElastic).OnComplete(()=>Destroy(inside.gameObject));
+                fon.sprite = allState[0];
+                image.gameObject.SetActive(false); 
                 Unsubcribe();
             }
         }

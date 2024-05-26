@@ -11,6 +11,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     public ChiefLvlInfo lvl_Info;
     public event Action<GemType, ChiefPlace> OnPlaceClick;
     [SerializeField] Image chiefImg;
+    [SerializeField] Image gemImg;
     private BonusGem bg;
     private bool isReady;
     private bool isActive;
@@ -37,6 +38,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         chief = data.chief;
         lvl_Info = data.chief.GetLvlInfo(data.lvl);
+        gemImg.gameObject.SetActive(false);
         chiefImg.sprite = chief.sprite;
     }
 

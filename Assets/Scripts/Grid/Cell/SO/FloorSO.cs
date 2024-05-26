@@ -5,8 +5,8 @@ public class FloorSO : ScriptableObject
     public FloorType type;
     public Sprite[] hp_sprites;
 }
-public enum FloorType 
+public enum FloorType
 {
+    none,
     simpty,
-    none
 }

@@ -17,7 +17,7 @@ public class EnergySO : ISaveLoadSO
     public override void Clear()
     {
         PlayerPrefs.DeleteKey("PlayerEnergy");
-        energy = 1;
+        energy = 8;
         maxEnergy = 15;
         timeLeftToRecharge = energyRecoveryTime;
     }
@@ -49,7 +49,7 @@ public class EnergySO : ISaveLoadSO
         }
         else
         {
-            energy = 1;
+            energy = 15;
             maxEnergy = 15;
            timeLeftToRecharge = energyRecoveryTime;
         }
