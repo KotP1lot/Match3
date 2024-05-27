@@ -232,5 +232,6 @@ MonoBehaviour:
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
   tips:
-    video: {fileID: 0}
-    text: "\u043F\u043E\u043A\u0430\u0437\u0443\u0454\u043C \u043F\u0454\u0441\u044E\u043D"
+    video: {fileID: 32900000, guid: cea8337ae3af2c1489b1eb161d60a6c2, type: 3}
+    text: "\u0426\u0435 \u043A\u043E\u0440\u043E\u0447\u0435 \u043F\u0456\u0434\u0441\u043A\u0430\u0437\u043A\u0430,
+      \u0456 \u0442\u0443\u0442 \u0432\u0441\u0435 \u043D\u043E\u0440\u043C."

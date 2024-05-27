@@ -14,29 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlInfo:
   - lvl: 0
+    yumyBonus: 10
+    countToUltimate: 9
+    lvlCost: 0
+  - lvl: 1
     yumyBonus: 0
     countToUltimate: 0
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - lvl: 2
+    yumyBonus: 20
+    countToUltimate: 9
+    lvlCost: 150
+  - lvl: 3
+    yumyBonus: 30
+    countToUltimate: 9
+    lvlCost: 250
+  - lvl: 4
+    yumyBonus: 45
+    countToUltimate: 9
+    lvlCost: 300
+  - lvl: 5
+    yumyBonus: 60
+    countToUltimate: 9
+    lvlCost: 500
   - lvl: 0
     yumyBonus: 0
     countToUltimate: 0

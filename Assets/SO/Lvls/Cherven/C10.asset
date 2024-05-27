@@ -17,7 +17,7 @@ MonoBehaviour:
   cells:
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -41,7 +41,11 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -65,7 +69,11 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -89,7 +97,39 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 7383814921043162925, guid: a0a81a755fdef9948b07f718bafc2362, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
     prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 7383814921043162925, guid: a0a81a755fdef9948b07f718bafc2362, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -113,7 +153,11 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -137,7 +181,11 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -161,62 +209,28 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   turns:
-    max: 0
-    turnForStar: 0f0000000c00000009000000
-  goals: []
-  customers: []
-  moneyFromCustomer: 0
-  moneyFromLvl: 0
+    max: 16
+    turnForStar: 0f0000000c0000000a000000
+  goals:
+  - type: 0
+    gemType: 4
+    count: 35
+  customers:
+  - type:
+      isFine: 0
+      isMeh: 0
+      isBad: 0
+    chancePercent: 10
+    bonusPercent: 0
+    minSat: 200
+    maxSat: 250
+  moneyFromCustomer: 5
+  moneyFromLvl: 25
   recChiefs: []
   unlockChief: {fileID: 0}
+  tips:
+    video: {fileID: 0}
+    text: 

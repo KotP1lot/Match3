@@ -39,4 +39,17 @@ public class LoadSystem : MonoBehaviour
         }
         GemDestr = true;
     }
+    public void ClearPlayerPrefs() 
+    {
+        foreach (var s in saveData)
+        {
+            if (delete)
+            {
+                s.Clear();
+            }
+            s.Load();
+            s.Setup();
+        }
+        PlayerPrefs.DeleteAll();
+    }
 }

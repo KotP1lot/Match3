@@ -106,457 +106,548 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 150bf32a1a5b6bb43883e5a3fb12cbbe, type: 2}
   playerLvlData:
   - lvl: {fileID: 11400000, guid: 6c459131bde6e504e93babf008764be0, type: 2}
-    stars: 2
+    stars: 0
     unlocked: 1
-    curent: 0
+    curent: 1
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 421ac29bc8e4cab4faf4af5e72e8194c, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 698c3f3eaca3db34e9f23d757363a8ef, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5cebc269705f43d409904e3d3df85ac6, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 97f19d3be27edf043a5472a1bcd8fd24, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: bddd6250c8a457c45ac35b901cbfab83, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 8e10adb6538f7bc40a839358483be3c4, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 507fa6e64df8b9e4587f303349eb5071, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5a29eac59e4206249925292d45f762c0, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b04231eee24d88b43ab7d490536e8a15, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b8490cc97718b034f9f565de467f0b01, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 68a22463ecc5a354693c185611d5e14d, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 565aa08cd44bcf24f9efd91fd7fdd7a7, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 0eaf7efdeea9ab64791d49dd3f98e8ae, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 6adc2ea0f6399c84cb4a3664d76e0dc2, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 31bbc5e22c54edc44a600857375921a7, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: ca2d07198ca68af4294dfa0439d7973f, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 89f3ecde1fb99594bbdfd068c93e1c25, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 0386231e03308414b9ada86cd952d561, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 41ed96d19da56084fa44607c4351b7f6, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 7cad7fc4328fe41448caa144c524e2ce, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 4d92c5f3e6d46f046b7d07bb1548619d, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b7e4fc6034426fb4a8eb52aef40bdc92, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: cbdfa107b06328845b056a69cf8e4359, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 037187b21e60162408a2341db0bad1d6, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b10c89b99b091f649a31896c9649a3ea, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 61b8d59ec6ae2a648945a69f7c5ebcf8, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: f872d9da7d2dc0d4194bf3b80921b188, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: c16e154da31572842979432656c12a53, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 9999c042ba03d33438c35ef8fe0055a4, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 049018f2e3ccf734b88aab669e82298b, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 254f65db3450dbc4a95c00bad9eb5aac, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 53c1f077eb94cda41809801556ba5816, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1a796ba6d917b254ba3267103468163d, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 69f0ed9cddcadc640bba930a138f30da, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 6ef2b7904b91e7c4b976267de0ebfb66, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5774f4ce66a204d4094393fa9a1985ae, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 594d283a8673b6b43a6e232aa9ceaea0, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: da16c2ad6090e544c830b09150d71748, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5c9cc66d8268e844db8c32a952209cfd, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 83d851a3956b98c418c91f105ac8190e, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: ec48d4de1dd573a459342054476afaea, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 97bb92dd29d0e9b43abeb18bc5f5e7aa, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 2204e5244d855b14fa307c0e33023e8e, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: e81a6774b7264024f976696edff2f039, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: a4ab38d7b64a5e94c9a1dd0ecf54a3df, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5fd25a9dd0e0a7045822ff105a81f3b7, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 645f2984533ca2c41ab5200130de19b9, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: dab5a6037c7dd4942bc33efbe3d307e7, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: c36a5bcabccfd5b4bb7f63620302899a, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1fe52338916e0b14c96cdd012c54d429, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: a010b38fbcae19842a5146726e6a844f, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 00c3fd36f5d052c428816b7d1a6345dc, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 4a52ce77556cc3c43b04f65b24e65e46, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 95ecfe157c6dd6e4c96d77fa2b8779c3, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: adf6fd08794cc9f409e51e6e0d7037b4, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 3a076b2e975882348b68ec570d039d1a, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b14d2550ce32e9f4f97e87cb1f438464, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1bd733c42c01e67489a468c56771221c, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: a158ddd9c7c00b942a03b0dba4a1ac4e, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 642228df6cf3afc46aa81763a7f1d575, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 3ae288017c53a0142a3bc09111977524, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 27d2436c7c94c7f44995c3c987892e99, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5c19cee8ce90c094e9bd6021a6cf5e0d, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 9374c8c1b82a5cf4d966c1757336f619, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 2843202325bdfc54daa149a1f440f188, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 91ec6a7f45d96734e8be5e63ca37c0f8, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: cba698fdfac53d34390af0cd08f18216, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 3b6463fafcb89064dbad64828d353139, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 889c80e8e4591224ca5ca52c26c5cdb2, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: c45b028a46c59eb489892674728f5961, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 32d727c1be207fc42aef8e66e7a1eac7, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 2da29edb42189ae4d81f895db819675d, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 7f7a26d0d4f08ac48bd1f340b8ac95e9, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 5db36643d30f0ca4da1331e0994a72ab, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 303a0dd2ac785d9469d7dac90be7649c, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1f4e2e94501e0ce448c225d702732ec0, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: b737c279824f7bc45bdb17f6f3b2fb18, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: c47386527748158438dba258935efa13, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: abd8c72fd5112204e8d82addd13b7089, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: be47b38f0cb985640bbdafb3f4928d87, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 2cd52458dd8e1ad4fbb3ecd8f1ba2e0c, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: a9ac4b3ed27bcfe41bdc27e52c04dbaf, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: bc43ebd5762e69343a9bb0dccdc37ccc, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1ae8cb3ac72f14e4cbdb40337dc8760b, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: e4b89e8d9ff78ac44bba8f620b76afed, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 9722cc1f3ff26c1498ff8d559a9c6731, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 0241258ce1313d4439b1280c26c342c3, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: d8631d1fb61597944a1289a6b6982905, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 6470144efd42c3e47b05198dc0506865, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 150bf32a1a5b6bb43883e5a3fb12cbbe, type: 2}
     stars: 0
     unlocked: 0
     curent: 0
     moneyReceived: 0
+    tipsShowed: 0

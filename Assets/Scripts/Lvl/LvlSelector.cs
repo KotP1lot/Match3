@@ -56,10 +56,11 @@ public class LvlSelector : MonoBehaviour
     private void ChangeMonthInfo() 
     {
         curMonth = monthTypes[curMonthID];
-        monthTxt.text = curMonth.ToString();
+     
         List<LvlPlayerData> lvlPlayerDatas = db.GetLvlsByMonth(curMonth);
         MonthInfo curInfo = monthInfo.Find(x => x.month == curMonth);
         monthImg.sprite = curInfo.sprite;
+        monthTxt.text = curInfo.monthName;
         for (int i = 0, j = 0; i < 35; i++)
         {
             if (i < curInfo.startDay || j >= curInfo.days)
