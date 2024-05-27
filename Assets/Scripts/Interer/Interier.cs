@@ -13,6 +13,10 @@ public class Interier : MonoBehaviour
     {
         db.OnDataUpdate += UpdateVisual;
     }
+    private void OnDisable()
+    {
+        db.OnDataUpdate -= UpdateVisual;
+    }
     private void UpdateVisual() 
     {
         foto = GetComponent<Image>();

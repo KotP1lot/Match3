@@ -73,11 +73,13 @@ public class EnergyManager : MonoBehaviour
         }
         OnEnergyChanged?.Invoke();
     }
-
     private void OnDisable()
     {
         if (!delete) energySO.Save();
         else energySO.Clear();
+        energySO.OnSetup -= Setup;
+        energySO.OnUpdate -= AddMaxEnergy;
+        CancelInvoke(nameof(UpdateEnergy));
     }
     public int GetEnergy() => energySO.energy;
 }

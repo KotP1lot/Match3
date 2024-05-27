@@ -216,10 +216,7 @@ MonoBehaviour:
     turnForStar: 0f0000000c00000009000000
   goals:
   - type: 0
-    gemType: 0
-    count: 5
-  - type: 0
-    gemType: 3
+    gemType: 2
     count: 10
   customers:
   - type:
@@ -227,13 +224,13 @@ MonoBehaviour:
       isMeh: 0
       isBad: 0
     chancePercent: 10
-    bonusPercent: 0
+    bonusPercent: 10
     minSat: 100
     maxSat: 100
-  moneyFromCustomer: 0
+  moneyFromCustomer: 100
   moneyFromLvl: 0
   recChiefs: []
-  unlockChief: {fileID: 0}
+  unlockChief: {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
   tips:
     video: {fileID: 32900000, guid: cea8337ae3af2c1489b1eb161d60a6c2, type: 3}
     text: "\u043F\u043E\u043A\u0430\u0437\u0443\u0454\u043C \u043F\u0454\u0441\u044E\u043D"

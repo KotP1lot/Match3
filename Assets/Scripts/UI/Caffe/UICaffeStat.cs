@@ -1,14 +1,12 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class UICaffeStat : MonoBehaviour
 {
     [SerializeField] db_Interior db;
     [SerializeField] BonusSO bonuses;
     [SerializeField] PlayerWalletSO wallet;
-    [SerializeField] EnergyManager energyManager;
 
     [SerializeField] TextMeshProUGUI lvlTxt;
     [SerializeField] TextMeshProUGUI nameTxt;

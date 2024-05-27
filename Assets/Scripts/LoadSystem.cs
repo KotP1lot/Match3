@@ -4,18 +4,22 @@ public class LoadSystem : MonoBehaviour
 {
     [SerializeField] ISaveLoadSO[] saveData;
     [SerializeField] bool delete;
+    bool GemDestr;
     private void Start()
     {
-            foreach (var s in saveData)
+        foreach (var s in saveData)
+        {
+            if (delete)
             {
-                if (delete)
-                {
-                    s.Clear();
-                }
-                s.Load();
-                s.Setup();
+                s.Clear();
             }
-        
+            s.Load();
+            s.Setup();
+        }
+        if (delete)
+        {
+            PlayerPrefs.DeleteAll();
+        }
         if (Game.gameStat != null)
         {
             foreach (var s in saveData)
@@ -24,5 +28,15 @@ public class LoadSystem : MonoBehaviour
             }
             Game.gameStat = null;
         }
+    }
+    private void LateUpdate()
+    {
+        if (GemDestr) return;
+        Gem[] gems = FindObjectsOfType<Gem>();
+        foreach (var gem in gems)
+        {
+            Destroy(gem.gameObject);
+        }
+        GemDestr = true;
     }
 }

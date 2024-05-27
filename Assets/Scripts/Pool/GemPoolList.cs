@@ -26,5 +26,4 @@ public class GemPoolList
         GemType randomKey = keysList[randomIndex];
         return gemPools[randomKey];
     }
-
 }

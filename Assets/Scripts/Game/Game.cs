@@ -46,6 +46,7 @@ public class Game : MonoBehaviour
     public void RestartGame()
     {
         DOTween.KillAll();
+       
         energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
         SceneManager.LoadScene(0);
