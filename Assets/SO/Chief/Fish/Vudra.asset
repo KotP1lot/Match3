@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd25b4162b4a3b447b22554af6096ff3, type: 3}
+  m_Name: Vudra
+  m_EditorClassIdentifier: 
+  lvlInfo:
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  - lvl: 0
+    yumyBonus: 0
+    countToUltimate: 0
+    lvlCost: 0
+  name: "\u041B\u044E\u0442\u0440\u0430"
+  sprite: {fileID: 21300000, guid: f0edb872922202b4f9953286690727b5, type: 3}
+  gemType: 0
+  bgType: 1

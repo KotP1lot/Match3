@@ -13,6 +13,9 @@ public class BGSO : ScriptableObject
     [SerializeField] BGLVLInfo[] lvlInfo;
     public bool isMoveWithLine;
     public BGType type;
+    public string bgName;
+    public string describe;
+
     public Sprite GetSprite(GemType type) 
     {
         foreach (BGsprite gsprite in sprites) 
@@ -42,7 +45,8 @@ public struct BGLVLInfo
 public enum BGType
 {
     bomb,
-    lineDestroyer,
+    V_lineDestroyer,
+    H_lineDestroyer,
     box
 }
 

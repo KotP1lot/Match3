@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
@@ -16,7 +17,6 @@ public class UIStatChief : MonoBehaviour
     [SerializeField] TextMeshProUGUI lvlTxt;
     [SerializeField] TextMeshProUGUI nameTxt;
     [SerializeField] TextMeshProUGUI bonusTxt;
-    [SerializeField] TextMeshProUGUI ultimateNameTxt;
     [SerializeField] TextMeshProUGUI ultimateNameInfoTxt;
     [SerializeField] TextMeshProUGUI ultimateInfoTxt;
     [SerializeField] TextMeshProUGUI newLvlTxt;
@@ -55,11 +55,18 @@ public class UIStatChief : MonoBehaviour
         lvlTxt.text = currlvlInfo.lvl.ToString();
         nameTxt.text = chief.name;
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
-        ultimateNameTxt.text = chief.bgType.ToString();
-        ultimateNameInfoTxt.text = chief.bgType.ToString();
-        ultimateInfoTxt.text = "----";
+        ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;
+        ultimateInfoTxt.text = bGSO.GetBGByType(chief.bgType).describe;
        
         bonusImg.sprite = gemSO.GetGemSOByType(chief.gemType).sprite;
+        if (chief.bgType == BGType.H_lineDestroyer)
+        {
+            ultimateImg.transform.DORotate(new Vector3(0, 0, 90),0);
+        }
+        else 
+        {
+            ultimateImg.transform.rotation = Quaternion.identity;
+        }
         ultimateImg.sprite = bGSO.GetBGByType(chief.bgType).GetSprite(chief.gemType);
         foto.sprite = data.chief.sprite;
         if (chief.GetLvlInfo(data.lvl + 1) == null)

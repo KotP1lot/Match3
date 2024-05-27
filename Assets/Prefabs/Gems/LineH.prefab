@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -94,8 +94,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5679777099100368274, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f3816156569ff44e97e77268866d49a, type: 3}
     m_RemovedComponents:
     - {fileID: 7625943841137099513, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
     - {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
@@ -126,7 +130,7 @@ MonoBehaviour:
   IsAffectedByGravity: 1
   info: {fileID: 0}
   isActive: 0
-  bgSo: {fileID: 11400000, guid: 37fd9dd573728a94ebfe1776627aeabf, type: 2}
+  bgSo: {fileID: 11400000, guid: c1d67b6f74c751449bdd9f24de6b3c36, type: 2}
   isActivated: 0
   isHorizontal: 1
   gemCountToDestroy: 3
