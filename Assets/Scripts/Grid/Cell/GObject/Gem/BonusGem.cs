@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BonusGem : Gem
 {
@@ -10,7 +11,7 @@ public class BonusGem : Gem
     protected List<GridCell> cells;
     protected GridCell cell;
     public bool isActivated;
-    public void Setup(GemType gemType, int lvl = 0)
+    virtual public void Setup(GemType gemType, int lvl = 0)
     {
         this.gemType = gemType;
         lvl_bgInfo = bgSo.GetLvlInfo(lvl);
@@ -24,4 +25,18 @@ public class BonusGem : Gem
     public override int GetScore() => lvl_bgInfo.score;
     public bool IsMoveWithLine() => bgSo.isMoveWithLine;
     public override GemType GetGemType() => gemType;
+    protected void Shake() 
+    {
+        GetComponent<Canvas>().sortingOrder = 3;
+        Tween shake = transform.DOPunchRotation(new Vector3(0, 0, 15), 5, 2)
+    .SetEase(Ease.OutSine); ;
+        Tween scale = transform.DOScale(1.2f, 0.2f)
+            .SetEase(Ease.OutElastic);
+    }
+    protected void BGReset(Quaternion rotation)
+    {
+        transform.DOKill();
+        transform.localScale = Vector3.one;
+        transform.rotation = rotation;
+    }
 }

@@ -33,7 +33,15 @@ public class UIStatLvl : MonoBehaviour
         if (data == null) return;
         lvlData = data;
         day.text = data.lvl.Day.ToString();
-        month.text = data.lvl.Month.ToString();
+        month.text = data.lvl.Month switch 
+        {
+            MonthType.cherven => "Червець",
+            MonthType.lupen => "Лапень",
+            MonthType.serpen => "Кивень",
+            _=> "Червець"
+        
+        };
+
         goals.Setup(data.lvl.goals);
         for (int i = 0; i < 3; i++)
         {
@@ -69,6 +77,7 @@ public class UIStatLvl : MonoBehaviour
     public void StartLvl() 
     {
         LvlSelector.LvL = lvlData;
-        SceneManager.LoadScene(0);
+        energy.SpendEnergy(2);
+        SceneManager.LoadScene(1);
     }
 }

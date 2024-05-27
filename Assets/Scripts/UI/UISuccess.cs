@@ -23,12 +23,19 @@ public class UISuccess : MonoBehaviour
     {
         if (data == null) return;
         day.text = data.lvl.Day.ToString();
-        month.text = data.lvl.Month.ToString();
+        month.text = data.lvl.Month switch
+        {
+            MonthType.cherven => "Червець",
+            MonthType.lupen => "Лапень",
+            MonthType.serpen => "Кивень",
+            _ => "Червець"
+
+        };
 
         for (int i = 0; i < 3; i++)
         {
             starsTxt[i].text = data.lvl.turns.turnForStar[i].ToString();
-            stars[i].sprite = i + 1 <= data.stars ? Completed : None;
+            stars[i].sprite = i + 1 <= data.lvlStars ? Completed : None;
         }
         if (data.lvl.unlockChief != null)
         {

@@ -14,6 +14,7 @@ public class UITurns : MonoBehaviour
     }
     private void ChangeValue() 
     {
+        if (turnsLeft == 0) return;
         turnsLeft--;
         turns.text = turnsLeft.ToString();
     }

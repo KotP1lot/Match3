@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
    
     public void Start()
     {
+        gameStat = null;
         playerLvlData = LvlSelector.LvL;
         if (playerLvlData == null)
             playerLvlData = textData;
@@ -49,12 +50,12 @@ public class Game : MonoBehaviour
        
         energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void BackToMenu()
     {
         DOTween.KillAll();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void GetBonusMoney()
     {
@@ -71,11 +72,13 @@ public class Game : MonoBehaviour
     private void OnGameSuccess() 
     {
         menuSuccess.gameObject.SetActive(true);
+        Debug.Log($"{turnManager.GetStars()} // {turnManager.curentTurn}");
+        Debug.Log($"{playerLvlData.stars}");
         int stars = Mathf.Clamp(turnManager.GetStars() - playerLvlData.stars, 0, 3);
         gameStat = new()
         {
             lvl = playerLvlData.lvl,
-            lvlStars = turnManager.GetStars(),
+            lvlStars = turnManager.GetStars() <= playerLvlData.stars ? playerLvlData.stars : turnManager.GetStars(),
             stars = stars,
             money = playerLvlData.moneyReceived ? customerManager.totalMoney : customerManager.totalMoney + playerLvlData.lvl.moneyFromLvl,
             moneyFromLvlRecived = true

@@ -14,9 +14,9 @@ public class TurnManager
     }
     public int GetStars()
     {
-        if (curentTurn <= turnInfo.turnForStar[0]) return 3;
+        if (curentTurn <= turnInfo.turnForStar[2]) return 3;
         else if (curentTurn <= turnInfo.turnForStar[1]) return 2;
-        else if (curentTurn <= turnInfo.turnForStar[2]) return 1;
+        else if (curentTurn <= turnInfo.turnForStar[0]) return 1;
         else return 0;
     }
     private void Subcribe() 

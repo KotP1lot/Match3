@@ -11,11 +11,14 @@ public class db_LvlSo : ISaveLoadSO
     {
         int dataID = playerLvlData.FindIndex(x => x.lvl == lvl.lvl);
         playerLvlData[dataID].stars = lvl.stars;
-        if (dataID + 1 == playerLvlData.Count) return;
-        playerLvlData[dataID].curent = false;
         playerLvlData[dataID].moneyReceived = true;
+        if (dataID + 1 == playerLvlData.Count) return;
+        if (playerLvlData[dataID].curent)
+        {
+            playerLvlData[dataID].curent = false;
+            playerLvlData[dataID + 1].curent = true;
+        }
         playerLvlData[dataID + 1].unlocked = true;
-        playerLvlData[dataID + 1].curent = true;
        
         Save();
     }
@@ -23,7 +26,6 @@ public class db_LvlSo : ISaveLoadSO
     {
         if (playerLvlData.Count == 0)
         {
-            Debug.Log("rar");
             for (int i = 0; i < lvlSO.Length; i++)
             {
                 playerLvlData.Add(new() { lvl = lvlSO[i], stars = 0, unlocked = i == 0, curent = i == 0 }); 

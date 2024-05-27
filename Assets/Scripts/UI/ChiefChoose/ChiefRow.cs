@@ -9,8 +9,10 @@ public class ChiefRow : MonoBehaviour, IPointerClickHandler
     [SerializeField] Image image;
     [SerializeField] new TextMeshProUGUI name;
     [SerializeField] TextMeshProUGUI desc;
+    [SerializeField] db_BGemSo bg;
     ChiefPlayerData data;
     ChiefSO chiefSO;
+
     ChiefLvlInfo lvl_Info;
     public event Action<ChiefPlayerData> OnRowClick;
 
@@ -21,9 +23,9 @@ public class ChiefRow : MonoBehaviour, IPointerClickHandler
         lvl_Info = data.chief.GetLvlInfo(data.lvl); // HARD CODE
         image.sprite = chiefSO.sprite;
         name.text = data.chief.name;
-        string description = $"Bonus: {lvl_Info.yumyBonus}\n" +
-            $"Ultimative: {chiefSO.bgType}\n" +
-            $"Count to charge: {lvl_Info.countToUltimate}";
+        string description = $"Бонус: <b>{lvl_Info.yumyBonus}</b>\n" +
+            $"Має: <b>{bg.GetBGByType(chiefSO.bgType).bgName}</b>\n" +
+            $"Потребує об'єднань: <b>{lvl_Info.countToUltimate}</b>";
         desc.text = description;  
     }
 

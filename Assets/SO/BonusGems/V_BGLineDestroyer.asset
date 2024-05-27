@@ -26,7 +26,7 @@ MonoBehaviour:
   lvlInfo:
   - lvl: 0
     range: 2
-    score: 20
+    score: 10
   isMoveWithLine: 1
   type: 1
   bgName: "\u0412\u0435\u0440\u0442\u0438\u043A\u0430\u043B\u044C"

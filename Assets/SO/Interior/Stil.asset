@@ -20,14 +20,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: be87e46bccd71244c95b0b1ff24143f6, type: 3}
     - {fileID: 21300000, guid: 4f9675c9fe57a864188ab25e1447c057, type: 3}
     - {fileID: 21300000, guid: 7dd49c4cf8b675c4b9106850bd2a0841, type: 3}
-  - cost: 0
-    bonus: 1
+  - cost: 40
+    bonus: 15
     sprites:
     - {fileID: 21300000, guid: 1ced1d97cbfca7c48a53a4dd5bac2cc8, type: 3}
     - {fileID: 21300000, guid: 280acd9cdc308be4b8bc92788629f839, type: 3}
     - {fileID: 21300000, guid: 8e6f0836acc868c4d9effecff9e07269, type: 3}
-  - cost: 0
-    bonus: 2
+  - cost: 80
+    bonus: 25
     sprites:
     - {fileID: 21300000, guid: 4eb84f46460544b44bf9e590e5e5a8f9, type: 3}
     - {fileID: 21300000, guid: 0b68d70d6ed80d94b838c92754b5831d, type: 3}

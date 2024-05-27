@@ -281,6 +281,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 2660705122361201097}
   image: {fileID: 6128092029444458641}
   gemSo: {fileID: 11400000, guid: e4992e95c485e0b438a8613302c3c4a9, type: 2}
+  icon: {fileID: 11400000, guid: 9df9193b9b56a7d49b510919a795dfe9, type: 2}
 --- !u!114 &3168942970792421574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,6 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 75, y: 75}
-  m_Spacing: {x: -10, y: 0}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2

@@ -53,9 +53,9 @@ public class CustomerManager : MonoBehaviour
         customer.transform.SetParent(transform);
         customer.SetupVisual(customersSO.GetRandomCustomer());
         customer.Setup(GetCustomerInfo(), bar, fast);
-        customer.Spawn();
         customer.OnCustomerSatisfied += OnCusSatHandler;
         customer.OnCustomerReady += OnCusReadyHandler;
+        customer.Spawn();
     }
     private CustomerInfo GetCustomerInfo()
     {

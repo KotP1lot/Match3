@@ -9,6 +9,7 @@ public class UIGoal : MonoBehaviour
     [SerializeField] TextMeshProUGUI textMeshPro;
     [SerializeField] Image image;
     [SerializeField] db_GemSO gemSo;
+    [SerializeField] IconSO icon;
 
     public void Setup(Goal newGoal)
     {
@@ -20,14 +21,12 @@ public class UIGoal : MonoBehaviour
     }
     private void SpriteSetup(GoalType type)
     {
-        switch (type) 
+        if (type == GoalType.gem)
         {
-            case GoalType.gem:
-                image.sprite = gemSo.GetIconByType(goal.gemType);
-                break;
-            case GoalType.clean:
-                break;
+            image.sprite = gemSo.GetIconByType(goal.gemType);
+            return;
         }
+        image.sprite = icon.GetSpriteByType(type);
     }
 
     private void TextUpdate(int count)

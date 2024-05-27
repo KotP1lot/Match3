@@ -34,9 +34,13 @@ public class UIEnergy : MonoBehaviour
 
     private void ChangeTime()
     {
+        if (energyManager.GetEnergy() >= energyManager.energySO.maxEnergy)
+        {
+            timer.gameObject.SetActive(false);
+            return;
+        }  
         if (!timer.gameObject.activeSelf)
             timer.gameObject.SetActive(true);
-
         int timeLeft = energyManager.energySO.timeLeftToRecharge;
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         int seconds = Mathf.FloorToInt(timeLeft % 60);

@@ -90,6 +90,9 @@ public class UIStatChief : MonoBehaviour
                 btn.interactable= true;
             }
         }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(newLvlTxt.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
     }
     private void OnDisable()
     {

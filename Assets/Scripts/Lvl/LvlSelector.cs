@@ -50,7 +50,6 @@ public class LvlSelector : MonoBehaviour
     //}
     private void OnLvlClick(LvlPlayerData data)
     {
-        Debug.Log("adgfasfadgibsdfjashgijsgbiadsghai");
         stat.Setup(data);
         LvL = data;
     }
@@ -98,6 +97,7 @@ public class LvlSelector : MonoBehaviour
         public int days;
         public int startDay;
         public Sprite sprite;
+        public string monthName;
     }
 
 }

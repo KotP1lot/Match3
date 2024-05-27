@@ -70,6 +70,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 6311122809690514795}
   image: {fileID: 2596160670953481822}
   gemSo: {fileID: 11400000, guid: e4992e95c485e0b438a8613302c3c4a9, type: 2}
+  icon: {fileID: 11400000, guid: 9df9193b9b56a7d49b510919a795dfe9, type: 2}
 --- !u!114 &1419914739126316834
 MonoBehaviour:
   m_ObjectHideFlags: 0

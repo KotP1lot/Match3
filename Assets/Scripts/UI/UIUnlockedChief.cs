@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +28,14 @@ public class UIUnlockedChief : MonoBehaviour
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
         ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;
         ultimateInfoTxt.text = bGSO.GetBGByType(chief.bgType).describe;
-
+        if (chief.bgType == BGType.H_lineDestroyer)
+        {
+            ultimateImg.transform.DORotate(new Vector3(0, 0, 90), 0);
+        }
+        else
+        {
+            ultimateImg.transform.rotation = Quaternion.identity;
+        }
         bonusImg.sprite = gemSO.GetGemSOByType(chief.gemType).sprite;
         ultimateImg.sprite = bGSO.GetBGByType(chief.bgType).GetSprite(chief.gemType);
         foto.sprite = chief.sprite;

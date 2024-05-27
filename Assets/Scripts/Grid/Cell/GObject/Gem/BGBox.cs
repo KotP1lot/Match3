@@ -54,7 +54,6 @@ public class BGBox : BonusGem
     
     public override async Task Destroy(Action callback, Transform target)
     {
-       
         if (isActive) 
         {
             isActivated = true;
@@ -63,5 +62,11 @@ public class BGBox : BonusGem
             DeactivateGem();
             callback();
         }
+    }
+
+    public override void Setup(GemType gemType, int lvl = 0)
+    {
+        base.Setup(gemType, lvl);
+        radius = lvl_bgInfo.range;
     }
 }

@@ -37,7 +37,14 @@ public class UIStatStart : MonoBehaviour
             }
             );
         day.text = data.lvl.Day.ToString();
-        month.text = data.lvl.Month.ToString();
+        month.text = data.lvl.Month switch
+        {
+            MonthType.cherven => "Червець",
+            MonthType.lupen => "Лапень",
+            MonthType.serpen => "Кивень",
+            _ => "Червець"
+
+        };
         goals.Setup(data.lvl.goals);
         for (int i = 0; i < 3; i++)
         {

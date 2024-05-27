@@ -1,6 +1,7 @@
-using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class BuilderManager : MonoBehaviour
 {
     public LvlSO lvl;
@@ -76,10 +77,13 @@ public class BuilderManager : MonoBehaviour
         {
             RemoveBorderInCell(Direction.Bottom);
         }
+#if UNITY_EDITOR
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             Save();
         }
+#endif
     }
     private void SetObjectToCell()
     {
@@ -110,11 +114,14 @@ public class BuilderManager : MonoBehaviour
         Debug.Log($"Chosen is null");
         currentPref = null;
     }
+
     public void ChoosePref(GridObject pref)
     {
         Debug.Log($"{pref.name} chosen");
         currentPref = pref;
     }
+#if UNITY_EDITOR
+
     public void Save()
     {
         Debug.Log("Save");
@@ -126,4 +133,5 @@ public class BuilderManager : MonoBehaviour
         EditorUtility.SetDirty(lvl);
         AssetDatabase.SaveAssets();
     }
+#endif
 }

@@ -12,10 +12,8 @@ public class BGBomb : BonusGem
         isActivated = true;
         cells = cell.GetNeighborCellsInRadius(radius);
         Deactivate();
-         Tween shake = transform.DOPunchRotation(new Vector3(0, 0, 30), 5)
-                    .SetEase(Ease.OutSine); ;
-        Tween scale = transform.DOScale(2, 0.2f)
-            .SetEase(Ease.OutElastic);
+        Quaternion rotation = transform.rotation;
+        Shake();
         List<Task> tasks = new();
         foreach (GridCell cell in cells)
         {
@@ -26,7 +24,7 @@ public class BGBomb : BonusGem
             tasks.Add(cell.DestroyGridObject(transform));
         }
         await Task.WhenAll(tasks);
-        shake.Kill();
+        BGReset(rotation);
         await base.Destroy(callback, target);
     }
 }

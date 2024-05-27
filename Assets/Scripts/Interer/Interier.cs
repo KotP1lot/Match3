@@ -8,14 +8,21 @@ public class Interier : MonoBehaviour
     [SerializeField] UICaffeStat stat;
     [SerializeField] Image foto;
     [SerializeField] PointManager pointManager;
+    bool isSubcribe =         false;
 
     public void Awake() 
     {
         db.OnDataUpdate += UpdateVisual;
+        isSubcribe = true;
+    }
+    private void OnEnable()
+    {
+       if(!isSubcribe) db.OnDataUpdate += UpdateVisual;
     }
     private void OnDisable()
     {
         db.OnDataUpdate -= UpdateVisual;
+        isSubcribe=false;
     }
     private void UpdateVisual() 
     {
