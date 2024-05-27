@@ -37,6 +37,6 @@ public class UIGoal : MonoBehaviour
 
     private void Destroy() 
     {
-        transform.DOMoveX(10, 1f).OnComplete(() => { Destroy(gameObject); });
+        GetComponent<RectTransform>().DOAnchorPosY(1500, 1f).SetEase(Ease.InOutBack).OnComplete(() => { Destroy(gameObject); });
     }
 }

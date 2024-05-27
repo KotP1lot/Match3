@@ -32,5 +32,5 @@ MonoBehaviour:
     lvl: 0
     unlocked: 0
   - chief: {fileID: 11400000, guid: ad2fc552a214b4440a4f2a7a65955058, type: 2}
-    lvl: 1
-    unlocked: 1
+    lvl: 0
+    unlocked: 0

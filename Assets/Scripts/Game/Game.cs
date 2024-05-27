@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,14 +19,21 @@ public class Game : MonoBehaviour
     [SerializeField] UIStatLvl menuPause;
     [SerializeField] UISuccess menuSuccess;
     [SerializeField] UIFailure menuFailure;
+    [SerializeField] UITips tips;
    
     public void Start()
     {
         playerLvlData = LvlSelector.LvL;
         if (playerLvlData == null)
             playerLvlData = textData;
+        tips.OnTipsEnded += OnTipsEnded;
+        tips.Setup(playerLvlData);
+        EventManager.instance.OnAllGoalAchived += OnGameSuccess;
+    }
+    private void OnTipsEnded()
+    {
         LvlSO lvl = playerLvlData?.lvl;
-        turnManager = new TurnManager(lvl.turns) ;
+        turnManager = new TurnManager(lvl.turns);
         turnManager.OnTurnsEnded += OnGameFailed;
         customerManager.Setup(lvl.customers, lvl.moneyFromCustomer);
         goalManager.Setup(lvl?.goals);
@@ -34,17 +42,17 @@ public class Game : MonoBehaviour
         menuStart.Setup(playerLvlData);
         menuPause.Setup(playerLvlData, false);
         energyManager.Setup();
-
-        EventManager.instance.OnAllGoalAchived += OnGameSuccess;
     }
-    public void RestartGame() 
+    public void RestartGame()
     {
+        DOTween.KillAll();
         energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
         SceneManager.LoadScene(0);
     }
     public void BackToMenu()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene(1);
     }
     public void GetBonusMoney()

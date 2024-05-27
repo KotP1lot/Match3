@@ -24,6 +24,7 @@ public class EventManager: MonoBehaviour
     public Action OnCustomerSatisfied;
     public Action OnFloorCleaned;
     public Action OnAllGoalAchived;
+    public Action<int> OnMoneyEarned;
 
     public Action<int> OnComboChanged;
 }

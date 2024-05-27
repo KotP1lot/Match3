@@ -39,7 +39,9 @@ public class CustomerManager : MonoBehaviour
     }
     private void OnCusSatHandler(Customer customer) 
     {
-        totalMoney += moneyFromCustomer + (moneyFromCustomer * customer.bonus / 100);
+        int money = moneyFromCustomer + (moneyFromCustomer * customer.bonus / 100);
+        totalMoney += money;
+        EventManager.instance.OnMoneyEarned?.Invoke(money);
         customer.OnCustomerSatisfied -= OnCusSatHandler;
         customer.OnCustomerReady -= OnCusReadyHandler;
         currentCus = null;

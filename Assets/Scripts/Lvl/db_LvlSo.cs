@@ -13,8 +13,10 @@ public class db_LvlSo : ISaveLoadSO
         playerLvlData[dataID].stars = lvl.stars;
         if (dataID + 1 == playerLvlData.Count) return;
         playerLvlData[dataID].curent = false;
+        playerLvlData[dataID].moneyReceived = true;
         playerLvlData[dataID + 1].unlocked = true;
         playerLvlData[dataID + 1].curent = true;
+       
         Save();
     }
     override public void Setup()
@@ -36,6 +38,9 @@ public class db_LvlSo : ISaveLoadSO
                 data.lvl = lvl.lvl;
                 data.unlocked = lvl.unlocked;
                 data.stars = lvl.stars;
+                data.curent = lvl.curent;
+                data.moneyReceived = lvl.moneyReceived;
+                data.tipsShowed = lvl.tipsShowed;
             }
         }
     }
@@ -80,4 +85,5 @@ public class LvlPlayerData
     public bool unlocked;
     public bool curent;
     public bool moneyReceived;
+    public bool tipsShowed;
 }

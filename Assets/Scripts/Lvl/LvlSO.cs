@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Video;
 
 [CreateAssetMenu()]
 public class LvlSO : ScriptableObject
@@ -14,7 +15,7 @@ public class LvlSO : ScriptableObject
     public int moneyFromLvl;
     public RecomededChief[] recChiefs;
     public ChiefSO unlockChief;
-    //Тутор
+    public Tips tips;
     //Діалог
 }
 public enum MonthType 
@@ -22,6 +23,12 @@ public enum MonthType
     cherven,
     lupen,
     serpen
+}
+[Serializable]
+public class Tips 
+{
+    public VideoClip video;
+    public string text;
 }
 [Serializable]
 public struct CustomerInfo 
