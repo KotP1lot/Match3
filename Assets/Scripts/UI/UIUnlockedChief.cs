@@ -19,16 +19,14 @@ public class UIUnlockedChief : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("You");
         if (Game.gameStat == null || Game.gameStat.lvl.unlockChief == null) return;
-        Debug.Log("why");
         all.gameObject.SetActive(true);
         ChiefSO chief = Game.gameStat.lvl.unlockChief;
         ChiefLvlInfo currlvlInfo = chief.GetLvlInfo(0);
         nameTxt.text = chief.name;
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
-        ultimateNameInfoTxt.text = chief.bgType.ToString();
-        ultimateInfoTxt.text = "----";
+        ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;
+        ultimateInfoTxt.text = bGSO.GetBGByType(chief.bgType).describe;
 
         bonusImg.sprite = gemSO.GetGemSOByType(chief.gemType).sprite;
         ultimateImg.sprite = bGSO.GetBGByType(chief.bgType).GetSprite(chief.gemType);
