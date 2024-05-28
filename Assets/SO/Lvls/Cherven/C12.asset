@@ -81,15 +81,15 @@ MonoBehaviour:
     gemType: 2
   - borders: []
     floorType: 0
-    prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 3
   - borders: []
     floorType: 0
-    prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 2
   - borders: []
     floorType: 0
-    prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 3
   - borders: []
     floorType: 0
@@ -218,15 +218,6 @@ MonoBehaviour:
   - type: 1
     gemType: 0
     count: 5
-  - type: 0
-    gemType: 1
-    count: 15
-  - type: 0
-    gemType: 0
-    count: 6
-  - type: 0
-    gemType: 2
-    count: 16
   customers:
   - type:
       isFine: 0
@@ -236,11 +227,11 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 226
     maxSat: 240
-  moneyFromCustomer: 20
-  moneyFromLvl: 100
+  moneyFromCustomer: 0
+  moneyFromLvl: 200
   recChiefs: []
   unlockChief: {fileID: 0}
   tips:
     video: {fileID: 32900000, guid: cea8337ae3af2c1489b1eb161d60a6c2, type: 3}
-    text: "\u044F\u043A \u043F\u0440\u0430\u0446\u0454\u044E\u0454 \u043C\u0435\u0445
+    text: "\u044F\u043A \u043F\u0440\u0430\u0446\u0454\u044E\u0454 \u043D\u0430\u0439\u0441
       :/"

@@ -215,12 +215,9 @@ MonoBehaviour:
     max: 16
     turnForStar: 0f0000000c0000000a000000
   goals:
-  - type: 0
+  - type: 1
     gemType: 4
-    count: 25
-  - type: 0
-    gemType: 2
-    count: 20
+    count: 5
   customers:
   - type:
       isFine: 1
@@ -230,8 +227,8 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 316
     maxSat: 330
-  moneyFromCustomer: 30
-  moneyFromLvl: 250
+  moneyFromCustomer: 0
+  moneyFromLvl: 350
   recChiefs: []
   unlockChief: {fileID: 0}
   tips:

@@ -138,7 +138,7 @@ MonoBehaviour:
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
-    gemType: 2
+    gemType: 3
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
@@ -146,7 +146,7 @@ MonoBehaviour:
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
-    gemType: 2
+    gemType: 3
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
@@ -170,7 +170,7 @@ MonoBehaviour:
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
-    gemType: 2
+    gemType: 3
   - borders: []
     floorType: 0
     prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
@@ -218,9 +218,6 @@ MonoBehaviour:
   - type: 1
     gemType: 0
     count: 3
-  - type: 0
-    gemType: 2
-    count: 20
   customers:
   - type:
       isFine: 0
@@ -230,10 +227,10 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 240
     maxSat: 260
-  moneyFromCustomer: 20
-  moneyFromLvl: 100
+  moneyFromCustomer: 0
+  moneyFromLvl: 200
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: 22ef027da09d1634e9f301a0fd0be55c, type: 2}
   tips:
     video: {fileID: 0}
-    text: 
+    text: rjhvbnb

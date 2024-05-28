@@ -212,9 +212,12 @@ MonoBehaviour:
     prefab: {fileID: 0}
     gemType: 0
   turns:
-    max: 0
-    turnForStar: 
-  goals: []
+    max: 16
+    turnForStar: 0f0000000c0000000a000000
+  goals:
+  - type: 2
+    gemType: 0
+    count: 5
   customers: []
   moneyFromCustomer: 0
   moneyFromLvl: 0
