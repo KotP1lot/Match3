@@ -219,4 +219,7 @@ MonoBehaviour:
   moneyFromCustomer: 0
   moneyFromLvl: 0
   recChiefs: []
-  unlockChief: {fileID: 0}
+  unlockChief: {fileID: 11400000, guid: 72ea7bebece6c3343b07e468c1a0c369, type: 2}
+  tips:
+    video: {fileID: 0}
+    text: 

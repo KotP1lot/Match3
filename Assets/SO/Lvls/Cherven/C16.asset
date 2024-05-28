@@ -220,3 +220,6 @@ MonoBehaviour:
   moneyFromLvl: 0
   recChiefs: []
   unlockChief: {fileID: 0}
+  tips:
+    video: {fileID: 0}
+    text: 

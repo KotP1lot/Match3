@@ -79,8 +79,7 @@ public class UIStatChief : MonoBehaviour
         {
             ChiefLvlInfo nextlvlInfo = chief.GetLvlInfo(data.lvl + 1);
             costTxt.text = nextlvlInfo.lvlCost.ToString();
-            int diff = nextlvlInfo.yumyBonus - currlvlInfo.yumyBonus;
-            newLvlTxt.text = $"+{diff} до Бонусу!";
+            newLvlTxt.text = $"Далі {nextlvlInfo.yumyBonus} Бонусу!";
             if (wallet.Money.Amount < nextlvlInfo.lvlCost) 
             {
                 btn.interactable = false;

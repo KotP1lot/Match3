@@ -213,12 +213,13 @@ MonoBehaviour:
     gemType: 0
   turns:
     max: 0
-    minFor1Star: 0
-    minFor2Star: 0
-    minFor3Star: 0
+    turnForStar: 
   goals: []
   customers: []
   moneyFromCustomer: 0
   moneyFromLvl: 0
   recChiefs: []
-  unlockChief: {fileID: 0}
+  unlockChief: {fileID: 11400000, guid: ffb28dade9ef61f4f9b46faae67dd2d3, type: 2}
+  tips:
+    video: {fileID: 0}
+    text: 
