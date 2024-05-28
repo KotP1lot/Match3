@@ -241,8 +241,8 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 150
     maxSat: 165
-  moneyFromCustomer: 0
-  moneyFromLvl: 350
+  moneyFromCustomer: 80
+  moneyFromLvl: 450
   recChiefs: []
   unlockChief: {fileID: 0}
   tips:

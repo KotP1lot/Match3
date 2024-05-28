@@ -222,8 +222,8 @@ MonoBehaviour:
     gemType: 0
     count: 10
   customers: []
-  moneyFromCustomer: 0
-  moneyFromLvl: 350
+  moneyFromCustomer: 140
+  moneyFromLvl: 900
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: 5dd9f745c34359d468466dbe38f83df2, type: 2}
   tips:

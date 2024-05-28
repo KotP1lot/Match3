@@ -216,8 +216,8 @@ MonoBehaviour:
     turnForStar: 0f0000000c0000000a000000
   goals: []
   customers: []
-  moneyFromCustomer: 0
-  moneyFromLvl: 0
+  moneyFromCustomer: 320
+  moneyFromLvl: 1280
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: e44cfb3ce71fa0040913a5dc2d11a17b, type: 2}
   tips:
