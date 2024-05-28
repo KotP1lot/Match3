@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Bilka
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
+  - yumyBonus: 71
+    countToUltimate: 9
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 81
+    countToUltimate: 9
+    lvlCost: 1783
+  - yumyBonus: 91
+    countToUltimate: 9
+    lvlCost: 2001
+  - yumyBonus: 101
+    countToUltimate: 9
+    lvlCost: 2218
+  - yumyBonus: 111
+    countToUltimate: 9
+    lvlCost: 2435
+  - yumyBonus: 121
+    countToUltimate: 9
+    lvlCost: 2652
+  - yumyBonus: 130
+    countToUltimate: 9
+    lvlCost: 2869
+  - yumyBonus: 140
+    countToUltimate: 9
+    lvlCost: 3086
+  - yumyBonus: 150
+    countToUltimate: 9
+    lvlCost: 3303
+  - yumyBonus: 160
+    countToUltimate: 9
+    lvlCost: 3520
   name: "\u0416\u043E\u043B\u0443\u0434\u044C"
   sprite: {fileID: 21300000, guid: 93e8bbbe24be34d469933e095972c38a, type: 3}
   gemType: 2

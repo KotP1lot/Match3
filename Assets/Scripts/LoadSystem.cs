@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadSystem : MonoBehaviour
 {
@@ -47,9 +48,8 @@ public class LoadSystem : MonoBehaviour
             {
                 s.Clear();
             }
-            s.Load();
-            s.Setup();
         }
         PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(0);
     }
 }

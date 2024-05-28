@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Energy
   m_EditorClassIdentifier: 
   maxEnergy: 15
-  energyRecoveryTime: 15
-  energy: 15
-  lastSavedTime: 13.05.2024 15:36:05
-  timeLeftToRecharge: 15
+  energyRecoveryTime: 900
+  energy: 13
+  lastSavedTime: 28.05.2024 10:05:16
+  timeLeftToRecharge: 872

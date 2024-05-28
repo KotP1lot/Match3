@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Dog
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
+  - yumyBonus: 99
+    countToUltimate: 7
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 108
+    countToUltimate: 7
+    lvlCost: 2773
+  - yumyBonus: 117
+    countToUltimate: 7
+    lvlCost: 3002
+  - yumyBonus: 126
+    countToUltimate: 7
+    lvlCost: 3232
+  - yumyBonus: 135
+    countToUltimate: 7
+    lvlCost: 3461
+  - yumyBonus: 144
+    countToUltimate: 7
+    lvlCost: 3690
+  - yumyBonus: 153
+    countToUltimate: 7
+    lvlCost: 3920
+  - yumyBonus: 162
+    countToUltimate: 7
+    lvlCost: 4149
+  - yumyBonus: 171
+    countToUltimate: 7
+    lvlCost: 4379
+  - yumyBonus: 180
+    countToUltimate: 7
+    lvlCost: 4608
   name: "\u041A\u0443\u0441\u0438\u043A"
   sprite: {fileID: 21300000, guid: 688bdc5469d27e94487a127b47dc08d1, type: 3}
   gemType: 3

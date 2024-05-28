@@ -66,7 +66,7 @@ public class Customer : MonoBehaviour
         currentSat += value;
 
         int difference = currentSat - necessarySat;
-        if (difference > 0)
+        if (difference >= 0)
         {
             EventManager.instance.OnCustomerSatisfied?.Invoke();
             OnCustomerSatisfied?.Invoke(this);

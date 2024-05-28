@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Vudra
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
+  - yumyBonus: 35
+    countToUltimate: 5
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 53
+    countToUltimate: 5
+    lvlCost: 720
+  - yumyBonus: 71
+    countToUltimate: 5
+    lvlCost: 970
+  - yumyBonus: 90
+    countToUltimate: 5
+    lvlCost: 1220
+  - yumyBonus: 108
+    countToUltimate: 5
+    lvlCost: 1470
+  - yumyBonus: 126
+    countToUltimate: 5
+    lvlCost: 1720
+  - yumyBonus: 145
+    countToUltimate: 5
+    lvlCost: 1970
+  - yumyBonus: 163
+    countToUltimate: 5
+    lvlCost: 2220
+  - yumyBonus: 182
+    countToUltimate: 5
+    lvlCost: 2470
+  - yumyBonus: 200
+    countToUltimate: 5
+    lvlCost: 2720
   name: "\u041B\u044E\u0442\u0440\u0430"
   sprite: {fileID: 21300000, guid: f0edb872922202b4f9953286690727b5, type: 3}
   gemType: 0

@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Owl
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 10
-    countToUltimate: 9
+  - yumyBonus: 19
+    countToUltimate: 7
     lvlCost: 0
-  - lvl: 1
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 2
-    yumyBonus: 20
-    countToUltimate: 9
-    lvlCost: 150
-  - lvl: 3
-    yumyBonus: 30
-    countToUltimate: 9
-    lvlCost: 250
-  - lvl: 4
-    yumyBonus: 45
-    countToUltimate: 9
-    lvlCost: 300
-  - lvl: 5
-    yumyBonus: 60
-    countToUltimate: 9
-    lvlCost: 500
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 37
+    countToUltimate: 7
+    lvlCost: 410
+  - yumyBonus: 55
+    countToUltimate: 7
+    lvlCost: 611
+  - yumyBonus: 72
+    countToUltimate: 7
+    lvlCost: 812
+  - yumyBonus: 90
+    countToUltimate: 7
+    lvlCost: 1012
+  - yumyBonus: 108
+    countToUltimate: 7
+    lvlCost: 1213
+  - yumyBonus: 126
+    countToUltimate: 7
+    lvlCost: 1414
+  - yumyBonus: 144
+    countToUltimate: 7
+    lvlCost: 1615
+  - yumyBonus: 162
+    countToUltimate: 7
+    lvlCost: 1815
+  - yumyBonus: 180
+    countToUltimate: 7
+    lvlCost: 2016
   name: "\u0423\u0433\u0443"
   sprite: {fileID: 21300000, guid: 6ad648b2a3fd14140af3e58035743cc3, type: 3}
   gemType: 2

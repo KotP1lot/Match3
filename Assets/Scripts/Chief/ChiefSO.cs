@@ -11,18 +11,13 @@ public class ChiefSO : ScriptableObject
     public BGType bgType;
     public ChiefLvlInfo GetLvlInfo(int lvl)
     {
-        foreach (var lvlInfo in lvlInfo)
-        {
-            if (lvlInfo.lvl == lvl)
-                return lvlInfo;
-        }
+        if(lvl<lvlInfo.Length)return lvlInfo[lvl];
         return null;
     }
 }
 [Serializable]
 public class ChiefLvlInfo
 {
-    public int lvl;
     public int yumyBonus;
     public int countToUltimate;
     public int lvlCost;

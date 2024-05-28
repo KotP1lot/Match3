@@ -28,7 +28,7 @@ public class BonusGem : Gem
     protected void Shake() 
     {
         GetComponent<Canvas>().sortingOrder = 3;
-        Tween shake = transform.DOPunchRotation(new Vector3(0, 0, 15), 5, 2)
+        Tween shake = transform.DOPunchRotation(new Vector3(0, 0, transform.rotation.z+15), 5, 2)
     .SetEase(Ease.OutSine); ;
         Tween scale = transform.DOScale(1.2f, 0.2f)
             .SetEase(Ease.OutElastic);

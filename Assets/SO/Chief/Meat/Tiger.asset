@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Tiger
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
+  - yumyBonus: 24
+    countToUltimate: 9
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 39
+    countToUltimate: 9
+    lvlCost: 483
+  - yumyBonus: 54
+    countToUltimate: 9
+    lvlCost: 671
+  - yumyBonus: 69
+    countToUltimate: 9
+    lvlCost: 858
+  - yumyBonus: 84
+    countToUltimate: 9
+    lvlCost: 1046
+  - yumyBonus: 99
+    countToUltimate: 9
+    lvlCost: 1421
+  - yumyBonus: 115
+    countToUltimate: 9
+    lvlCost: 1609
+  - yumyBonus: 130
+    countToUltimate: 9
+    lvlCost: 1796
+  - yumyBonus: 145
+    countToUltimate: 9
+    lvlCost: 1984
+  - yumyBonus: 160
+    countToUltimate: 9
+    lvlCost: 3600
   name: "\u041F\u043E\u043B\u043E\u0441\u0430\u0442\u0438\u043A"
   sprite: {fileID: 21300000, guid: 992aea523b1e9e94fb67196f6f299710, type: 3}
   gemType: 1

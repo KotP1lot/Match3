@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Lus
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
+  - yumyBonus: 72
+    countToUltimate: 5
     lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 0
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+  - yumyBonus: 86
+    countToUltimate: 5
+    lvlCost: 1693
+  - yumyBonus: 101
+    countToUltimate: 5
+    lvlCost: 1971
+  - yumyBonus: 115
+    countToUltimate: 5
+    lvlCost: 2250
+  - yumyBonus: 129
+    countToUltimate: 5
+    lvlCost: 2528
+  - yumyBonus: 143
+    countToUltimate: 5
+    lvlCost: 2806
+  - yumyBonus: 157
+    countToUltimate: 5
+    lvlCost: 3085
+  - yumyBonus: 172
+    countToUltimate: 5
+    lvlCost: 3363
+  - yumyBonus: 186
+    countToUltimate: 5
+    lvlCost: 3642
+  - yumyBonus: 200
+    countToUltimate: 5
+    lvlCost: 3920
   name: "\u0425\u0438\u0442\u0440\u0438\u043A"
   sprite: {fileID: 21300000, guid: 1fd3120be2d83ce47ae2ce45b4b0b7b2, type: 3}
   gemType: 1

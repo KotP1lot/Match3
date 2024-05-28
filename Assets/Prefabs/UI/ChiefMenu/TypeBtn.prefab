@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0426\u0443\u043A\u043E\u0440"
+  m_text: salad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ee03de525e87b54baf2714c070aa2b6, type: 2}
   m_sharedMaterial: {fileID: 7616217050904889744, guid: 1ee03de525e87b54baf2714c070aa2b6, type: 2}
@@ -176,11 +176,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

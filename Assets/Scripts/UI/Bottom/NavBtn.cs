@@ -24,4 +24,8 @@ public class NavBtn : MonoBehaviour, IPointerClickHandler
     {
         OnNavBtnClick?.Invoke(this);
     }
+    public void Click() 
+    {
+        OnNavBtnClick?.Invoke(this);
+    }
 }

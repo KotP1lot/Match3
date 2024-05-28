@@ -52,7 +52,7 @@ public class UIStatChief : MonoBehaviour
     {
         ChiefSO chief = data.chief;
         ChiefLvlInfo currlvlInfo = chief.GetLvlInfo(data.lvl);
-        lvlTxt.text = currlvlInfo.lvl.ToString();
+        lvlTxt.text = data.lvl.ToString();
         nameTxt.text = chief.name;
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
         ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;

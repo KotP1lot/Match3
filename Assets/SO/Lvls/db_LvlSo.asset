@@ -110,7 +110,7 @@ MonoBehaviour:
     unlocked: 1
     curent: 1
     moneyReceived: 0
-    tipsShowed: 0
+    tipsShowed: 1
   - lvl: {fileID: 11400000, guid: 421ac29bc8e4cab4faf4af5e72e8194c, type: 2}
     stars: 0
     unlocked: 0
@@ -298,10 +298,10 @@ MonoBehaviour:
     moneyReceived: 0
     tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 53c1f077eb94cda41809801556ba5816, type: 2}
-    stars: 0
-    unlocked: 0
+    stars: 3
+    unlocked: 1
     curent: 0
-    moneyReceived: 0
+    moneyReceived: 1
     tipsShowed: 0
   - lvl: {fileID: 11400000, guid: 1a796ba6d917b254ba3267103468163d, type: 2}
     stars: 0

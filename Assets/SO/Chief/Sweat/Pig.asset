@@ -13,46 +13,36 @@ MonoBehaviour:
   m_Name: Pig
   m_EditorClassIdentifier: 
   lvlInfo:
-  - lvl: 0
-    yumyBonus: 10
+  - yumyBonus: 12
     countToUltimate: 5
     lvlCost: 0
-  - lvl: 1
-    yumyBonus: 15
+  - yumyBonus: 33
     countToUltimate: 5
-    lvlCost: 150
-  - lvl: 2
-    yumyBonus: 30
+    lvlCost: 329
+  - yumyBonus: 54
     countToUltimate: 5
-    lvlCost: 250
-  - lvl: 3
-    yumyBonus: 45
+    lvlCost: 538
+  - yumyBonus: 75
     countToUltimate: 5
-    lvlCost: 400
-  - lvl: 4
-    yumyBonus: 60
+    lvlCost: 747
+  - yumyBonus: 96
     countToUltimate: 5
-    lvlCost: 999
-  - lvl: 5
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 6
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 7
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 8
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
-  - lvl: 9
-    yumyBonus: 0
-    countToUltimate: 0
-    lvlCost: 0
+    lvlCost: 956
+  - yumyBonus: 116
+    countToUltimate: 5
+    lvlCost: 1164
+  - yumyBonus: 137
+    countToUltimate: 5
+    lvlCost: 1373
+  - yumyBonus: 158
+    countToUltimate: 5
+    lvlCost: 1582
+  - yumyBonus: 179
+    countToUltimate: 5
+    lvlCost: 1791
+  - yumyBonus: 200
+    countToUltimate: 5
+    lvlCost: 2000
   name: "\u0425\u0440\u044E\u043A"
   sprite: {fileID: 21300000, guid: c7758718a82e58f4eb4f21c07dcb5f25, type: 3}
   gemType: 3
