@@ -60,5 +60,6 @@ public enum GoalType
 {
     gem,
     feed,
-    clean
+    clean,
+    destroy
 }

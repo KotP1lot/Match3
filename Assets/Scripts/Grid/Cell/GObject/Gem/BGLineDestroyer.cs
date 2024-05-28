@@ -12,7 +12,7 @@ public class BGLineDestroyer : BonusGem
     {
         isActivated = true;
         cells = isHorizontal ? cell.GetRow(gemCountToDestroy) : cell.GetColumn(gemCountToDestroy);
-        Deactivate();
+        DeactFoBG();
         Quaternion rotation = transform.rotation;
         Shake();
         List<Task> tasks = new();

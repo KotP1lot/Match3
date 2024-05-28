@@ -215,9 +215,9 @@ MonoBehaviour:
     max: 100
     turnForStar: 0d0000000a00000008000000
   goals:
-  - type: 0
+  - type: 1
     gemType: 3
-    count: 6
+    count: 999
   customers:
   - type:
       isFine: 1

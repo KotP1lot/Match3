@@ -241,10 +241,10 @@ MonoBehaviour:
     bonusPercent: 25
     minSat: 126
     maxSat: 135
-  moneyFromCustomer: 5
-  moneyFromLvl: 25
+  moneyFromCustomer: 30
+  moneyFromLvl: 250
   recChiefs: []
-  unlockChief: {fileID: 11400000, guid: 2905f60961d7a7145ba889e5e96829ba, type: 2}
+  unlockChief: {fileID: 0}
   tips:
     video: {fileID: 0}
     text: 

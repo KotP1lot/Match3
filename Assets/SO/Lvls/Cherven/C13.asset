@@ -218,10 +218,10 @@ MonoBehaviour:
   - type: 1
     gemType: 0
     count: 8
-  - type: 1
+  - type: 0
     gemType: 4
     count: 12
-  - type: 1
+  - type: 0
     gemType: 0
     count: 18
   customers:
@@ -241,10 +241,10 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 141
     maxSat: 155
-  moneyFromCustomer: 5
-  moneyFromLvl: 25
+  moneyFromCustomer: 30
+  moneyFromLvl: 250
   recChiefs: []
-  unlockChief: {fileID: 0}
+  unlockChief: {fileID: 11400000, guid: 2905f60961d7a7145ba889e5e96829ba, type: 2}
   tips:
     video: {fileID: 0}
     text: 

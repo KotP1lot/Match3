@@ -18,31 +18,31 @@ MonoBehaviour:
     lvlCost: 0
   - yumyBonus: 39
     countToUltimate: 9
-    lvlCost: 483
+    lvlCost: 426
   - yumyBonus: 54
     countToUltimate: 9
-    lvlCost: 671
+    lvlCost: 598
   - yumyBonus: 69
     countToUltimate: 9
-    lvlCost: 858
+    lvlCost: 770
   - yumyBonus: 84
     countToUltimate: 9
-    lvlCost: 1046
+    lvlCost: 941
   - yumyBonus: 99
     countToUltimate: 9
-    lvlCost: 1421
+    lvlCost: 1113
   - yumyBonus: 115
     countToUltimate: 9
-    lvlCost: 1609
+    lvlCost: 1285
   - yumyBonus: 130
     countToUltimate: 9
-    lvlCost: 1796
+    lvlCost: 1457
   - yumyBonus: 145
     countToUltimate: 9
-    lvlCost: 1984
+    lvlCost: 1628
   - yumyBonus: 160
     countToUltimate: 9
-    lvlCost: 3600
+    lvlCost: 1800
   name: "\u041F\u043E\u043B\u043E\u0441\u0430\u0442\u0438\u043A"
   sprite: {fileID: 21300000, guid: 992aea523b1e9e94fb67196f6f299710, type: 3}
   gemType: 1

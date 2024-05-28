@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -79,10 +80,12 @@ public class LvlSelector : MonoBehaviour
         if (curMonthID == 0)
         {
             left.interactable = false;
+            right.interactable = true;
         }
         else if (curMonthID == monthTypes.Length - 1)
         {
             right.interactable = false;
+            left.interactable = true;
         }
         else 
         {

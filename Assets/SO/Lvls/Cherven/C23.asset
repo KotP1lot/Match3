@@ -216,7 +216,10 @@ MonoBehaviour:
     turnForStar: 0f0000000c00000009000000
   goals: []
   customers: []
-  moneyFromCustomer: 0
-  moneyFromLvl: 0
+  moneyFromCustomer: 30
+  moneyFromLvl: 250
   recChiefs: []
   unlockChief: {fileID: 0}
+  tips:
+    video: {fileID: 0}
+    text: 

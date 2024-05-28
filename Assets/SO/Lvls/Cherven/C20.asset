@@ -217,10 +217,10 @@ MonoBehaviour:
   goals:
   - type: 0
     gemType: 4
-    count: 35
+    count: 25
   - type: 0
     gemType: 2
-    count: 40
+    count: 20
   customers:
   - type:
       isFine: 1
@@ -230,10 +230,10 @@ MonoBehaviour:
     bonusPercent: 0
     minSat: 316
     maxSat: 330
-  moneyFromCustomer: 10
-  moneyFromLvl: 25
+  moneyFromCustomer: 30
+  moneyFromLvl: 250
   recChiefs: []
-  unlockChief: {fileID: 11400000, guid: 87a7ec440783d514186fc2f542552401, type: 2}
+  unlockChief: {fileID: 0}
   tips:
     video: {fileID: 0}
     text: 

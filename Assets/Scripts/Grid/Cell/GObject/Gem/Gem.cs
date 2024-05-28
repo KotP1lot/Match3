@@ -65,6 +65,11 @@ public class Gem : GridObject
         transform.localScale = Vector2.one;
         transform.localRotation = Quaternion.identity;
     }
+    protected void DeactFoBG() 
+    {
+        arrow.SetActive(false);
+        SetActive(false);
+    }
     public Tween MoveTo(Transform target)
     {
         ChangeCanvasLayout(2);

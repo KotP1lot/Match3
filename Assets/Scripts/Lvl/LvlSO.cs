@@ -22,7 +22,6 @@ public enum MonthType
 {
     cherven,
     lupen,
-    serpen
 }
 [Serializable]
 public class Tips 

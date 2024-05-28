@@ -37,7 +37,7 @@ public class UIStatLvl : MonoBehaviour
         {
             MonthType.cherven => "Червець",
             MonthType.lupen => "Лапень",
-            MonthType.serpen => "Кивень",
+           // MonthType.serpen => "Кивень",
             _=> "Червець"
         
         };

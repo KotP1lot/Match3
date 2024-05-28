@@ -6,7 +6,7 @@ public class Floor : MonoBehaviour
 {
     public event Action OnFloorDestroy;
     private Image image;
-    private Sprite[] sprites;
+    private Color[] sprites;
     private int hp;
     private GridCell cell;
     public void Setup(FloorSO so)
@@ -14,7 +14,7 @@ public class Floor : MonoBehaviour
         image = GetComponent<Image>();
         sprites = so.hp_sprites;
         hp = sprites.Length;
-        image.sprite = sprites[hp - 1];
+        image.color = sprites[hp - 1];
     }
     public void Subcribe(GridCell cell)
     {
@@ -32,6 +32,6 @@ public class Floor : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        image.sprite = sprites[hp - 1];
+        image.color = sprites[hp - 1];
     }
 }
