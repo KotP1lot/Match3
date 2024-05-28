@@ -214,7 +214,10 @@ MonoBehaviour:
   turns:
     max: 16
     turnForStar: 0f0000000c0000000a000000
-  goals: []
+  goals:
+  - type: 1
+    gemType: 0
+    count: 4
   customers: []
   moneyFromCustomer: 200
   moneyFromLvl: 1300

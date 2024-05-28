@@ -9,4 +9,5 @@ public enum FloorType
 {
     none,
     simpty,
+    mur
 }
