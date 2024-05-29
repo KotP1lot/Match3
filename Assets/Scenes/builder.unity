@@ -2330,6 +2330,7 @@ MonoBehaviour:
   - {fileID: 2474067270752338435, guid: 6b70b24675b379d42809fa6098dbfe1f, type: 3}
   - {fileID: 1486513586157788333, guid: dd100f2b1408eee439b30e6d19e72ae6, type: 3}
   - {fileID: 3497165971201649112, guid: 97845db520834ca40ba7510f23f13d12, type: 3}
+  - {fileID: 1209154584037477887, guid: 9580878f1773f5842be7bfcadcb9ef74, type: 3}
   gemPref: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
   builderManager: {fileID: 8409533102012308909}
 --- !u!1001 &1179042199
@@ -5871,7 +5872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabd02fb9efaa9942a66b55ee8caa9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl: {fileID: 11400000, guid: 5774f4ce66a204d4094393fa9a1985ae, type: 2}
+  lvl: {fileID: 11400000, guid: 642228df6cf3afc46aa81763a7f1d575, type: 2}
   floorType: 0
   borderType: 0
   gemType: 0

@@ -40,6 +40,9 @@ public class Goal
             case GoalType.clean:
                 EventManager.instance.OnFloorCleaned += () => { ChangeState(); };
                 break;
+            case GoalType.destroy:
+                EventManager.instance.OnDestroyableDestroy += () => { ChangeState(); };
+                break;
         }
     
     }

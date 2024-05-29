@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,6 @@ public class DestroyableObject : ActivableObject
     public override void Setup()
     {
         isReady = true;
-        fon.enabled = true;
         CountToActivate = allState.Count-1;
         image.sprite = allState[CountToActivate];
     }
@@ -42,12 +42,17 @@ public class DestroyableObject : ActivableObject
                 {
                     cell.Clear();
                 }
-                inside.DOAnchorPosY(50, 2).SetEase(Ease.OutElastic).OnComplete(()=>Destroy(inside.gameObject));
+                if(inside!=null)inside.DOAnchorPosY(50, 2).SetEase(Ease.OutElastic).OnComplete(()=>Destroy(inside.gameObject));
+                EventManager.instance.OnDestroyableDestroy?.Invoke();
                 fon.sprite = allState[0];
                 image.gameObject.SetActive(false); 
                 Unsubcribe();
             }
         }
+    }
+    public override async Task Destroy(Action callback, Transform target)
+    {
+        OnGemsDestroyInNeighboringCells();
     }
     public override void Clear()
     {

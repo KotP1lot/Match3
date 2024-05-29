@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
-using Unity.VisualScripting;
 
 [DefaultExecutionOrder(1)]
 public class GridManager : MonoBehaviour

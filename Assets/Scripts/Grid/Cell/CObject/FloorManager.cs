@@ -19,7 +19,6 @@ public class FloorManager : MonoBehaviour
         if (type == FloorType.none) return;
         FloorSO so = db.GetByType(type);
         floor = Instantiate(prefab, transform);
-        floor.transform.SetAsFirstSibling();
         floor.Setup(so);
         if (needSubcribe)
         {

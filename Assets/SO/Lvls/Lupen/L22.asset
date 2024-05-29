@@ -17,7 +17,63 @@ MonoBehaviour:
   cells:
   - borders: []
     floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
     prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -41,6 +97,30 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
@@ -52,7 +132,23 @@ MonoBehaviour:
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
     floorType: 0
+    prefab: {fileID: 3497165971201649112, guid: 97845db520834ca40ba7510f23f13d12, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 3497165971201649112, guid: 97845db520834ca40ba7510f23f13d12, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 2
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
@@ -61,160 +157,70 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
     floorType: 0
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   turns:
     max: 16
     turnForStar: 0f0000000c0000000a000000
-  goals: []
+  goals:
+  - type: 3
+    gemType: 0
+    count: 2
+  - type: 2
+    gemType: 0
+    count: 11
   customers: []
   moneyFromCustomer: 320
   moneyFromLvl: 1280

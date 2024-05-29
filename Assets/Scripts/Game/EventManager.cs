@@ -23,6 +23,7 @@ public class EventManager: MonoBehaviour
     public Action OnTurnEnded;
     public Action OnCustomerSatisfied;
     public Action OnFloorCleaned;
+    public Action OnDestroyableDestroy;
     public Action OnAllGoalAchived;
     public Action<int> OnMoneyEarned;
 
