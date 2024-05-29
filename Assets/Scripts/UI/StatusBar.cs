@@ -43,7 +43,7 @@ public class StatusBar : MonoBehaviour
     public void SetActive(bool isActive)
     {
         //isMoving = true;
-        GetComponent<RectTransform>().DOAnchorPosX(isActive?20f:-380f, 1f).SetEase(Ease.InOutBack)/*.OnComplete(() => { isMoving = false; if (isChange) OnChangeProgressValue(); })*/;
+        GetComponent<RectTransform>().DOAnchorPosX(isActive?20f:-600f, 1f).SetEase(Ease.InOutBack)/*.OnComplete(() => { isMoving = false; if (isChange) OnChangeProgressValue(); })*/;
     }
     private void OnChangeProgressValue()
     {

@@ -226,21 +226,13 @@ MonoBehaviour:
     count: 14
   customers:
   - type:
-      isFine: 1
-      isMeh: 0
-      isBad: 0
-    chancePercent: 8
-    bonusPercent: 20
-    minSat: 150
-    maxSat: 170
-  - type:
       isFine: 0
       isMeh: 0
       isBad: 0
-    chancePercent: 3
+    chancePercent: 5
     bonusPercent: 0
-    minSat: 135
-    maxSat: 140
+    minSat: 90
+    maxSat: 110
   moneyFromCustomer: 20
   moneyFromLvl: 150
   recChiefs: []

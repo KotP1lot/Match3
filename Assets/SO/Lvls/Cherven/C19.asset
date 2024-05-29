@@ -225,12 +225,12 @@ MonoBehaviour:
   - type:
       isFine: 0
       isMeh: 1
-      isBad: 1
-    chancePercent: 10
-    bonusPercent: 0
-    minSat: 432
-    maxSat: 440
-  moneyFromCustomer: 80
+      isBad: 0
+    chancePercent: 5
+    bonusPercent: 5
+    minSat: 90
+    maxSat: 100
+  moneyFromCustomer: 20
   moneyFromLvl: 450
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: d2934e21efcfa2a4e8d713f6438ff38a, type: 2}

@@ -272,10 +272,10 @@ MonoBehaviour:
       isFine: 0
       isMeh: 0
       isBad: 0
-    chancePercent: 10
+    chancePercent: 5
     bonusPercent: 0
-    minSat: 1
-    maxSat: 2
+    minSat: 1100
+    maxSat: 1200
   moneyFromCustomer: 260
   moneyFromLvl: 1900
   recChiefs: []

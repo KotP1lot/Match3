@@ -220,14 +220,14 @@ MonoBehaviour:
     count: 5
   customers:
   - type:
-      isFine: 0
-      isMeh: 0
+      isFine: 1
+      isMeh: 1
       isBad: 0
-    chancePercent: 10
+    chancePercent: 5
     bonusPercent: 0
-    minSat: 411
-    maxSat: 440
-  moneyFromCustomer: 140
+    minSat: 215
+    maxSat: 230
+  moneyFromCustomer: 120
   moneyFromLvl: 900
   recChiefs: []
   unlockChief: {fileID: 0}

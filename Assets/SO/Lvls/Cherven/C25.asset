@@ -221,7 +221,23 @@ MonoBehaviour:
   - type: 1
     gemType: 0
     count: 10
-  customers: []
+  customers:
+  - type:
+      isFine: 0
+      isMeh: 1
+      isBad: 0
+    chancePercent: 5
+    bonusPercent: 5
+    minSat: 420
+    maxSat: 430
+  - type:
+      isFine: 1
+      isMeh: 0
+      isBad: 0
+    chancePercent: 5
+    bonusPercent: 0
+    minSat: 520
+    maxSat: 530
   moneyFromCustomer: 140
   moneyFromLvl: 900
   recChiefs: []

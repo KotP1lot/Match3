@@ -19,7 +19,6 @@ public class EnergySO : ISaveLoadSO
         PlayerPrefs.DeleteKey("PlayerEnergy");
         energy = 8;
         maxEnergy = 15;
-        energyRecoveryTime = 900;
         timeLeftToRecharge = energyRecoveryTime;
     }
 
@@ -52,7 +51,6 @@ public class EnergySO : ISaveLoadSO
         {
             energy = 15;
             maxEnergy = 15;
-            energyRecoveryTime = 900;
            timeLeftToRecharge = energyRecoveryTime;
         }
 

@@ -223,14 +223,14 @@ MonoBehaviour:
     count: 13
   customers:
   - type:
-      isFine: 1
-      isMeh: 0
+      isFine: 0
+      isMeh: 1
       isBad: 0
-    chancePercent: 10
-    bonusPercent: 0
-    minSat: 316
-    maxSat: 330
-  moneyFromCustomer: 80
+    chancePercent: 5
+    bonusPercent: 5
+    minSat: 150
+    maxSat: 160
+  moneyFromCustomer: 50
   moneyFromLvl: 450
   recChiefs: []
   unlockChief: {fileID: 0}
