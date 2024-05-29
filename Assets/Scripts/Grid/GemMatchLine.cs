@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-
 public class GemMatchLine
 {
     private GemType firstMatchType;
@@ -38,73 +36,6 @@ public class GemMatchLine
                 AddActiveGridCell(cell);
         }
         return;
-    }
-    public bool CanMatchLineOld(GridCell cell, GridCell activeGC) 
-    {
-        Direction dir = LookAt(cell, activeGC);
-        GridCell neibourActive;
-        GridCell neibourNext;
-        switch (dir)
-        {
-            case Direction.Top:
-                if (activeGC.IsBorderExist(dir) || cell.IsBorderExist(Direction.Bottom))
-                    return false;
-                break;
-            case Direction.Bottom:
-                if (activeGC.IsBorderExist(dir) || cell.IsBorderExist(Direction.Top))
-                    return false;
-                break;
-            case Direction.Left:
-                if (activeGC.IsBorderExist(dir) || cell.IsBorderExist(Direction.Right))
-                    return false;
-                break;
-            case Direction.Right:
-                if (activeGC.IsBorderExist(dir) || cell.IsBorderExist(Direction.Left))
-                    return false;
-                break;
-            case Direction.TopLeft:
-                neibourActive = activeGC.grid.GetCell(Math.Clamp(activeGC.x - 1, 0, 6), activeGC.y);
-                neibourNext = activeGC.grid.GetCell(activeGC.x, Math.Clamp(activeGC.y + 1, 0, 6));
-                if ((activeGC.IsBorderExist(Direction.Top) && activeGC.IsBorderExist(Direction.Left))
-                    || ((cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(Direction.Right))
-                    || (activeGC.IsBorderExist(Direction.Top) && neibourActive.IsBorderExist(Direction.Top))
-                    || (cell.IsBorderExist(Direction.Bottom) && neibourNext.IsBorderExist(Direction.Bottom))
-                    ))
-                    return false;
-                break;
-            case Direction.TopRight:
-                neibourActive = activeGC.grid.GetCell(Math.Clamp(activeGC.x + 1, 0, 6), activeGC.y);
-                neibourNext = activeGC.grid.GetCell(activeGC.x, Math.Clamp(activeGC.y + 1, 0, 6));
-                if ((activeGC.IsBorderExist(Direction.Top) && activeGC.IsBorderExist(Direction.Right))
-                    || ((cell.IsBorderExist(Direction.Bottom) && cell.IsBorderExist(Direction.Left))
-                      || (activeGC.IsBorderExist(Direction.Top) && neibourActive.IsBorderExist(Direction.Top))
-                    || (cell.IsBorderExist(Direction.Bottom) && neibourNext.IsBorderExist(Direction.Bottom))
-                    ))
-                    return false;
-                break;
-            case Direction.BottomLeft:
-                neibourActive = activeGC.grid.GetCell(Math.Clamp(activeGC.x - 1, 0, 6), activeGC.y);
-                neibourNext = activeGC.grid.GetCell(activeGC.x, Math.Clamp(activeGC.y - 1, 0, 6));
-                if ((activeGC.IsBorderExist(Direction.Bottom) && activeGC.IsBorderExist(Direction.Left))
-                    || ((cell.IsBorderExist(Direction.Top) && cell.IsBorderExist(Direction.Right))
-                       || (activeGC.IsBorderExist(Direction.Bottom) && neibourActive.IsBorderExist(Direction.Bottom))
-                    || (cell.IsBorderExist(Direction.Top) && neibourNext.IsBorderExist(Direction.Top))
-                    ))
-                    return false;
-                break;
-            case Direction.BottomRight:
-                neibourActive = activeGC.grid.GetCell(Math.Clamp(activeGC.x + 1, 0, 6), activeGC.y);
-                neibourNext = activeGC.grid.GetCell(activeGC.x, Math.Clamp(activeGC.y - 1, 0, 6));
-
-                if ((activeGC.IsBorderExist(Direction.Bottom) && activeGC.IsBorderExist(Direction.Right))
-                    || ((cell.IsBorderExist(Direction.Top) && cell.IsBorderExist(Direction.Left))
-                     || (activeGC.IsBorderExist(Direction.Bottom) && neibourActive.IsBorderExist(Direction.Bottom))
-                    || (cell.IsBorderExist(Direction.Top) && neibourNext.IsBorderExist(Direction.Top))
-                    ))
-                    return false;
-                break;
-        }
-        return true;
     }
     public bool CanMatchLine(GridCell next, GridCell current)
     {
@@ -165,6 +96,7 @@ public class GemMatchLine
             return false;
         if ((current.IsBorderExist(Direction.Bottom) && !neighbor.IsEmpty() && neighbor.GridObject is Wall) || (next.IsBorderExist(Direction.Top) && !under.IsEmpty() && under.GridObject is Wall))
             return false;
+
         if (dir == Direction.BottomRight)
         {
             if ((current.IsBorderExist(Direction.Right) && current.IsBorderExist(Direction.Bottom)) || (next.IsBorderExist(Direction.Left) && next.IsBorderExist(Direction.Top)))

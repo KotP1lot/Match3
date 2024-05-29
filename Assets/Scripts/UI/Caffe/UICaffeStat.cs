@@ -20,6 +20,7 @@ public class UICaffeStat : MonoBehaviour
     [SerializeField] Image currFurniture;
     private InteriorSO currInt;
     private PlayerInteriorData data;
+    private int cost;
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class UICaffeStat : MonoBehaviour
             InteriorLvlInfo nextLVlinfo = so.GetLvlInfo(data.lvl + 1);
             newLvlTxt.text = $"+ {nextLVlinfo.bonus} Бонусу!";
             costTxt.text = nextLVlinfo.cost.ToString();
+            cost = nextLVlinfo.cost;
         }
         else
         {
@@ -58,6 +60,7 @@ public class UICaffeStat : MonoBehaviour
             InteriorType.light => $"наразі збільшує максимум енрегії на {bonuses.energyBonus}",
             _=>"опа, помилочка якась"
         };
+        
         lvlTxt.text = data.lvl.ToString();
         currFurniture.sprite = currInfo.sprites[data.currSprite];
         nameTxt.text = data.type.ToString();
@@ -70,6 +73,7 @@ public class UICaffeStat : MonoBehaviour
     }
     public void Upgrade()
     {
+        wallet.Stars.Spend(cost);
         db.UpgradeType(data.type);
         Setup(db.GetPlayerDataByType(data.type), currInt);
     }

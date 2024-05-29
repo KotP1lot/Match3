@@ -253,61 +253,61 @@ MonoBehaviour:
     count: 6
   customers:
   - type:
-      isFine: 0
-      isMeh: 0
-      isBad: 0
-    chancePercent: 5
-    bonusPercent: 0
-    minSat: 2300
-    maxSat: 2350
-  - type:
       isFine: 1
       isMeh: 0
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 2550
-    maxSat: 2600
+    minSat: 3000
+    maxSat: 3150
   - type:
       isFine: 0
       isMeh: 1
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 2100
-    maxSat: 2150
+    minSat: 3000
+    maxSat: 3150
   - type:
       isFine: 0
       isMeh: 0
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 1400
-    maxSat: 1600
+    minSat: 3000
+    maxSat: 3150
+  - type:
+      isFine: 1
+      isMeh: 1
+      isBad: 1
+    chancePercent: 5
+    bonusPercent: 0
+    minSat: 3000
+    maxSat: 3150
   - type:
       isFine: 0
       isMeh: 1
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 1200
-    maxSat: 1350
+    minSat: 3000
+    maxSat: 3150
+  - type:
+      isFine: 1
+      isMeh: 1
+      isBad: 0
+    chancePercent: 5
+    bonusPercent: 0
+    minSat: 3000
+    maxSat: 3150
   - type:
       isFine: 1
       isMeh: 0
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 1800
-    maxSat: 1950
-  - type:
-      isFine: 1
-      isMeh: 1
-      isBad: 1
-    chancePercent: 5
-    bonusPercent: 0
-    minSat: 1550
-    maxSat: 1750
+    minSat: 3000
+    maxSat: 3150
   moneyFromCustomer: 320
   moneyFromLvl: 1280
   recChiefs: []

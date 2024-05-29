@@ -25,7 +25,6 @@ public class BGLineDestroyer : BonusGem
             tasks.Add(cell.DestroyGridObject(transform));
         }
         await Task.WhenAll(tasks);
-        BGReset(rotation);
-        await base.Destroy(callback, target);
+        await base.Destroy(callback += () => { BGReset(rotation); }, target);
     }
 }

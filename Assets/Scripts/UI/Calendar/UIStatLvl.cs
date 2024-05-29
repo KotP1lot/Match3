@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,7 +29,7 @@ public class UIStatLvl : MonoBehaviour
 
     [SerializeField] UIGoalCalendar goals;
     LvlPlayerData lvlData;
-    public void Setup(LvlPlayerData data, bool isActive = true) 
+    public async void Setup(LvlPlayerData data, bool isActive = true) 
     {
         if (data == null) return;
         lvlData = data;
@@ -69,10 +70,11 @@ public class UIStatLvl : MonoBehaviour
             chief.gameObject.SetActive(false);
         }
         money.text = data.lvl.moneyFromLvl.ToString();
-        gameObject.SetActive(isActive); 
-        LayoutRebuilder.ForceRebuildLayoutImmediate(info.GetComponent<RectTransform>());
         LayoutRebuilder.ForceRebuildLayoutImmediate(all.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(info.GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();
+
+        gameObject.SetActive(isActive);
     }
     public void StartLvl() 
     {

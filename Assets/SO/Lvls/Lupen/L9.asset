@@ -217,7 +217,7 @@ MonoBehaviour:
   goals:
   - type: 1
     gemType: 0
-    count: 5
+    count: 4
   customers:
   - type:
       isFine: 0
@@ -225,8 +225,8 @@ MonoBehaviour:
       isBad: 1
     chancePercent: 5
     bonusPercent: 10
-    minSat: 370
-    maxSat: 380
+    minSat: 1500
+    maxSat: 1650
   moneyFromCustomer: 200
   moneyFromLvl: 1300
   recChiefs: []

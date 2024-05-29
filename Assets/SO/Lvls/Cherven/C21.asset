@@ -225,8 +225,8 @@ MonoBehaviour:
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 215
-    maxSat: 230
+    minSat: 600
+    maxSat: 650
   moneyFromCustomer: 120
   moneyFromLvl: 900
   recChiefs: []

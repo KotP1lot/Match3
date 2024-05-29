@@ -17,7 +17,7 @@ MonoBehaviour:
   cells:
   - borders: []
     floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    prefab: {fileID: 0}
     gemType: 0
   - borders: []
     floorType: 0
@@ -41,22 +41,6 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
-    gemType: 2
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
@@ -72,6 +56,22 @@ MonoBehaviour:
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 3538931065449202172, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
+    gemType: 2
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
     floorType: 1
     prefab: {fileID: 0}
     gemType: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 0
@@ -133,10 +133,6 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
-    gemType: 0
-  - borders: []
-    floorType: 0
     prefab: {fileID: 0}
     gemType: 0
   - borders: []
@@ -149,7 +145,11 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
     gemType: 0
   - borders: []
     floorType: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   - borders: []
     floorType: 1
     prefab: {fileID: 0}
-    gemType: 4
+    gemType: 0
   - borders: []
     floorType: 1
     prefab: {fileID: 0}
@@ -234,24 +234,24 @@ MonoBehaviour:
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 1500
-    maxSat: 1550
+    minSat: 2000
+    maxSat: 2050
   - type:
       isFine: 0
       isMeh: 1
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 1250
-    maxSat: 1300
+    minSat: 1950
+    maxSat: 2000
   - type:
       isFine: 0
       isMeh: 0
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 835
-    maxSat: 850
+    minSat: 1850
+    maxSat: 1900
   moneyFromCustomer: 260
   moneyFromLvl: 1900
   recChiefs: []

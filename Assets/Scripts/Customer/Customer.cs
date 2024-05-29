@@ -36,7 +36,7 @@ public class Customer : MonoBehaviour
     {
         statusBar = bar;
         UIfast = fast;
-        necessarySat = UnityEngine.Random.Range(customerInfo.minSat, customerInfo.maxSat);
+        necessarySat = Mathf.RoundToInt(UnityEngine.Random.Range(customerInfo.minSat, customerInfo.maxSat));
         bonus = customerInfo.bonusPercent;
         fastManager = new FastManager();
         fastManager.Setup(customerInfo.type);

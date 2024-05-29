@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5049751983612483724, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_Name
-      value: BGBomb
+      value: Multicooker
       objectReference: {fileID: 0}
     - target: {fileID: 5671592864662404874, guid: 3ec2621460c747e408b422c1c6eb2d7a, type: 3}
       propertyPath: m_Pivot.x
@@ -127,4 +127,4 @@ MonoBehaviour:
   isActive: 0
   bgSo: {fileID: 11400000, guid: 66ac2364aab9a564c8323456dba3432d, type: 2}
   isActivated: 0
-  radius: 2
+  radius: 1

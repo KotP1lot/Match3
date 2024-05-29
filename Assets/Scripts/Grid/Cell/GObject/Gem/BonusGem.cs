@@ -37,5 +37,6 @@ public class BonusGem : Gem
     {
         transform.DOKill();
         transform.localScale = Vector3.one;
+        transform.rotation = rotation;
     }
 }
