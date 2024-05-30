@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 [CreateAssetMenu()]
 public class db_LvlSo : ISaveLoadSO
@@ -45,6 +46,10 @@ public class db_LvlSo : ISaveLoadSO
                 data.tipsShowed = lvl.tipsShowed;
             }
         }
+    }
+    public List<LvlPlayerData> GetUnlocked() 
+    {
+        return playerLvlData.FindAll(x => x.unlocked);
     }
     public List<LvlPlayerData> GetLvlsByMonth(MonthType month)
     {

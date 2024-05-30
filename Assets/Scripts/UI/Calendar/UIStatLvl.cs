@@ -86,6 +86,17 @@ public class UIStatLvl : MonoBehaviour
     }
     public void StartLvl() 
     {
+        LvlSelector.PlayedCount++;
+        if (LvlSelector.PlayedCount % 3 == 0) 
+        {
+            AdManager.Instance.interstitial.ShowAd(() => 
+            {
+                LvlSelector.LvL = lvlData;
+                energy.SpendEnergy(2);
+                SceneManager.LoadScene(1);
+            });
+            return;
+        }
         LvlSelector.LvL = lvlData;
         energy.SpendEnergy(2);
         SceneManager.LoadScene(1);

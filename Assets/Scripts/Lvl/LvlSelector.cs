@@ -23,6 +23,7 @@ public class LvlSelector : MonoBehaviour
     private MonthType curMonth;
     private int curMonthID;
     public static LvlPlayerData LvL;
+    public static int PlayedCount = 0;
 
     void Start()
     {

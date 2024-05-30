@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Game : MonoBehaviour
 {
@@ -47,11 +48,22 @@ public class Game : MonoBehaviour
     public void RestartGame()
     {
         DOTween.KillAll();
-       
+            LvlSelector.PlayedCount++;
+            if (LvlSelector.PlayedCount % 3 == 0)
+            {
+                AdManager.Instance.interstitial.ShowAd(() =>
+                {
+                    energyManager.SpendEnergy(2);
+                    LvlSelector.LvL = playerLvlData;
+                    SceneManager.LoadScene(1);
+                });
+                return;
+            }
         energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
         SceneManager.LoadScene(1);
     }
+
     public void BackToMenu()
     {
         DOTween.KillAll();
@@ -59,15 +71,30 @@ public class Game : MonoBehaviour
     }
     public void GetBonusMoney()
     {
-        menuSuccess.ShowAd();
-        gameStat.money += gameStat.money * 50 / 100;
-        menuSuccess.Setup(gameStat);
+        AdManager.Instance.rewarded.ShowAd(() =>
+        {
+            menuSuccess.ShowAd();
+            gameStat.money += gameStat.money * 50 / 100;
+            menuSuccess.Setup(gameStat);
+        });
     }
-    public void GetExtraTurns() 
+    public void GetExtraTurns()
     {
-        turnManager.curentTurn -= 2;
-        goalManager.UpdateTurns(turnManager);
-        menuFailure.gameObject.SetActive(false);
+        AdManager.Instance.rewarded.ShowAd(() =>
+        {
+            turnManager.curentTurn -= 2;
+            goalManager.UpdateTurns(turnManager);
+            menuFailure.gameObject.SetActive(false);
+        });
+    }
+    public void GetExtraEnergyAndRestart()
+    {
+        AdManager.Instance.rewarded.ShowAd(() =>
+        {
+            LvlSelector.LvL = playerLvlData;
+            SceneManager.LoadScene(1);
+        });
+
     }
     private void OnGameSuccess() 
     {
