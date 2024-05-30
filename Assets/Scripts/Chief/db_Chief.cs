@@ -9,10 +9,11 @@ public class db_Chief : ISaveLoadSO
     private List<ChiefPlayerData> loadedData;
     public void UnlockChief(ChiefSO chief)
     {
-        if (playerChief.Find(x => x.chief == chief) == null) return;
-        ChiefPlayerData data = playerChief.Find(x => x.chief == chief);
-        data.unlocked = true;
-        data.lvl = 0;
+        ChiefPlayerData chiefPlayer = playerChief.Find(x => x.chief == chief);
+        if (chiefPlayer == null) return;
+        if (chiefPlayer.unlocked) return;
+        chiefPlayer.unlocked = true;
+        chiefPlayer.lvl = 0;
         Save();
     }
     public void UpdateChiefData(ChiefSO chief, int lvl) 
@@ -36,7 +37,7 @@ public class db_Chief : ISaveLoadSO
     }
     override public void Setup()
     {
-        playerChief.Clear();
+        playerChief = new();
         for (int i = 0; i < all.Count; i++)
         {
             playerChief.Add(new() { chief = all[i], lvl = 0, unlocked = false });
@@ -73,7 +74,7 @@ public class db_Chief : ISaveLoadSO
     public override void Clear()
     {
         loadedData = null;
-        playerChief.Clear();
+        playerChief = new();
         PlayerPrefs.DeleteKey("UnlockChief");
     }
 }

@@ -113,19 +113,19 @@ public class GridManager : MonoBehaviour
     {
         foreach (BonusGem bg in waitForSpawn)
         {
-            GridCell cell = GetRandomCell();
+            GridCell cell = GetRandomCell(bg.GetGemType());
             cell.Clear();
             await cell.SetObject(bg).AsyncWaitForCompletion();
         }
         waitForSpawn.Clear();
     }
-    private GridCell GetRandomCell() 
+    private GridCell GetRandomCell(GemType type) 
     {
         int randomX = Random.Range(0, width);
         int randomY = Random.Range(0, height);
         GridCell cell =  grid.GetCell(randomX, randomY);
-        if (cell.GridObject is Wall || cell.GridObject is BonusGem)
-            return GetRandomCell();
+        if (cell.GridObject is Wall || cell.GridObject is BonusGem || cell.Gem.GetGemType() != type)
+            return GetRandomCell(type);
         return cell;
     }
     private void OnGridChangedHandler()

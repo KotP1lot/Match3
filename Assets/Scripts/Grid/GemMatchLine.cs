@@ -42,53 +42,35 @@ public class GemMatchLine
         Direction dir = LookAt(next, current);
         GridCell neibourActive;
         GridCell neibourNext;
-        if (dir == Direction.Top)
+        switch (dir)
         {
-            if (current.IsBorderExist(dir) || next.IsBorderExist(Direction.Bottom))
-                return false;
+            case Direction.Top:
+                return !current.IsBorderExist(dir) && !next.IsBorderExist(Direction.Bottom);
+            case Direction.Bottom:
+                return !current.IsBorderExist(dir) && !next.IsBorderExist(Direction.Top);
+            case Direction.Left:
+                return !current.IsBorderExist(dir) && !next.IsBorderExist(Direction.Right);
+            case Direction.Right:
+                return !current.IsBorderExist(dir) && !next.IsBorderExist(Direction.Left);
+            case Direction.BottomLeft:
+                neibourActive = current.grid.GetCell(Math.Clamp(current.x - 1, 0, 6), current.y);
+                neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y - 1, 0, 6));
+                return BottomCheck(Direction.BottomLeft, current, neibourNext, neibourActive, next);
+            case Direction.BottomRight:
+                neibourActive = current.grid.GetCell(Math.Clamp(current.x + 1, 0, 6), current.y);
+                neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y - 1, 0, 6));
+                return BottomCheck(Direction.BottomRight, current, neibourNext, neibourActive, next);
+            case Direction.TopLeft:
+                neibourActive = current.grid.GetCell(Math.Clamp(current.x - 1, 0, 6), current.y);
+                neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y + 1, 0, 6));
+                return TopCheck(Direction.TopLeft, current, neibourNext, neibourActive, next);
+            case Direction.TopRight:
+                neibourActive = current.grid.GetCell(Math.Clamp(current.x + 1, 0, 6), current.y);
+                neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y + 1, 0, 6));
+                return TopCheck(Direction.TopRight, current, neibourNext, neibourActive, next);
+            default:
+                return true;
         }
-        if (dir == Direction.Bottom)
-        {
-            if (current.IsBorderExist(dir) || next.IsBorderExist(Direction.Top))
-                return false;
-        }
-        if (dir == Direction.Left)
-        {
-            if (current.IsBorderExist(dir) || next.IsBorderExist(Direction.Right))
-                return false;
-        }
-        if (dir == Direction.Right)
-        {
-            if (current.IsBorderExist(dir) || next.IsBorderExist(Direction.Left))
-                return false;
-        }
-        if (dir == Direction.BottomLeft)
-        {
-            neibourActive = current.grid.GetCell(Math.Clamp(current.x - 1, 0, 6), current.y);
-            neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y - 1, 0, 6));
-            return BottomCheck(dir, current, neibourNext, neibourActive, next);
-        }
-        if (dir == Direction.BottomRight) 
-        {
-            neibourActive = current.grid.GetCell(Math.Clamp(current.x + 1, 0, 6), current.y);
-            neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y - 1, 0, 6));
-            return BottomCheck(dir, current, neibourNext, neibourActive, next);
-
-        }
-        if (dir == Direction.TopLeft) 
-        {
-            neibourActive = current.grid.GetCell(Math.Clamp(current.x - 1, 0, 6), current.y);
-            neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y + 1, 0, 6));
-            return TopCheck(dir, current, neibourNext, neibourActive, next);
-        
-        }
-        if (dir == Direction.TopRight)
-        {
-            neibourActive = current.grid.GetCell(Math.Clamp(current.x + 1, 0, 6), current.y);
-            neibourNext = current.grid.GetCell(current.x, Math.Clamp(current.y - 1, 0, 6));
-            return TopCheck(dir, current, neibourNext, neibourActive, next);
-        }
-        return true;
     }
     private bool BottomCheck(Direction dir, GridCell current, GridCell under, GridCell neighbor, GridCell next)
     {
@@ -96,10 +78,13 @@ public class GemMatchLine
             return false;
         if ((current.IsBorderExist(Direction.Bottom) && !neighbor.IsEmpty() && neighbor.GridObject is Wall) || (next.IsBorderExist(Direction.Top) && !under.IsEmpty() && under.GridObject is Wall))
             return false;
-
         if (dir == Direction.BottomRight)
         {
             if ((current.IsBorderExist(Direction.Right) && current.IsBorderExist(Direction.Bottom)) || (next.IsBorderExist(Direction.Left) && next.IsBorderExist(Direction.Top)))
+            {
+                return false;
+            }
+            if ((current.IsBorderExist(Direction.Right) && under.IsBorderExist(Direction.Right)) || (next.IsBorderExist(Direction.Left) && neighbor.IsBorderExist(Direction.Left)))
             {
                 return false;
             }
@@ -107,6 +92,10 @@ public class GemMatchLine
         if (dir == Direction.BottomLeft)
         {
             if ((current.IsBorderExist(Direction.Left) && current.IsBorderExist(Direction.Bottom)) || (next.IsBorderExist(Direction.Right) && next.IsBorderExist(Direction.Top)))
+            {
+                return false;
+            }
+            if ((current.IsBorderExist(Direction.Left) && under.IsBorderExist(Direction.Left)) || (next.IsBorderExist(Direction.Right) && neighbor.IsBorderExist(Direction.Right)))
             {
                 return false;
             }
@@ -125,10 +114,18 @@ public class GemMatchLine
             {
                 return false;
             }
+            if ((current.IsBorderExist(Direction.Right) && under.IsBorderExist(Direction.Right)) || (next.IsBorderExist(Direction.Left) && neighbor.IsBorderExist(Direction.Left)))
+            {
+                return false;
+            }
         }
         if (dir == Direction.TopLeft)
         {
             if ((current.IsBorderExist(Direction.Left) && current.IsBorderExist(Direction.Top)) || (next.IsBorderExist(Direction.Right) && next.IsBorderExist(Direction.Bottom)))
+            {
+                return false;
+            }
+            if ((current.IsBorderExist(Direction.Left) && under.IsBorderExist(Direction.Left)) || (next.IsBorderExist(Direction.Right) && neighbor.IsBorderExist(Direction.Right)))
             {
                 return false;
             }

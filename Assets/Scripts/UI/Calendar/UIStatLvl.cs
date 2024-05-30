@@ -43,7 +43,8 @@ public class UIStatLvl : MonoBehaviour
         
         };
 
-        goals.Setup(data.lvl.goals);
+        goals.Setup(data.lvl.goals);     
+
         for (int i = 0; i < 3; i++)
         {
             starsTxt[i].text = data.lvl.turns.turnForStar[i].ToString();
@@ -70,11 +71,18 @@ public class UIStatLvl : MonoBehaviour
             chief.gameObject.SetActive(false);
         }
         money.text = data.lvl.moneyFromLvl.ToString();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(all.GetComponent<RectTransform>());
-        LayoutRebuilder.ForceRebuildLayoutImmediate(info.GetComponent<RectTransform>());
-        Canvas.ForceUpdateCanvases();
 
         gameObject.SetActive(isActive);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(info.transform as RectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(all.transform as RectTransform);
+        Canvas.ForceUpdateCanvases();
+    }
+    public void Open() 
+    {
+        gameObject.SetActive(true);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(info.transform as RectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(all.transform as RectTransform);
+        Canvas.ForceUpdateCanvases();
     }
     public void StartLvl() 
     {

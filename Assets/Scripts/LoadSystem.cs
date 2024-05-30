@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,10 +45,7 @@ public class LoadSystem : MonoBehaviour
     {
         foreach (var s in saveData)
         {
-            if (delete)
-            {
                 s.Clear();
-            }
         }
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);

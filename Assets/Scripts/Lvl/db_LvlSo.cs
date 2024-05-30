@@ -70,8 +70,10 @@ public class db_LvlSo : ISaveLoadSO
     }
     public override void Clear()
     {
+        Debug.Log("yes");
         loadedData = null;
-        playerLvlData.Clear();
+        playerLvlData = new();
+        Debug.Log(playerLvlData.Count);
         PlayerPrefs.DeleteKey("PassedLvl");
     }
 }
