@@ -1,9 +1,12 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIResourceBar : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] Image adBtn;
     private Resource resource;
 
     public void Setup(Resource resource)
@@ -12,6 +15,12 @@ public class UIResourceBar : MonoBehaviour
         resource.OnResourceChanged += OnResourceChangedHandler;
         OnResourceChangedHandler();
     }
+
+    //private void ShowBtn(bool isLoaded)
+    //{
+    //    adBtn.gameObject.SetActive(true);
+    //}
+
     private void OnResourceChangedHandler()
     {
         text.text = resource.Amount.ToString();

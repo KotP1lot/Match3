@@ -6,7 +6,6 @@ public class LoadSystem : MonoBehaviour
 {
     [SerializeField] ISaveLoadSO[] saveData;
     [SerializeField] bool delete;
-    [SerializeField] TextMeshProUGUI text;
     bool GemDestr;
     private void Start()
     {

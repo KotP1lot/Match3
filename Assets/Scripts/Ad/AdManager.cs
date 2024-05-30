@@ -27,9 +27,11 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
         {
             Advertisement.Initialize(androindGameID, isTesting, this);
         }
+        rewarded = new AdvertisementBase();
         rewarded.Setup(rewardedID);
         rewarded.LoadAd();
         
+        interstitial = new AdvertisementBase();
         interstitial.Setup(interstitalID);
         interstitial.LoadAd();
     }

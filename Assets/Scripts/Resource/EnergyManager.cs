@@ -5,7 +5,6 @@ public class EnergyManager : MonoBehaviour
 {
     public event Action OnTimeChanged;
     public event Action OnEnergyCharged;
-    public event Action OnEnergyChanged;
     public EnergySO energySO;
     private bool isCharging;
     private bool delete;
@@ -40,8 +39,6 @@ public class EnergyManager : MonoBehaviour
         {
             energySO.AddEnergy(1);
             energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
-            OnEnergyChanged?.Invoke();
-
             if (energySO.energy >= energySO.maxEnergy)
             {
                 isCharging = false;
@@ -60,7 +57,6 @@ public class EnergyManager : MonoBehaviour
                 energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
                 InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Почати відлік, якщо енергія була витрачена і вона не досягла максимуму
             }
-            OnEnergyChanged?.Invoke();
         }
     }
     public void EnergySOChanged() 
@@ -71,7 +67,6 @@ public class EnergyManager : MonoBehaviour
             energySO.timeLeftToRecharge = energySO.energyRecoveryTime; // Встановлюємо час до наступного поповнення енергії
             InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Виклик методу кожну секунду
         }
-        OnEnergyChanged?.Invoke();
     }
     private void OnDisable()
     {

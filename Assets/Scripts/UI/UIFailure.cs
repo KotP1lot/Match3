@@ -8,7 +8,7 @@ public class UIFailure : MonoBehaviour
     [SerializeField] Image turnsAdd;
     [SerializeField] Image energyAdd;
     [SerializeField] Button restart;
-    bool isAddView = false;
+    public bool isAddView = false;
     public void OnEnable() 
     {
         if (energyManager.GetEnergy() >= 2)
@@ -19,7 +19,7 @@ public class UIFailure : MonoBehaviour
         else
         {
             restart.interactable = false;
-            energyAdd.gameObject.SetActive(true);
+            energyAdd.gameObject.SetActive(!isAddView);
         }
         turnsAdd.gameObject.SetActive(!energyAdd.gameObject.active && !isAddView);
         isAddView = true;

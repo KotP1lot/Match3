@@ -29,7 +29,7 @@ public class UIStatLvl : MonoBehaviour
 
     [SerializeField] UIGoalCalendar goals;
     LvlPlayerData lvlData;
-    public async void Setup(LvlPlayerData data, bool isActive = true) 
+    public void Setup(LvlPlayerData data, bool isActive = true) 
     {
         if (data == null) return;
         lvlData = data;
@@ -87,14 +87,14 @@ public class UIStatLvl : MonoBehaviour
     public void StartLvl() 
     {
         LvlSelector.PlayedCount++;
-        if (LvlSelector.PlayedCount % 3 == 0) 
+        if (LvlSelector.PlayedCount % 3 == 0)
         {
-            AdManager.Instance.interstitial.ShowAd(() => 
+            AdManager.Instance.interstitial.ShowAd(() =>
             {
                 LvlSelector.LvL = lvlData;
                 energy.SpendEnergy(2);
                 SceneManager.LoadScene(1);
-            });
+            }, () => { });
             return;
         }
         LvlSelector.LvL = lvlData;

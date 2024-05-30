@@ -47,6 +47,7 @@ public class db_Interior : ISaveLoadSO
     public override void Clear()
     {
         PlayerPrefs.DeleteKey("PlayerInterier");
+        bonus.Clear();
     }
     public override void Setup()
     {

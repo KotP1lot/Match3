@@ -21,7 +21,7 @@ public class UIGetExtra : MonoBehaviour
             case ExtraType.money:
 
                 int lvls = lvlInfo.GetUnlocked().Count;
-                amount = 200 + 30 * lvls;
+                amount = 200 + 15 * lvls;
                 break;
             case ExtraType.energy:
                 amount = 2;
@@ -38,13 +38,15 @@ public class UIGetExtra : MonoBehaviour
                 AdManager.Instance.rewarded.ShowAd(() =>
                 {
                     wallet.Money.AddAmount(amount);
-                });
+                    gameObject.SetActive(false);
+                },()=> gameObject.SetActive(false));
                 break;
             case ExtraType.energy:
                 AdManager.Instance.rewarded.ShowAd(() =>
                 {
                     energyManager.energySO.AddEnergy(amount);
-                });
+                    gameObject.SetActive(false);
+                }, () => gameObject.SetActive(false));
                 break;
         }
     }

@@ -68,7 +68,7 @@ public class LvlSelector : MonoBehaviour
             if (i < curInfo.startDay || j >= curInfo.days)
             {
                 lvls[i].Setup(null);
-                lvls[i].OnLvlClick += OnLvlClick;
+                lvls[i].OnLvlClick -= OnLvlClick;
                 continue;
             }
             lvls[i].Setup(lvlPlayerDatas[j]);

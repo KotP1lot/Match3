@@ -60,6 +60,7 @@ public class EnergySO : ISaveLoadSO
     public void AddEnergy(int value)
     {
         energy = Mathf.Clamp(energy + value, 0, maxEnergy);
+        OnUpdate?.Invoke();
         Save();
     }
 
@@ -69,6 +70,7 @@ public class EnergySO : ISaveLoadSO
             return false;
 
         energy -= value;
+        OnUpdate?.Invoke();
         Save();
         return true;
     }

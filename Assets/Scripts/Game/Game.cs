@@ -49,16 +49,18 @@ public class Game : MonoBehaviour
     {
         DOTween.KillAll();
             LvlSelector.PlayedCount++;
-            if (LvlSelector.PlayedCount % 3 == 0)
+        if (LvlSelector.PlayedCount % 3 == 0)
+        {
+            AdManager.Instance.interstitial.ShowAd(() =>
             {
-                AdManager.Instance.interstitial.ShowAd(() =>
-                {
-                    energyManager.SpendEnergy(2);
-                    LvlSelector.LvL = playerLvlData;
-                    SceneManager.LoadScene(1);
-                });
-                return;
-            }
+                energyManager.SpendEnergy(2);
+                LvlSelector.LvL = playerLvlData;
+                SceneManager.LoadScene(1);
+            },
+            () =>
+            { });
+            return;
+        }
         energyManager.SpendEnergy(2);
         LvlSelector.LvL = playerLvlData;
         SceneManager.LoadScene(1);
@@ -76,6 +78,9 @@ public class Game : MonoBehaviour
             menuSuccess.ShowAd();
             gameStat.money += gameStat.money * 50 / 100;
             menuSuccess.Setup(gameStat);
+        }, () => 
+        {
+            menuSuccess.Setup(gameStat);
         });
     }
     public void GetExtraTurns()
@@ -85,7 +90,9 @@ public class Game : MonoBehaviour
             turnManager.curentTurn -= 2;
             goalManager.UpdateTurns(turnManager);
             menuFailure.gameObject.SetActive(false);
-        });
+        },
+        () => 
+        { });
     }
     public void GetExtraEnergyAndRestart()
     {
@@ -93,7 +100,7 @@ public class Game : MonoBehaviour
         {
             LvlSelector.LvL = playerLvlData;
             SceneManager.LoadScene(1);
-        });
+        }, () => { });
 
     }
     private void OnGameSuccess() 

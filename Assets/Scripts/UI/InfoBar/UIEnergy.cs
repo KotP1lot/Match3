@@ -1,12 +1,15 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIEnergy : MonoBehaviour
 {
     [SerializeField] EnergyManager energyManager;
     [SerializeField] TextMeshProUGUI energyText;
     [SerializeField] TextMeshProUGUI timer;
+    [SerializeField] Image adBtn;
+    private bool isAdLoaded;
     private void Start()
     {
         ChangeEnergyText();
@@ -17,14 +20,25 @@ public class UIEnergy : MonoBehaviour
     {
         energyManager.OnEnergyCharged += HideTimer;
         energyManager.OnTimeChanged += ChangeTime;
-        energyManager.OnEnergyChanged += ChangeEnergyText;
+        energyManager.energySO.OnUpdate += ChangeEnergyText;
     }
+
+    //private void AdLoaded(bool isLoaded)
+    //{
+    //    isAdLoaded = true;
+    //    if (isAdLoaded && energyManager.GetEnergy() <= energyManager.energySO.maxEnergy)
+    //        adBtn.gameObject.SetActive(true);
+    //}
+    //private void AdShowed()
+    //{
+    //    isAdLoaded = false;
+    //}
 
     private void OnDisable()
     {
         energyManager.OnEnergyCharged -= HideTimer;
         energyManager.OnTimeChanged -= ChangeTime;
-        energyManager.OnEnergyChanged -= ChangeEnergyText;
+        energyManager.energySO.OnUpdate -= ChangeEnergyText;
     }
 
     private void ChangeEnergyText()
@@ -37,10 +51,14 @@ public class UIEnergy : MonoBehaviour
         if (energyManager.GetEnergy() >= energyManager.energySO.maxEnergy)
         {
             timer.gameObject.SetActive(false);
+            adBtn.gameObject.SetActive(false);
             return;
-        }  
+        }
         if (!timer.gameObject.activeSelf)
+        {
             timer.gameObject.SetActive(true);
+            adBtn.gameObject.SetActive(true);
+        }
         int timeLeft = energyManager.energySO.timeLeftToRecharge;
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         int seconds = Mathf.FloorToInt(timeLeft % 60);
@@ -50,5 +68,6 @@ public class UIEnergy : MonoBehaviour
     private void HideTimer()
     {
         timer.gameObject.SetActive(false);
+        adBtn.gameObject.SetActive(false);
     }
 }
