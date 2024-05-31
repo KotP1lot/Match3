@@ -62,7 +62,6 @@ public class Customer : MonoBehaviour
     }
     public int AddSatisfaction(int value)
     {
-        Debug.Log(value);
         statusBar.AddProgress(value);
         currentSat += value;
 

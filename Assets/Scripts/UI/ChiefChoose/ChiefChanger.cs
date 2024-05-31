@@ -81,7 +81,6 @@ public class ChiefChanger : MonoBehaviour
         foreach (var key in rows.Keys)
         {
             RowConroler conroler = rows[key];
-            Debug.Log(conroler.GetRows().Count);
        
             conroler.SetActive(gemType == key);
         }

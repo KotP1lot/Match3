@@ -106,8 +106,6 @@ public class Game : MonoBehaviour
     private void OnGameSuccess() 
     {
         menuSuccess.gameObject.SetActive(true);
-        Debug.Log($"{turnManager.GetStars()} // {turnManager.curentTurn}");
-        Debug.Log($"{playerLvlData.stars}");
         int stars = Mathf.Clamp(turnManager.GetStars() - playerLvlData.stars, 0, 3);
         gameStat = new()
         {

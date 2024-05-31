@@ -36,7 +36,6 @@ public class GridVisual : MonoBehaviour
     }
     private void OnGridChangedHandler() 
     {
-        Debug.Log("Changed");
         for (int x = 0; x < grid.Width; x++)
         {
             for (int y = 0; y < grid.Height; y++)

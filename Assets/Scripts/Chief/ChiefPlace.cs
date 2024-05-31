@@ -64,11 +64,8 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     {
         int score = 0;
         score += gem.GetScore();
-        Debug.Log($"Without all: {score}");
         if (chief != null) score += lvl_Info.yumyBonus;
-        Debug.Log($"With chief: {score}");
         score += score * bonuses.yummyBonus / 100;
-        Debug.Log($"With bonuses: {score} (+{bonuses.yummyBonus}%)");
         return score;
     }
     private void OnTurnEndedHandler()

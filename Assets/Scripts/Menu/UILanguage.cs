@@ -21,7 +21,6 @@ public class UILanguage : MonoBehaviour
         {
             data = Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Russian ? 1 : 0;
         }
-        Debug.Log(Application.systemLanguage.ToString());
         ChangeLocale(data);
         DontDestroyOnLoad(gameObject);
     }

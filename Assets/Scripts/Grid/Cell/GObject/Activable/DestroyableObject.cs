@@ -33,7 +33,6 @@ public class DestroyableObject : ActivableObject
             isReady = false;
             if (CountToActivate >= 0)
             {
-                Debug.Log("afasf");
                 image.sprite = allState[CountToActivate];
             }
             if (CountToActivate <= 0)

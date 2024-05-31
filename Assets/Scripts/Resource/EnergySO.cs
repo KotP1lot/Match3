@@ -32,7 +32,6 @@ public class EnergySO : ISaveLoadSO
             DateTime savedTime = DateTime.Parse(lastSavedTime);
             timeLeftToRecharge = loadedData.timeLeftToRecharge;
             int timeSinceLastSave = (int)(DateTime.Now - savedTime).TotalSeconds;
-            Debug.Log($"Час збереження: {savedTime} | Поточний час {DateTime.Now} | Пройшло секунд {timeSinceLastSave}");
             if (timeSinceLastSave >= timeLeftToRecharge) 
             {
                 timeSinceLastSave -= timeLeftToRecharge;

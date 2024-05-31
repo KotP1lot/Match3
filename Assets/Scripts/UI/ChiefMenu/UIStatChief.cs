@@ -51,7 +51,6 @@ public class UIStatChief : MonoBehaviour
         {
             wallet.Money.Spend(lvlInfo.lvlCost);
             db.UpdateChiefData(data.chief, data.lvl + 1);
-            Debug.Log(data.lvl);
             ChangeVisual();
         }
     }

@@ -13,6 +13,7 @@ public class db_LvlSo : ISaveLoadSO
         int dataID = playerLvlData.FindIndex(x => x.lvl == lvl.lvl);
         playerLvlData[dataID].stars = lvl.stars;
         playerLvlData[dataID].moneyReceived = true;
+        playerLvlData[dataID].tipsShowed = true;
         if (dataID + 1 == playerLvlData.Count) return;
         if (playerLvlData[dataID].curent)
         {
@@ -76,10 +77,8 @@ public class db_LvlSo : ISaveLoadSO
     }
     public override void Clear()
     {
-        Debug.Log("yes");
         loadedData = null;
         playerLvlData = new();
-        Debug.Log(playerLvlData.Count);
         PlayerPrefs.DeleteKey("PassedLvl");
     }
 }

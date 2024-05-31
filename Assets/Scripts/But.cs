@@ -7,7 +7,6 @@ public class But : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(name);
     }
 
     // Start is called before the first frame update

@@ -111,20 +111,20 @@ public class BuilderManager : MonoBehaviour
     }
     public void Clear()
     {
-        Debug.Log($"Chosen is null");
+
         currentPref = null;
     }
 
     public void ChoosePref(GridObject pref)
     {
-        Debug.Log($"{pref.name} chosen");
+
         currentPref = pref;
     }
 #if UNITY_EDITOR
 
     public void Save()
     {
-        Debug.Log("Save");
+
         lvl.cells = new CelLLvlInfo[49];
         for (int x = 0; x < 49; x++)
         {

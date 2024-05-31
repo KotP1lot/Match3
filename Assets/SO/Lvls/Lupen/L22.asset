@@ -157,19 +157,7 @@ MonoBehaviour:
     gemType: 0
   - borders: []
     floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
-    gemType: 0
-  - borders: []
-    floorType: 2
     prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 2
-    prefab: {fileID: 0}
-    gemType: 0
-  - borders: []
-    floorType: 0
-    prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   - borders: []
     floorType: 2
@@ -182,6 +170,18 @@ MonoBehaviour:
   - borders: []
     floorType: 0
     prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 2
+    prefab: {fileID: 0}
+    gemType: 0
+  - borders: []
+    floorType: 0
+    prefab: {fileID: 0}
     gemType: 0
   - borders: []
     floorType: 0

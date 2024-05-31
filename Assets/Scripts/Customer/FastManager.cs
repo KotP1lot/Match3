@@ -14,10 +14,6 @@ public class FastManager
             fastidiousnesses.Add(types[1], new Fastidiousness() { bonusPercent = 20, type = FastidiousnessType.meh });
         if(customerType.isBad)
             fastidiousnesses.Add(types[2], new Fastidiousness() { bonusPercent = 20, type = FastidiousnessType.bad });
-        foreach (GemType gem in fastidiousnesses.Keys)
-        {
-         //   Debug.Log($"{gem} with {fastidiousnesses[gem].type}");
-        }
     }
     public int SatWithFast(GemType type, int value) 
     {

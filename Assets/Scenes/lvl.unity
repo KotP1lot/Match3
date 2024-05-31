@@ -2037,6 +2037,7 @@ GameObject:
   - component: {fileID: 232220604}
   - component: {fileID: 232220603}
   - component: {fileID: 232220605}
+  - component: {fileID: 232220606}
   m_Layer: 5
   m_Name: txt
   m_TagString: Untagged
@@ -2183,6 +2184,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &232220606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232220601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:c879ad2181efa20429111b3417b88299
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 232220603}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &233152893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9748,7 +9789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 1754950581}
-  tips: {fileID: 0}
+  tips: {fileID: 232220606}
   plData:
     lvl: {fileID: 0}
     stars: 0
@@ -13278,7 +13319,7 @@ MonoBehaviour:
     moneyReceived: 0
     tipsShowed: 0
   textData:
-    lvl: {fileID: 11400000, guid: adf6fd08794cc9f409e51e6e0d7037b4, type: 2}
+    lvl: {fileID: 11400000, guid: 6c459131bde6e504e93babf008764be0, type: 2}
     stars: 1
     unlocked: 1
     curent: 0

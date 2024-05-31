@@ -228,7 +228,7 @@ MonoBehaviour:
   - type: 1
     gemType: 0
     count: 3
-  - type: 2
+  - type: 3
     gemType: 0
     count: 3
   customers:
