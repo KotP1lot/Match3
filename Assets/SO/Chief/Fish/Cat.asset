@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 160
     countToUltimate: 9
     lvlCost: 1600
-  name: "\u041C\u0443\u0441\u044F"
+  name: Fluffy
   sprite: {fileID: 21300000, guid: 9f763e00105a92e46bcb9443244ef734, type: 3}
   gemType: 0
   bgType: 0

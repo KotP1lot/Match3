@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Tips Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Tips
+  m_TableCollectionNameGuidString: c879ad2181efa20429111b3417b88299
+  m_Entries:
+  - m_Id: 6660513792
+    m_Key: main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47525617664
+    m_Key: caffe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58770546688
+    m_Key: calendar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75879112704
+    m_Key: chief
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3107329105920
+    m_Key: btn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293318114107392
+    m_Key: match
+    m_Metadata:
+      m_Items: []
+  - m_Id: 294272565731328
+    m_Key: chie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295277856514048
+    m_Key: feed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295718761750528
+    m_Key: box
+    m_Metadata:
+      m_Items: []
+  - m_Id: 296646810230784
+    m_Key: bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297366485688320
+    m_Key: nice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297751652818944
+    m_Key: meh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298219368046592
+    m_Key: linedestr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298760366153728
+    m_Key: floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298963542433792
+    m_Key: bad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299319655620608
+    m_Key: wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299807465758720
+    m_Key: woodBox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300642295832576
+    m_Key: destroy
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6513084264811855926
+  references:
+    version: 2
+    RefIds:
+    - rid: 6513084264811855926
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1717083880596

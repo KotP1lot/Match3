@@ -232,5 +232,5 @@ MonoBehaviour:
   recChiefs: []
   unlockChief: {fileID: 11400000, guid: 0c6fd6c1660e2a446991f8506ac7c306, type: 2}
   tips:
-    video: {fileID: 0}
-    text: 
+    video: {fileID: 32900000, guid: c8cfcb7dca8e0094186c648dcd236e91, type: 3}
+    text: match

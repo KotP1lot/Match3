@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class UIUnlockedChief : MonoBehaviour
@@ -8,10 +9,10 @@ public class UIUnlockedChief : MonoBehaviour
     [SerializeField] db_GemSO gemSO;
     [SerializeField] db_BGemSo bGSO;
 
-    [SerializeField] TextMeshProUGUI nameTxt;
+    [SerializeField] LocalizeStringEvent nameTxt;
     [SerializeField] TextMeshProUGUI bonusTxt;
-    [SerializeField] TextMeshProUGUI ultimateNameInfoTxt;
-    [SerializeField] TextMeshProUGUI ultimateInfoTxt;
+    [SerializeField] LocalizeStringEvent ultimateNameInfoTxt;
+    [SerializeField] LocalizeStringEvent ultimateInfoTxt;
 
     [SerializeField] Image foto;
     [SerializeField] Image bonusImg;
@@ -24,11 +25,17 @@ public class UIUnlockedChief : MonoBehaviour
         all.gameObject.SetActive(true);
         ChiefSO chief = Game.gameStat.lvl.unlockChief;
         ChiefLvlInfo currlvlInfo = chief.GetLvlInfo(0);
-        nameTxt.text = chief.name;
+        nameTxt.SetEntry(chief.name);
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
-        ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;
-        ultimateInfoTxt.text = bGSO.GetBGByType(chief.bgType).describe;
-        if (chief.bgType == BGType.H_lineDestroyer)
+        ultimateNameInfoTxt.SetEntry(chief.bgType.ToString());
+        ultimateInfoTxt.SetEntry(chief.bgType switch
+        {
+            BGType.saucepan => "saucepanInfo",
+            BGType.box => "boxInfo",
+            BGType.vertical => "verticalInfo",
+            BGType.horizontal => "horizontalInfo"
+        });
+        if (chief.bgType == BGType.horizontal)
         {
             ultimateImg.transform.DORotate(new Vector3(0, 0, 90), 0);
         }

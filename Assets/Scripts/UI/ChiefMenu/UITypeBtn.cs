@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class UITypeBtn : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] TextMeshProUGUI text;
+
     public event Action<UITypeBtn> OnTypeBtnClick;
     public GemType gemType;
-    [SerializeField] List<ColorType> colorTypes;
     [SerializeField] Image tab;
+    [SerializeField] Image tabImg;
+    [SerializeField] List<ColorType> colorTypes;
     [Serializable]
     public struct ColorType 
     {
         public GemType type;
-        public Color color;
+        public Sprite sprite;
     }
     public void Setup(GemType type)
     {
         gemType = type;
-        tab.color = colorTypes.Find(x=>x.type == type).color;
-        text.text = type.ToString();
+        tabImg.sprite = colorTypes.Find(x => x.type == gemType).sprite;
     }
     public void OnPointerClick(PointerEventData eventData)
     {

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ui_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: de9b2e5bc720fad4ea24ba2e3e147d54, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5171535872
+    m_Localized: Watch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 786079637504
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1087469740032
+    m_Localized: Quit the game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2038800801792
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2116781301760
+    m_Localized: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4140147105792
+    m_Localized: To a caffe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4886028574720
+    m_Localized: + 2 energy!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5020749619200
+    m_Localized: + 2 turns!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5486787125248
+    m_Localized: Failure :(
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6877781909504
+    m_Localized: +150% of earnings!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7568600555520
+    m_Localized: Received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7983031345152
+    m_Localized: Success!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9023453618176
+    m_Localized: Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9213434617856
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38548770086912
+    m_Localized: Tip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38862537580544
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

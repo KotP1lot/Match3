@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 200
     countToUltimate: 5
     lvlCost: 2000
-  name: "\u0411\u0430\u043D\u0456"
+  name: Bananjo
   sprite: {fileID: 21300000, guid: 42513e8a068af8842a9c7d226ef67de5, type: 3}
   gemType: 2
   bgType: 1

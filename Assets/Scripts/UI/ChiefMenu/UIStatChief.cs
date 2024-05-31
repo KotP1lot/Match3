@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class UIStatChief : MonoBehaviour
@@ -15,18 +16,24 @@ public class UIStatChief : MonoBehaviour
     [SerializeField] PlayerWalletSO wallet;
 
     [SerializeField] TextMeshProUGUI lvlTxt;
-    [SerializeField] TextMeshProUGUI nameTxt;
+    [SerializeField] LocalizeStringEvent nameTxt;
     [SerializeField] TextMeshProUGUI bonusTxt;
-    [SerializeField] TextMeshProUGUI ultimateNameInfoTxt;
-    [SerializeField] TextMeshProUGUI ultimateInfoTxt;
-    [SerializeField] TextMeshProUGUI newLvlTxt;
+    [SerializeField] LocalizeStringEvent ultimateNameInfoTxt;
+    [SerializeField] LocalizeStringEvent ultimateInfoTxt;
+    [SerializeField] LocalizeStringEvent newLvlTxt;
+    [SerializeField] TextMeshProUGUI newLvl;
     [SerializeField] TextMeshProUGUI costTxt;
+    
 
     [SerializeField] Image foto;
     [SerializeField] Image bonusImg;
     [SerializeField] Image ultimateImg;
 
     [SerializeField] Button btn;
+    public void Start()
+    {
+        newLvlTxt.StringReference.StringChanged += (string t) => newLvl.text = t; 
+    }
     public void Setup(ChiefPlayerData data) 
     {
         this.data = data;
@@ -53,13 +60,18 @@ public class UIStatChief : MonoBehaviour
         ChiefSO chief = data.chief;
         ChiefLvlInfo currlvlInfo = chief.GetLvlInfo(data.lvl);
         lvlTxt.text = data.lvl.ToString();
-        nameTxt.text = chief.name;
+        nameTxt.SetEntry(chief.name);
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();
-        ultimateNameInfoTxt.text = bGSO.GetBGByType(chief.bgType).bgName;
-        ultimateInfoTxt.text = bGSO.GetBGByType(chief.bgType).describe;
+        ultimateNameInfoTxt.SetEntry(chief.bgType.ToString());
+        ultimateInfoTxt.SetEntry(chief.bgType switch {
+            BGType.saucepan=> "saucepanInfo",
+            BGType.box => "boxInfo",
+            BGType.vertical => "verticalInfo",
+            BGType.horizontal => "horizontalInfo"
+        });
        
         bonusImg.sprite = gemSO.GetGemSOByType(chief.gemType).sprite;
-        if (chief.bgType == BGType.H_lineDestroyer)
+        if (chief.bgType == BGType.horizontal)
         {
             ultimateImg.transform.DORotate(new Vector3(0, 0, 90),0);
         }
@@ -73,13 +85,14 @@ public class UIStatChief : MonoBehaviour
         {
             btn.interactable = false;
             costTxt.text = "---";
-            newLvlTxt.text = "Максимальний рівень досягнуто";
+            newLvlTxt.SetEntry("maxLvl");
         }
         else
         {
             ChiefLvlInfo nextlvlInfo = chief.GetLvlInfo(data.lvl + 1);
             costTxt.text = nextlvlInfo.lvlCost.ToString();
-            newLvlTxt.text = $"Далі {nextlvlInfo.yumyBonus} Бонусу!";
+            newLvlTxt.StringReference.Arguments = new object[] { nextlvlInfo.yumyBonus };
+            newLvlTxt.RefreshString();
             if (wallet.Money.Amount < nextlvlInfo.lvlCost) 
             {
                 btn.interactable = false;

@@ -44,9 +44,9 @@ public struct BGLVLInfo
 }
 public enum BGType
 {
-    bomb,
-    V_lineDestroyer,
-    H_lineDestroyer,
+    saucepan,
+    vertical,
+    horizontal,
     box
 }
 

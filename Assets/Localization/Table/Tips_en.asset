@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tips_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: c879ad2181efa20429111b3417b88299, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 6660513792
+    m_Localized: "Yo, buddy, seems like the right time to start your own business,
+      isn't it? I've already found a place for the cafe. Go to the address:\n\t<i><b>Fluffy
+      Cat street</b></i>\nI leave the rest to you, good luck!\n\n\n\n\t\t\t@That
+      one friend"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47525617664
+    m_Localized: This is your cafe. You can upgrade or change it by tapping on the
+      table, chairs or lamps, respectively
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58770546688
+    m_Localized: Here you can start your  day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75879112704
+    m_Localized: All your employees are displayed here. You can also view information
+      about each of them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3107329105920
+    m_Localized: Let's do it!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293318114107392
+    m_Localized: Combine identical products in any direction. It takes at least 3
+      products to break them down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 294272565731328
+    m_Localized: "Before opening the store, you can choose the chefs you need from
+      the available ones. Each has its own properties. For example, Oink has a horizontal
+      that appears after combining 5 sweet products. \nThese bonuses follow the line."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295277856514048
+    m_Localized: By combining products, you feed your visitors. When their level
+      of satisfaction is full, you get rewarded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295718761750528
+    m_Localized: The box is the only bonus that does not follow along the line, but
+      transforms products products around it into products of its type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 296646810230784
+    m_Localized: Like all the others, the saucepan follows the line. Combines products
+      around it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297366485688320
+    m_Localized: Some visitors may have food preferences. They will get more satisfaction
+      from combining products of this type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297751652818944
+    m_Localized: Some visitors may not like a particular product. They will get less
+      satisfaction from combining products of this type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298219368046592
+    m_Localized: By combining products near such devices, you charge them. When they
+      are fully charged, they will combine all the products in the direction they
+      are pointing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298760366153728
+    m_Localized: By combining products on contaminated cells, you clean them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 298963542433792
+    m_Localized: Some visitors may not like a product at all. They will miss the
+      satisfaction of combining products of this type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299319655620608
+    m_Localized: A cell can be closed by walls. They will prevent combining. However,
+      they can be destroyed by combining products nearby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299807465758720
+    m_Localized: These boxes open when products are combined next to them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300642295832576
+    m_Localized: Such barriers are broken down when products are combined alongside
+      them
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

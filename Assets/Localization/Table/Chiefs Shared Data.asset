@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Chiefs Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Chiefs
+  m_TableCollectionNameGuidString: 4f8316f895bfe1a479bbf90ef87d427f
+  m_Entries:
+  - m_Id: 12356378624
+    m_Key: Cappy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318033059840
+    m_Key: Fluffy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360747851776
+    m_Key: Lutra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 386920308736
+    m_Key: Sly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427084963840
+    m_Key: Hiss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 525097459712
+    m_Key: Stripey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 557141942272
+    m_Key: Acorn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582106439680
+    m_Key: Bananjo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 941944168448
+    m_Key: Hoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 978484944896
+    m_Key: Chompy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1065529335808
+    m_Key: Sleepy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1174308610048
+    m_Key: Oink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1200749502464
+    m_Key: Coon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1235415425024
+    m_Key: Adelie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1259843051520
+    m_Key: Spiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 248437501026304
+    m_Key: meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 248500914708480
+    m_Key: fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 248566681395200
+    m_Key: salad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 248634998218752
+    m_Key: drink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 248702308409344
+    m_Key: sweet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252239792791552
+    m_Key: horizontal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252290548064256
+    m_Key: vertical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252402250768384
+    m_Key: box
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252442482532352
+    m_Key: saucepan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252839934779392
+    m_Key: horizontalInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252843256668160
+    m_Key: verticalInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252845001498624
+    m_Key: boxInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252846909906944
+    m_Key: saucepanInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253800833048576
+    m_Key: bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254955503968256
+    m_Key: maxLvl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 258922111787008
+    m_Key: unlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260400012550144
+    m_Key: great
+    m_Metadata:
+      m_Items: []
+  - m_Id: 270586655760384
+    m_Key: bonusDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 271887523340288
+    m_Key: countToUltimate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 289679039488000
+    m_Key: len
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6513084264811855920
+  references:
+    version: 2
+    RefIds:
+    - rid: 6513084264811855920
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1717082290750

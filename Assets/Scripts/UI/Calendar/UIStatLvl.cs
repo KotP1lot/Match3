@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,9 +11,13 @@ public class UIStatLvl : MonoBehaviour
     [SerializeField] EnergyManager energy;
 
     [SerializeField] TextMeshProUGUI day;
-    [SerializeField] TextMeshProUGUI month;
+
+
+    [SerializeField] LocalizeStringEvent month;
+
+
     [SerializeField] TextMeshProUGUI money;
-    [SerializeField] TextMeshProUGUI chiefs;
+    [SerializeField] LocalizeStringEvent chiefs;
     [SerializeField] List<TextMeshProUGUI> starsTxt;
     
     [SerializeField] List<Image> stars;
@@ -34,15 +39,7 @@ public class UIStatLvl : MonoBehaviour
         if (data == null) return;
         lvlData = data;
         day.text = data.lvl.Day.ToString();
-        month.text = data.lvl.Month switch 
-        {
-            MonthType.cherven => "Червець",
-            MonthType.lupen => "Лапень",
-           // MonthType.serpen => "Кивень",
-            _=> "Червець"
-        
-        };
-
+        month.SetEntry(data.lvl.Month.ToString());
         goals.Setup(data.lvl.goals);     
 
         for (int i = 0; i < 3; i++)
@@ -64,7 +61,7 @@ public class UIStatLvl : MonoBehaviour
         if (data.lvl.unlockChief != null)
         {
             chief.gameObject.SetActive(true);
-            chiefs.text = data.lvl.unlockChief.name;
+            chiefs.SetEntry(data.lvl.unlockChief.name);
         }
         else 
         {

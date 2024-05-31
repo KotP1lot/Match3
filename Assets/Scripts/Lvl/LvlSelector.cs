@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class LvlSelector : MonoBehaviour
@@ -14,7 +16,7 @@ public class LvlSelector : MonoBehaviour
     [SerializeField] Image recoveryEnergy;
     [SerializeField] Image monthImg;
     [SerializeField] UIStatLvl stat;
-    [SerializeField] TextMeshProUGUI monthTxt;
+    [SerializeField] LocalizeStringEvent monthTxt;
     [SerializeField] List<MonthInfo> monthInfo;
 
     [SerializeField] Button left;
@@ -62,7 +64,7 @@ public class LvlSelector : MonoBehaviour
         List<LvlPlayerData> lvlPlayerDatas = db.GetLvlsByMonth(curMonth);
         MonthInfo curInfo = monthInfo.Find(x => x.month == curMonth);
         monthImg.sprite = curInfo.sprite;
-        monthTxt.text = curInfo.monthName;
+        monthTxt.SetEntry(curInfo.month.ToString());
         for (int i = 0, j = 0; i < 35; i++)
         {
             if (i < curInfo.startDay || j >= curInfo.days)
@@ -102,7 +104,6 @@ public class LvlSelector : MonoBehaviour
         public int days;
         public int startDay;
         public Sprite sprite;
-        public string monthName;
     }
 
 }

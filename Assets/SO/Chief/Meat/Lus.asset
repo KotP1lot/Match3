@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 200
     countToUltimate: 5
     lvlCost: 2000
-  name: "\u0425\u0438\u0442\u0440\u0438\u043A"
+  name: Sly
   sprite: {fileID: 21300000, guid: 1fd3120be2d83ce47ae2ce45b4b0b7b2, type: 3}
   gemType: 1
   bgType: 2

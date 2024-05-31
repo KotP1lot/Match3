@@ -60,7 +60,7 @@ public class UIDebug : MonoBehaviour
 
         public void Update(string value)
         {
-            Text.text = $"<color={LabelColor}>{Label}</color> <color={ValueColor}>{value}</color>\n";
+            Text.text = $"<sprite={LabelColor}>{Label}</sprite> <sprite={ValueColor}>{value}</sprite>\n";
         }
         public void SetActive(bool isActive) 
         {

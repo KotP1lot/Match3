@@ -57,7 +57,7 @@ public class db_Chief : ISaveLoadSO
     {
         string chiefs = JsonUtility.ToJson(new ChiefsPlayerDataSave() { chiefs = playerChief });
         PlayerPrefs.SetString("UnlockChief", chiefs);
-        Debug.Log(chiefs);
+        PlayerPrefs.Save();
     }
     override public void Load()
     {
@@ -70,6 +70,7 @@ public class db_Chief : ISaveLoadSO
     public override void SaveGameStat(GameStat stat)
     {
         UnlockChief(stat.lvl.unlockChief);
+        base.SaveGameStat(stat);
     }
     public override void Clear()
     {

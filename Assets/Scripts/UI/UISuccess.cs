@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class UISuccess : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI day;
-    [SerializeField] TextMeshProUGUI month;
+    [SerializeField] LocalizeStringEvent month;
     [SerializeField] TextMeshProUGUI money;
-    [SerializeField] TextMeshProUGUI chiefs;
+    [SerializeField] LocalizeStringEvent chiefs;
     [SerializeField] List<TextMeshProUGUI> starsTxt;
 
     [SerializeField] List<Image> stars;
@@ -23,14 +24,7 @@ public class UISuccess : MonoBehaviour
     {
         if (data == null) return;
         day.text = data.lvl.Day.ToString();
-        month.text = data.lvl.Month switch
-        {
-            MonthType.cherven => "Червець",
-            MonthType.lupen => "Лапень",
-          //  MonthType.serpen => "Кивень",
-            _ => "Червець"
-
-        };
+        month.SetEntry(data.lvl.Month.ToString());
 
         for (int i = 0; i < 3; i++)
         {
@@ -40,7 +34,7 @@ public class UISuccess : MonoBehaviour
         if (data.lvl.unlockChief != null)
         {
             chief.gameObject.SetActive(true);
-            chiefs.text = data.lvl.unlockChief.name;
+            chiefs.SetEntry(data.lvl.unlockChief.name);
         }
         else
         {

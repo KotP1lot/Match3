@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 200
     countToUltimate: 5
     lvlCost: 2000
-  name: "\u0425\u0440\u044E\u043A"
+  name: Oink
   sprite: {fileID: 21300000, guid: c7758718a82e58f4eb4f21c07dcb5f25, type: 3}
   gemType: 3
   bgType: 2

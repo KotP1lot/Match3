@@ -91,7 +91,7 @@ public class EnergySO : ISaveLoadSO
         lastSavedTime = DateTime.Now.ToString();
         string data = JsonUtility.ToJson(new PlayerEnergyData(maxEnergy, energy, lastSavedTime, timeLeftToRecharge));
         PlayerPrefs.SetString("PlayerEnergy", data);
-        Debug.Log(data);
+        PlayerPrefs.Save();
     }
 }
 public class PlayerEnergyData

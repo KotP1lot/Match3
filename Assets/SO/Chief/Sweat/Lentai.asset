@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 160
     countToUltimate: 9
     lvlCost: 1600
-  name: "\u0435-\u0435\u0445"
+  name: Sleepy
   sprite: {fileID: 21300000, guid: 5da7f7e18db748f49a6527f2e4dcfe38, type: 3}
   gemType: 3
   bgType: 0

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Interior Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Interior
+  m_TableCollectionNameGuidString: 738654bb864420849b6abf7b8093f665
+  m_Entries:
+  - m_Id: 7029612544
+    m_Key: chair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67561807872
+    m_Key: table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104270356480
+    m_Key: light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361129533440
+    m_Key: bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619498659840
+    m_Key: change
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802091061248
+    m_Key: newLvl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2014993932288
+    m_Key: chairInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2058379812864
+    m_Key: tableInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2093582606336
+    m_Key: lightInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8254708998144
+    m_Key: maxlvl
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6513084264811855931
+  references:
+    version: 2
+    RefIds:
+    - rid: 6513084264811855931
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1717084876979

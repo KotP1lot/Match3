@@ -14,6 +14,7 @@ public class PlayerWalletSO : ISaveLoadSO
     {
         string data = JsonUtility.ToJson(new PlayerWalletData() { Stars = Stars, Money = Money});
         PlayerPrefs.SetString("PlayerWallet", data);
+        PlayerPrefs.Save();
     }
 
     override public void Load()
@@ -33,6 +34,7 @@ public class PlayerWalletSO : ISaveLoadSO
     {
         Stars.AddAmount(stat.stars);
         Money.AddAmount(stat.money);
+        base.SaveGameStat(stat);
     }
     public override void Clear()
     {

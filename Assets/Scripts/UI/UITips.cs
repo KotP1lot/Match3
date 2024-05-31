@@ -1,12 +1,13 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.Video;
 public class UITips : MonoBehaviour
 {
     public Action OnTipsEnded;
     [SerializeField] private VideoPlayer video;
-    [SerializeField] private TextMeshProUGUI tips;
+    [SerializeField] private LocalizeStringEvent tips;
     public LvlPlayerData plData;
     public void Setup(LvlPlayerData data)
     {
@@ -18,7 +19,7 @@ public class UITips : MonoBehaviour
             return;
         }
         video.clip = data.lvl.tips.video;
-        tips.text = data.lvl.tips.text;
+        tips.SetEntry(data.lvl.tips.text);
     }
     public void OnConfirm()
     {

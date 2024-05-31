@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 200
     countToUltimate: 5
     lvlCost: 2000
-  name: "\u0410\u0434\u0435\u043B\u0456"
+  name: Adelie
   sprite: {fileID: 21300000, guid: f836655d97e6b0943af16db75ae20bf6, type: 3}
   gemType: 4
   bgType: 2

@@ -59,7 +59,7 @@ public class db_LvlSo : ISaveLoadSO
     {
         string lvlData = JsonUtility.ToJson(new LvlPlayerDataSave() { passedLvl = playerLvlData });
         PlayerPrefs.SetString("PassedLvl", lvlData);
-        Debug.Log(lvlData);
+        PlayerPrefs.Save();
     }
     override public void Load()
     {
@@ -72,6 +72,7 @@ public class db_LvlSo : ISaveLoadSO
     public override void SaveGameStat(GameStat stat)
     {
         UpdateLvlData(new() { lvl = stat.lvl, stars = stat.lvlStars, moneyReceived = stat.moneyFromLvlRecived });
+        base.SaveGameStat(stat);
     }
     public override void Clear()
     {

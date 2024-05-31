@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class UICaffeStat : MonoBehaviour
@@ -8,10 +10,15 @@ public class UICaffeStat : MonoBehaviour
     [SerializeField] BonusSO bonuses;
     [SerializeField] PlayerWalletSO wallet;
 
+    [SerializeField] LocalizedString localized;
+    [SerializeField] LocalizeStringEvent loc_nameTxt;
+    [SerializeField] LocalizeStringEvent loc_infoTxt;
+    [SerializeField] LocalizeStringEvent loc_newLvlTxt;
+
     [SerializeField] TextMeshProUGUI lvlTxt;
+    [SerializeField] TextMeshProUGUI newLvlTxt;
     [SerializeField] TextMeshProUGUI nameTxt;
     [SerializeField] TextMeshProUGUI infoTxt;
-    [SerializeField] TextMeshProUGUI newLvlTxt;
     [SerializeField] TextMeshProUGUI costTxt;
     [SerializeField] UICustomise customise;
 
@@ -25,10 +32,17 @@ public class UICaffeStat : MonoBehaviour
     private void Start()
     {
         db.Load();
+        localized.StringChanged += (string t) => newLvlTxt.text = t;
+        loc_infoTxt.StringReference.StringChanged += (string t) => infoTxt.text = t;
+    }
+    private void OnEnable()
+    {
+       
     }
     public void Setup(PlayerInteriorData data, InteriorSO so)
     {
         this.data = data;
+
         currInt = so;
         gameObject.SetActive(true);
         InteriorLvlInfo currInfo = so.GetLvlInfo(data.lvl);
@@ -43,27 +57,41 @@ public class UICaffeStat : MonoBehaviour
                 newLvlBtn.interactable = false;
             }
             InteriorLvlInfo nextLVlinfo = so.GetLvlInfo(data.lvl + 1);
-            newLvlTxt.text = $"+ {nextLVlinfo.bonus} Бонусу!";
+            localized.Arguments = new object[] { nextLVlinfo.bonus};
+            localized.RefreshString();
             costTxt.text = nextLVlinfo.cost.ToString();
             cost = nextLVlinfo.cost;
         }
         else
         {
-            newLvlTxt.text = "Максимальний рівнень!";
+            loc_newLvlTxt.SetEntry("maxlvl");
             costTxt.text = "---";
             newLvlBtn.interactable = false;
         }
-        infoTxt.text = (data.type) switch
+
+        loc_infoTxt.SetEntry(data.type switch
         {
-            InteriorType.stil => $"наразі надає додатково {bonuses.yummyBonus}% до задоволення клієнтам",
-            InteriorType.stul => $"наразі надає додатково {bonuses.moneyBonus}% отриманих коштів від клієнтам",
-            InteriorType.light => $"наразі збільшує максимум енрегії на {bonuses.energyBonus}",
-            _=>"опа, помилочка якась"
-        };
-        
+            InteriorType.stil => "tableInfo",
+            InteriorType.stul => "chairInfo",
+            InteriorType.light => "lightInfo",
+        });
+        loc_infoTxt.StringReference.Arguments = new object[] { so.GetLvlBonus(data.lvl) };
+        loc_infoTxt.RefreshString();
+
+
         lvlTxt.text = data.lvl.ToString();
+
+
         currFurniture.sprite = currInfo.sprites[data.currSprite];
-        nameTxt.text = data.type.ToString();
+
+
+        loc_nameTxt.SetEntry(data.type switch
+        {
+            InteriorType.stul => "chair",
+            InteriorType.stil => "table",
+            InteriorType.light => "light",
+            _ => "chair"
+        });
         customise.Setup(currInfo, data.currSprite);
     }
     public void ChangeCurr(int curr)

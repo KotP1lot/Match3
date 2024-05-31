@@ -232,5 +232,5 @@ MonoBehaviour:
   recChiefs: []
   unlockChief: {fileID: 0}
   tips:
-    video: {fileID: 0}
-    text: 
+    video: {fileID: 32900000, guid: 90fd05c863cfd34468947b56fdb6ab1f, type: 3}
+    text: woodBox

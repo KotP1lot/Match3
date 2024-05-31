@@ -26,8 +26,9 @@ public class db_Interior : ISaveLoadSO
                 bonus.yummyBonus += interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
                 break;
             case InteriorType.light:
-                bonus.energyBonus += interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
-                energy.AddMaxEnergy(bonus.energyBonus);
+                int value = interiorSO.Find(x => x.type == type).GetLvlInfo(currData.lvl).bonus;
+                bonus.energyBonus += value;
+                energy.AddMaxEnergy(value);
                 break;
         }
         OnDataUpdate?.Invoke();
@@ -95,7 +96,7 @@ public class db_Interior : ISaveLoadSO
     {
         string data = JsonUtility.ToJson(new PlayerInteriorDataSave() { data = this.data });
         PlayerPrefs.SetString("PlayerInterier", data);
-        Debug.Log(data);
+        PlayerPrefs.Save();
     }
 }
 [Serializable]

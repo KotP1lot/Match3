@@ -43,7 +43,7 @@ MonoBehaviour:
   - yumyBonus: 160
     countToUltimate: 9
     lvlCost: 1600
-  name: "\u0416\u043E\u043B\u0443\u0434\u044C"
+  name: Acorn
   sprite: {fileID: 21300000, guid: 93e8bbbe24be34d469933e095972c38a, type: 3}
   gemType: 2
   bgType: 0

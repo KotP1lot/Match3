@@ -24,7 +24,7 @@ public class NavBar : MonoBehaviour
         {
             navBar.btn.OnNavBtnClick += OnBtnClick;
         }
-        OnBtnClick(navBars[2].btn);
+        OnBtnClick(navBars[1].btn);
     }
 
     private void OnBtnClick(NavBtn btn) 
