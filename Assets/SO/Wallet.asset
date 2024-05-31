@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wallet
   m_EditorClassIdentifier: 
   Stars:
-    <Amount>k__BackingField: 1715
+    <Amount>k__BackingField: 0
   Money:
     <Amount>k__BackingField: 0

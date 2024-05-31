@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24cb6eedee17df4dad169bedf491f5c, type: 3}
   m_Name: Energy
   m_EditorClassIdentifier: 
-  maxEnergy: 25
-  energyRecoveryTime: 15
-  energy: 11
-  lastSavedTime: 31.05.2024 10:11:36
-  timeLeftToRecharge: 5
+  maxEnergy: 15
+  energyRecoveryTime: 900
+  energy: 15
+  lastSavedTime: 31.05.2024 21:06:18
+  timeLeftToRecharge: 0

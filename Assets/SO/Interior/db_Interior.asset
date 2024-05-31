@@ -16,15 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b90e1c850eed07439c681ee39e0bf7d, type: 2}
   - {fileID: 11400000, guid: d9e5a9a2ae18a754795cf0eae96c48e1, type: 2}
   - {fileID: 11400000, guid: 7f1bc8444a0b13247af5fa0ce676a7db, type: 2}
-  data:
-  - type: 0
-    lvl: 2
-    currSprite: 0
-  - type: 1
-    lvl: 2
-    currSprite: 2
-  - type: 2
-    lvl: 0
-    currSprite: 0
+  data: []
   bonus: {fileID: 11400000, guid: 5902de3c74e5d1b49831ddb05ee2d267, type: 2}
   energy: {fileID: 11400000, guid: 030eb7485454b7f46b3ae8d19fc9d91d, type: 2}
