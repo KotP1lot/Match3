@@ -6283,7 +6283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6291,7 +6291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11314,7 +11314,7 @@ MonoBehaviour:
   androindGameID: 5628904
   rewardedID: Rewarded_Android
   interstitalID: Interstitial_Android
-  isTesting: 0
+  isTesting: 1
 --- !u!4 &780722125
 Transform:
   m_ObjectHideFlags: 0
@@ -11323,7 +11323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780722123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42381382, y: -0.09865877, z: 7.5818553}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13266,7 +13266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mute: {fileID: 21300000, guid: e34b26fb90f732e4a92d69066a24c9dc, type: 3}
   play: {fileID: 21300000, guid: f8273f4ba2452a14bad7dba48d90746e, type: 3}
-  music: {fileID: 1515170341}
   img: {fileID: 1225833391}
 --- !u!1 &903488709
 GameObject:
@@ -20029,8 +20028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 400, y: 0}
+  m_SizeDelta: {x: 700, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467812274
 MonoBehaviour:
@@ -20997,6 +20996,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4012eaa25b2b13e43b3d7f0e89d7657e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 1515170342}
+--- !u!82 &1515170342 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6228856717905763080, guid: 8962d8f37b54bdd458cca870bfa80692, type: 3}
+  m_PrefabInstance: {fileID: 7892582869402701769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1531407097
 GameObject:
   m_ObjectHideFlags: 0
@@ -29118,7 +29123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083269376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16367066, y: 2.6685624, z: -1.6160702}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31021,6 +31026,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FonMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 6228856717905763080, guid: 8962d8f37b54bdd458cca870bfa80692, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228856717905763080, guid: 8962d8f37b54bdd458cca870bfa80692, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d3df628bde5397f4aa9507007cf6c1b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

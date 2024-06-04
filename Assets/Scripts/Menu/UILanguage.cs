@@ -6,16 +6,9 @@ public class UILanguage : MonoBehaviour
 {
     private bool active = false;
     int data;
-    public static UILanguage Instance { get; private set; }
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
         int data = PlayerPrefs.GetInt("Language", -1);
         if (data == -1)
         {

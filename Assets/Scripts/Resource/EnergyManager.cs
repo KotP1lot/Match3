@@ -69,10 +69,15 @@ public class EnergyManager : MonoBehaviour
             InvokeRepeating(nameof(UpdateEnergy), 0f, 1f); // Виклик методу кожну секунду
         }
     }
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            CancelInvoke(nameof(UpdateEnergy));
+        }
+    }
     private void OnDisable()
     {
-        if (!delete) energySO.Save();
-        else energySO.Clear();
         energySO.OnSetup -= Setup;
         energySO.OnUpdate -= EnergySOChanged;
         CancelInvoke(nameof(UpdateEnergy));

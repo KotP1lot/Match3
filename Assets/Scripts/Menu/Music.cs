@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
-    AudioSource music;
+    [SerializeField]AudioSource music;
     float volume;
     public static Music Instance { get; private set; }
 
@@ -14,10 +14,12 @@ public class Music : MonoBehaviour
             return;
         }
         Instance = this;
-        music = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
         volume = PlayerPrefs.GetFloat("Music", 0.5f);
         music.volume = volume;
-        DontDestroyOnLoad(gameObject);
     }
     public void Mute(bool isMute) 
     {

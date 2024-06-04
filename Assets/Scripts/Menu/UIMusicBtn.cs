@@ -5,7 +5,6 @@ public class UIMusicBtn : MonoBehaviour
 {
     [SerializeField] Sprite mute;
     [SerializeField] Sprite play;
-    [SerializeField] Music music;
     [SerializeField] Image img;
     private bool isMute = true;
     private void Start()
@@ -17,6 +16,6 @@ public class UIMusicBtn : MonoBehaviour
     {
         isMute = !isMute;
         img.sprite = isMute ? mute : play;
-        music.Mute(isMute);
+        Music.Instance.Mute(isMute);
     }
 }
