@@ -7,6 +7,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] BonusSO bonuses;
     public GemType gemType;
+    public ChiefPlayerData playerData;
     public ChiefSO chief;
     public ChiefLvlInfo lvl_Info;
     public event Action<GemType, ChiefPlace> OnPlaceClick;
@@ -36,6 +37,7 @@ public class ChiefPlace : MonoBehaviour, IPointerDownHandler
     }
     public void SetChief(ChiefPlayerData data) 
     {
+        playerData = data;
         chief = data.chief;
         lvl_Info = data.chief.GetLvlInfo(data.lvl);
         gemImg.gameObject.SetActive(false);

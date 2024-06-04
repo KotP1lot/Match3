@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class EnergyManager : MonoBehaviour
 {
@@ -77,4 +78,5 @@ public class EnergyManager : MonoBehaviour
         CancelInvoke(nameof(UpdateEnergy));
     }
     public int GetEnergy() => energySO.energy;
+
 }

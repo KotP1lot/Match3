@@ -6283,7 +6283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 700
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6291,7 +6291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3021414992103701726, guid: d4130f721032dc947abd79587fe9f87a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8148,7 +8148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemSO: {fileID: 11400000, guid: e4992e95c485e0b438a8613302c3c4a9, type: 2}
   bGSO: {fileID: 11400000, guid: 99335851ac4774b40acc14e978f6dd61, type: 2}
-  nameTxt: {fileID: 10946929}
+  nameTxt: {fileID: 1604558999}
   bonusTxt: {fileID: 718100480}
   ultimateNameInfoTxt: {fileID: 48439121}
   ultimateInfoTxt: {fileID: 2115879372}
@@ -15696,6 +15696,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 5896380481908020919, guid: 7ca7be7d2b8c777469f9976d5bf1f138, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1104990824}
+    - target: {fileID: 5896380481908020919, guid: 7ca7be7d2b8c777469f9976d5bf1f138, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetExtraEnergyAndStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896380481908020919, guid: 7ca7be7d2b8c777469f9976d5bf1f138, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIStatLvl, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6035565532657543319, guid: 7ca7be7d2b8c777469f9976d5bf1f138, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -20017,8 +20029,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 400, y: 0}
-  m_SizeDelta: {x: 700, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467812274
 MonoBehaviour:
@@ -20048,7 +20060,7 @@ MonoBehaviour:
     \u043A\u0430\u0444\u0435. \u041F\u0456\u0434\u0456\u0439\u0434\u0438 \u0437\u0430
     \u0430\u0434\u0440\u0435\u0441\u043E\u044E:\n\t<i><b>\u0432\u0443\u043B. \u041A\u043E\u0442\u0430
     \u043F\u0443\u0448\u0438\u0441\u0442\u043E\u0433\u043E 14\u0430</b></i>\n\u0414\u0430\u043B\u0456
-    \u0434\u0456\u043B\u043E \u0437\u0430 \u0442\u043E\u0431\u043E\u044E, \u0443\u0441\u043F\u0456\u0445\u0456\u0432!\n\n\n\t\t\t@\u0442\u043E\u0439
+    \u0434\u0456\u043B\u043E \u0437\u0430 \u0442\u043E\u0431\u043E\u044E, \u0443\u0441\u043F\u0456\u0445\u0456\u0432!\n\t\t\n\n\t\t\t@\u0442\u043E\u0439
     \u0441\u0430\u043C\u0438\u0439 \u0434\u0440\u0443\u0433"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abc01de78e1ae8b43a130f5f01414a0b, type: 2}

@@ -101,7 +101,6 @@ public class Game : MonoBehaviour
             LvlSelector.LvL = playerLvlData;
             SceneManager.LoadScene(1);
         }, () => { });
-
     }
     private void OnGameSuccess() 
     {

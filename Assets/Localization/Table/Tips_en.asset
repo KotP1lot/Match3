@@ -16,20 +16,22 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: c879ad2181efa20429111b3417b88299, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3160504490598858754
   m_TableData:
   - m_Id: 6660513792
     m_Localized: "Yo, buddy, seems like the right time to start your own business,
       isn't it? I've already found a place for the cafe. Go to the address:\n\t<i><b>Fluffy
-      Cat street</b></i>\nI leave the rest to you, good luck!\n\n\n\n\t\t\t@That
-      one friend"
+      Cat street</b></i>\nI leave the rest to you, good luck!\n\n\n\t\t\t@That one
+      friend"
     m_Metadata:
       m_Items: []
   - m_Id: 47525617664
     m_Localized: This is your cafe. You can upgrade or change it by tapping on the
       table, chairs or lamps, respectively
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 3160504490598858754
   - m_Id: 58770546688
     m_Localized: Here you can start your  day
     m_Metadata:
@@ -110,4 +112,8 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3160504490598858754
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0060bf100b000000

@@ -98,4 +98,12 @@ public class UIStatLvl : MonoBehaviour
         energy.SpendEnergy(2);
         SceneManager.LoadScene(1);
     }
+    public void GetExtraEnergyAndStart()
+    {
+        AdManager.Instance.rewarded.ShowAd(() =>
+        {
+            LvlSelector.LvL = lvlData;
+            SceneManager.LoadScene(1);
+        }, () => { });
+    }
 }

@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,20 +6,14 @@ public class LoadSystem : MonoBehaviour
     [SerializeField] ISaveLoadSO[] saveData;
     [SerializeField] bool delete;
     bool GemDestr;
+    bool isFirstStart = true;
+
     private void Start()
     {
         foreach (var s in saveData)
         {
-            if (delete)
-            {
-                s.Clear();
-            }
             s.Load();
             s.Setup();
-        }
-        if (delete)
-        {
-            PlayerPrefs.DeleteAll();
         }
         if (Game.gameStat != null)
         {
@@ -30,6 +23,7 @@ public class LoadSystem : MonoBehaviour
             }
             Game.gameStat = null;
         }
+        isFirstStart = false;
     }
     private void LateUpdate()
     {
@@ -41,8 +35,42 @@ public class LoadSystem : MonoBehaviour
         }
         GemDestr = true;
     }
+    public void OnDisable()
+    {
+        Save();
+    }
+    public void OnApplicationFocus(bool focus)
+    {
+        if (focus && isFirstStart) return;
+        if (!focus) 
+        {
+            Save();
+        }
+        if (focus) 
+        {
+ 
+            Load();
+        }
+    }
+    public void Save() 
+    {
+        foreach (var s in saveData)
+        {
+            s.Save();
+        }
+    }
+
+    public void Load() 
+    {
+        foreach (var s in saveData)
+        {
+            s.Load();
+            s.Setup();
+        }
+    }
     public void CloseApp() 
     {
+        Save();
         Application.Quit();
     }
     public void ClearPlayerPrefs() 

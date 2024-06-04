@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 public class ChiefManager : MonoBehaviour
 {
@@ -17,12 +18,22 @@ public class ChiefManager : MonoBehaviour
 
     private void Start() 
     {
+        string str_data = PlayerPrefs.GetString("ChiefPlace", null);
+        ChiefPlaceSave data = JsonUtility.FromJson<ChiefPlaceSave>(str_data);
         EventManager.instance.OnGameStarted += OnStartGameHandler;
         chiefChanger.Setup();
         chiefChanger.OnChiefChoose += SetChiefToPlace;
         foreach (var place in chiefPlaces) 
         {
             place.OnPlaceClick += ShowChiefMenu;
+            if (data != null && data.data !=null) 
+            {
+                ChiefPlaceData placeData = data.data.Find(x => x.gemType == place.gemType);
+                if (placeData != null)
+                {
+                    place.SetChief(placeData.place);
+                }
+            }
         }
     }
     private void SetChiefToPlace(ChiefPlayerData chief) 
@@ -45,6 +56,10 @@ public class ChiefManager : MonoBehaviour
     private void OnStartGameHandler() 
     {
         chiefChanger.OnChiefChoose -= SetChiefToPlace;
+        ChiefPlaceSave data = new()
+        {
+            data = new()
+        };
         foreach (var place in chiefPlaces)
         {
             place.OnPlaceClick -= ShowChiefMenu;
@@ -54,9 +69,22 @@ public class ChiefManager : MonoBehaviour
                 continue;
             }
             place.Setup(gemPoolTransform, GetBGByType(place.chief.bgType));
-
+            data.data.Add(new ChiefPlaceData() { gemType = place.gemType, place = place.playerData });
 
         }
-
+        string chiefs = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString("ChiefPlace", chiefs);
+        PlayerPrefs.Save();
     }
+}
+[Serializable]
+public class ChiefPlaceSave 
+{
+    public List<ChiefPlaceData> data;    
+}
+[Serializable]
+public class ChiefPlaceData 
+{
+    public GemType gemType;
+    public ChiefPlayerData place;
 }
