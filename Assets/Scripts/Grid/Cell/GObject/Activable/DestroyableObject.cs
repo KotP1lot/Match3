@@ -40,10 +40,11 @@ public class DestroyableObject : ActivableObject
                 if (!existAfterDestroy)
                 {
                     cell.Clear();
+                    return;
                 }
                 if(inside!=null)inside.DOAnchorPosY(50, 2).SetEase(Ease.OutElastic).OnComplete(()=>Destroy(inside.gameObject));
-                EventManager.instance.OnDestroyableDestroy?.Invoke();
                 fon.sprite = allState[0];
+                EventManager.instance.OnDestroyableDestroy?.Invoke();
                 image.gameObject.SetActive(false); 
                 Unsubcribe();
             }

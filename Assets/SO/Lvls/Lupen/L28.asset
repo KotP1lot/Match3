@@ -212,8 +212,8 @@ MonoBehaviour:
     prefab: {fileID: 768959682975476313, guid: 8ddba526dfbf5e645b0466d83f6b17ef, type: 3}
     gemType: 0
   turns:
-    max: 16
-    turnForStar: 0f0000000c0000000a000000
+    max: 18
+    turnForStar: 100000000e0000000c000000
   goals:
   - type: 3
     gemType: 0

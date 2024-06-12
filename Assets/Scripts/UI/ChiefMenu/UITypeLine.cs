@@ -16,6 +16,8 @@ public class UITypeLine : MonoBehaviour
             typeBtns[i].Setup(gemTypes[i]);
             typeBtns[i].OnTypeBtnClick += OnTypeBtnClick;
         }
+        typeBtns[0].Setup(GemType.sweet);
+        typeBtns[3].Setup(GemType.fish);
         OnTypeBtnClick(typeBtns[0]);
     }
 

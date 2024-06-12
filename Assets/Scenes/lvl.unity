@@ -1398,12 +1398,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 148427708}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13319,7 +13319,7 @@ MonoBehaviour:
     moneyReceived: 0
     tipsShowed: 0
   textData:
-    lvl: {fileID: 11400000, guid: 6c459131bde6e504e93babf008764be0, type: 2}
+    lvl: {fileID: 11400000, guid: 642228df6cf3afc46aa81763a7f1d575, type: 2}
     stars: 1
     unlocked: 1
     curent: 0

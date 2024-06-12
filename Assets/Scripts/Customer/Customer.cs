@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static BGSO;
 
 public class Customer : MonoBehaviour
 {
@@ -16,12 +17,14 @@ public class Customer : MonoBehaviour
     int necessarySat;
     int currentSat;
     public int bonus;
+    List<Image> accessory;
     public void Start()
     {
         statusBar.OnComplited += MoveOut;
     }
     public void SetupVisual(List<Sprite> sprites) 
     {
+        accessory = new();
         for(int i = 0; i < sprites.Count; i++) 
         {
             if (i == 0)
@@ -29,7 +32,9 @@ public class Customer : MonoBehaviour
                 GetComponent<Image>().sprite = sprites[i];
                 continue;
             }
-            Instantiate(accessoryPref, transform).GetComponent<Image>().sprite = sprites[i];
+            Image img = Instantiate(accessoryPref, transform).GetComponent<Image>();
+            img.sprite = sprites[i];
+            accessory.Add(img);
         }
     }
     public void Setup(CustomerInfo customerInfo, StatusBar bar, UIFast fast)
@@ -93,7 +98,12 @@ public class Customer : MonoBehaviour
     public void MoveOut() 
     {
         statusBar.SetActive(false);
-        MoveAnim(false, () => { OnExitAnimFinished?.Invoke(this); });
+        MoveAnim(false, () => {
+            foreach (var img in accessory)
+            {
+                Destroy(img.gameObject);
+            }
+            OnExitAnimFinished?.Invoke(this); });
     }
     public void MoveAnim(bool isEnter, Action func) 
     {
