@@ -111,6 +111,7 @@ public class GridManager : MonoBehaviour
     }
     private async Task SpawnBonusGem()
     {
+        if (waitForSpawn.Count == 0) return;
         foreach (BonusGem bg in waitForSpawn)
         {
             GridCell cell = GetRandomCell(bg.GetGemType());
@@ -119,14 +120,36 @@ public class GridManager : MonoBehaviour
         }
         waitForSpawn.Clear();
     }
-    private GridCell GetRandomCell(GemType type) 
+    private GridCell GetRandomCell(GemType type)
+    {
+        List<GridCell> cells = new();
+        for (int x = 0; x < grid.Width; x++)
+        {
+            for (int y = 0; y < grid.Height; y++)
+            {   
+                GridCell cell = grid.GetCell(x, y);
+                if (cell.IsHasGem() && cell.Gem.GetGemType() == type)
+                    cells.Add(cell);
+            }
+        }
+        if (cells.Count > 0)
+        {
+            int random = Random.Range(0, cells.Count);
+            return cells[random];
+        }
+        else 
+        {
+            return GetRandomCell();
+        }
+    }
+    private GridCell GetRandomCell()
     {
         int randomX = Random.Range(0, width);
         int randomY = Random.Range(0, height);
-        GridCell cell =  grid.GetCell(randomX, randomY);
-        if (cell.GridObject is Wall || cell.GridObject is BonusGem || cell.Gem.GetGemType() != type)
-            return GetRandomCell(type);
-        return cell;
+        GridCell cell = grid.GetCell(randomX, randomY);
+        if (cell.IsHasGem()) return cell;
+        return GetRandomCell();
+
     }
     private void OnGridChangedHandler()
     {
@@ -264,11 +287,14 @@ public class GridManager : MonoBehaviour
         {
             await FallInColumDiagonal(x, 1);
         }
-      
+
         await SpawnBonusGem();
+
         await CheckForContinue();
+
         isBusy = false;
         EventManager.instance.OnTurnEnded?.Invoke();
+      
     }
     private async Task FallInColumDiagonal(int x, int y)
     {

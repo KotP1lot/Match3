@@ -15,7 +15,6 @@ public class UILanguage : MonoBehaviour
             data = Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Russian ? 1 : 0;
         }
         ChangeLocale(data);
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Click() 

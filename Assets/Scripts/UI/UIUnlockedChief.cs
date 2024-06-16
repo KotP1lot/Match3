@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class UIUnlockedChief : MonoBehaviour
 {
     [SerializeField] db_GemSO gemSO;
     [SerializeField] db_BGemSo bGSO;
+    [SerializeField] db_Chief chiefs;
 
     [SerializeField] LocalizeStringEvent nameTxt;
     [SerializeField] TextMeshProUGUI bonusTxt;
@@ -22,8 +24,11 @@ public class UIUnlockedChief : MonoBehaviour
     void Start()
     {
         if (Game.gameStat == null || Game.gameStat.lvl.unlockChief == null) return;
-        all.gameObject.SetActive(true);
         ChiefSO chief = Game.gameStat.lvl.unlockChief;
+        ChiefPlayerData chiefPlayer = chiefs.playerChief.Find(x => x.chief == chief);
+        if (chiefPlayer == null) return;
+        if (chiefPlayer.unlocked) return;
+        all.gameObject.SetActive(true);
         ChiefLvlInfo currlvlInfo = chief.GetLvlInfo(0);
         nameTxt.SetEntry(chief.name);
         bonusTxt.text = currlvlInfo.yumyBonus.ToString();

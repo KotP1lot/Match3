@@ -16,7 +16,7 @@ public class CustomerManager : MonoBehaviour
     public int totalMoney = 0;
     void Start()
     {
-        pool = new CustomerPool(poolPos, prefab, 10);
+        pool = new CustomerPool(poolPos, prefab, 2);
         EventManager.instance.OnChiefBonus += AddSat;
         EventManager.instance.OnGameStarted += OnGameStartHandler;
     }

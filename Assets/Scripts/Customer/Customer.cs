@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static BGSO;
-
 public class Customer : MonoBehaviour
 {
     public Action<Customer> OnCustomerSatisfied;
@@ -103,6 +101,7 @@ public class Customer : MonoBehaviour
             {
                 Destroy(img.gameObject);
             }
+            accessory.Clear();
             OnExitAnimFinished?.Invoke(this); });
     }
     public void MoveAnim(bool isEnter, Action func) 

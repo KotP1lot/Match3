@@ -73,11 +73,11 @@ public class LoadSystem : MonoBehaviour
         Save();
         Application.Quit();
     }
-    public void ClearPlayerPrefs() 
+    public void ClearPlayerPrefs()
     {
         foreach (var s in saveData)
         {
-                s.Clear();
+            s.Clear();
         }
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);

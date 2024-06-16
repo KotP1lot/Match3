@@ -144,6 +144,7 @@ public class GemMatchLine
             await Task.WhenAll(tasks);
             EventManager.instance.OnComboChanged?.Invoke(gridCells.Count);
             await CheckForActiveObject();
+            
             OnLineDestroy?.Invoke();
         }
         else

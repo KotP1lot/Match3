@@ -8152,6 +8152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemSO: {fileID: 11400000, guid: e4992e95c485e0b438a8613302c3c4a9, type: 2}
   bGSO: {fileID: 11400000, guid: 99335851ac4774b40acc14e978f6dd61, type: 2}
+  chiefs: {fileID: 11400000, guid: 03b826020cebe5446a37bf629d7f4a1f, type: 2}
   nameTxt: {fileID: 1604558999}
   bonusTxt: {fileID: 718100480}
   ultimateNameInfoTxt: {fileID: 48439121}
@@ -23455,7 +23456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.5625, y: -50}
+  m_AnchoredPosition: {x: 92.56251, y: -50}
   m_SizeDelta: {x: 168.09, y: 56.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1690885795
@@ -28179,7 +28180,7 @@ MonoBehaviour:
   m_UpdateString:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 82373988}
+      - m_Target: {fileID: 1998435111}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 0
@@ -30005,9 +30006,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:4f8316f895bfe1a479bbf90ef87d427f
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 252845001498624
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
