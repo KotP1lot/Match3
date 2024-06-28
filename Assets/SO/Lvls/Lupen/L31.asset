@@ -267,7 +267,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   - type:
       isFine: 0
       isMeh: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   - type:
       isFine: 1
       isMeh: 1
@@ -283,7 +283,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   - type:
       isFine: 0
       isMeh: 1
@@ -291,7 +291,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   - type:
       isFine: 1
       isMeh: 1
@@ -299,7 +299,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   - type:
       isFine: 1
       isMeh: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
     chancePercent: 5
     bonusPercent: 0
     minSat: 3000
-    maxSat: 3150
+    maxSat: 3050
   moneyFromCustomer: 320
   moneyFromLvl: 1280
   recChiefs: []

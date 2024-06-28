@@ -9,7 +9,7 @@ public class UITurns : MonoBehaviour
     public void Setup(TurnManager turnManager) 
     {
         turnManager.OnTurnEnded += ChangeValue;
-        turnsLeft = turnManager.turnInfo.max;
+        turnsLeft = turnManager.turnInfo.max+1;
         turns.text = turnsLeft.ToString();
     }
     private void ChangeValue() 
@@ -20,7 +20,7 @@ public class UITurns : MonoBehaviour
     }
     public void UpdateValue(TurnManager turnManager)
     {
-        turnsLeft = turnManager.turnInfo.max - turnManager.curentTurn;
+        turnsLeft = turnManager.turnInfo.max - turnManager.curentTurn+1;
         turns.text = turnsLeft.ToString();
     }
 }

@@ -75,7 +75,7 @@ public class GridManager : MonoBehaviour
         this.lvl = lvl;
         isBusy = true;
         CellSetup();
-        await FallGem();
+        await FallGem(false);
         EventManager.instance.OnBonusCharged += OnBonusActivatedHandler;
     }
     //private async void SpawnGem()
@@ -269,7 +269,7 @@ public class GridManager : MonoBehaviour
         GridCell cell = grid.GetCell(x, height - 1);
         await cell.SpawnObject(SpawnPoint, gemPoolList.GetRandomPool().Get()).AsyncWaitForCompletion();
     }
-    private async Task FallGem()
+    private async Task FallGem(bool isTurn = true)
     {
         List<Task> tasks = new();
         for (int x = 0; x < grid.Width; x++)
@@ -293,7 +293,7 @@ public class GridManager : MonoBehaviour
         await CheckForContinue();
 
         isBusy = false;
-        EventManager.instance.OnTurnEnded?.Invoke();
+        if(isTurn) EventManager.instance.OnTurnEnded?.Invoke();
       
     }
     private async Task FallInColumDiagonal(int x, int y)

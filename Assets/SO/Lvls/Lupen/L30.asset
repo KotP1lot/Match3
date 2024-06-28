@@ -225,32 +225,32 @@ MonoBehaviour:
       isBad: 0
     chancePercent: 5
     bonusPercent: 0
-    minSat: 3000
-    maxSat: 3150
+    minSat: 2800
+    maxSat: 2850
   - type:
       isFine: 0
       isMeh: 0
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 3000
-    maxSat: 3150
+    minSat: 2800
+    maxSat: 2850
   - type:
       isFine: 1
       isMeh: 0
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 3000
-    maxSat: 3150
+    minSat: 2800
+    maxSat: 2850
   - type:
       isFine: 1
       isMeh: 1
       isBad: 1
     chancePercent: 5
     bonusPercent: 0
-    minSat: 3000
-    maxSat: 3150
+    minSat: 2800
+    maxSat: 2850
   moneyFromCustomer: 320
   moneyFromLvl: 1280
   recChiefs: []

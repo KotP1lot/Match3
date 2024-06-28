@@ -16,6 +16,22 @@ public class UIResourceBar : MonoBehaviour
         OnResourceChangedHandler();
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (resource != null)
+        {
+            if (focus)
+            {
+
+                resource.OnResourceChanged += OnResourceChangedHandler;
+                OnResourceChangedHandler();
+            }
+            else
+            {
+                resource.OnResourceChanged -= OnResourceChangedHandler;
+            }
+        }
+    }
     //private void ShowBtn(bool isLoaded)
     //{
     //    adBtn.gameObject.SetActive(true);
